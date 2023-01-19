@@ -3,7 +3,6 @@
     "strict": true,
     "module": "ES2020",
     "target": "es5",
-    "jsx": "react",
     "removeComments": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -11,11 +10,18 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "declaration": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "forceConsistentCasingInFileNames": true,
     "outDir": "./lib/esm",
     "declarationDir": "./"
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,4 +1,5 @@
 *.d.ts
+lib
 
 # dependencies
 /node_modules

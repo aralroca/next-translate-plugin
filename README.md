@@ -17,7 +17,7 @@
 <div align="center">
 
 [![npm version](https://badge.fury.io/js/next-translate-plugin.svg)](https://badge.fury.io/js/next-translate-plugin)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/aralroca/next-translate-plugin/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/aralroca/next-translate-plugin/blob/main/CONTRIBUTING.md)
 <a href="https://github.com/aralroca/next-translate/actions?query=workflow%3ACI" alt="Tests status">
 <img src="https://github.com/aralroca/next-translate/workflows/CI/badge.svg" /></a>
 <a href="https://twitter.com/intent/follow?screen_name=aralroca">
