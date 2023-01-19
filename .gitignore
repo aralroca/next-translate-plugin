@@ -1,0 +1,16 @@
+*.d.ts
+
+# dependencies
+/node_modules
+
+# next.js internal files
+out
+/.next/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# vscode
+.vscode
