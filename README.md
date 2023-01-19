@@ -1,14 +1,14 @@
 
-<h1 align="center">
-    <b>Next-translate-plugin</b>
-</h1>
 <h2 align="center">
-    <b>Webpack plugin</b>
+    <b>Next-translate-plugin</b>
 </h2>
+<p align="center">
+    <b>Webpack plugin</b>
+</p>
 
-<h3 align="center">
+<p align="center">
     (Maybe TurboPack in the future)
-</h3>
+</p>
 
 <p align="center">
     <img src="images/logo.svg" width="200" alt="next-translate" />
