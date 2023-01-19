@@ -1,5 +1,6 @@
 *.d.ts
 lib
+index
 
 # dependencies
 /node_modules
