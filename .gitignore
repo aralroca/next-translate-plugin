@@ -1,6 +1,11 @@
 *.d.ts
-lib
-index
+/lib
+/index
+/loader
+/templateWithHoc
+/templateWithLoader
+/types
+/utils
 
 # dependencies
 /node_modules

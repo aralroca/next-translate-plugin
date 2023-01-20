@@ -1,6 +1,6 @@
 {
   "name": "next-translate-plugin",
-  "version": "2.0.0-canary.3",
+  "version": "2.0.0-canary.4",
   "description": "Tiny and powerful i18n plugin to translate your Next.js pages.",
   "license": "MIT",
   "keywords": [
@@ -36,7 +36,7 @@
   "scripts": {
     "build": "yarn clean && cross-env NODE_ENV=production && yarn tsc",
     "clean": "yarn clean:build",
-    "clean:build": "rm -rf lib index *.d.ts",
+    "clean:build": "rm -rf lib index *.d.ts loader template* types utils",
     "format": "pretty-quick",
     "husky": "pretty-quick --staged && yarn test",
     "prepare": "husky install",
@@ -44,7 +44,7 @@
     "test": "cross-env NODE_ENV=test jest --env=jsdom",
     "test:coverage": "cross-env NODE_ENV=test jest --env=jsdom --coverage",
     "test:watch": "cross-env NODE_ENV=test jest --env=jsdom --watch",
-    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && ./build.sh"
+    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && node build-packages.js"
   },
   "dependencies": {
     "typescript": "4.5.2"
