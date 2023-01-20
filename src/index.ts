@@ -104,7 +104,7 @@ export default function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
       config.module.rules.push({
         test,
         use: {
-          loader: 'next-translate/plugin/loader',
+          loader: 'next-translate-plugin/loader',
           options: {
             basePath,
             pagesPath: path.join(pagesPath, '/'),
