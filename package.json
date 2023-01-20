@@ -1,6 +1,6 @@
 {
   "name": "next-translate-plugin",
-  "version": "2.0.0-canary.4",
+  "version": "2.0.0-canary.5",
   "description": "Tiny and powerful i18n plugin to translate your Next.js pages.",
   "license": "MIT",
   "keywords": [
@@ -31,7 +31,11 @@
   "types": "./index.d.ts",
   "files": [
     "lib",
-    "index*"
+    "index*",
+    "loader*",
+    "template*",
+    "types*",
+    "utils*"
   ],
   "scripts": {
     "build": "yarn clean && cross-env NODE_ENV=production && yarn tsc",
