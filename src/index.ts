@@ -7,7 +7,7 @@ import { parseFile, getDefaultExport, hasStaticName, hasHOC } from './utils'
 import { LoaderOptions } from './types'
 import type { NextI18nConfig, I18nConfig } from 'next-translate'
 
-export default function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
+function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   const test = /\.(tsx|ts|js|mjs|jsx)$/
   const basePath = pkgDir()
 
@@ -129,3 +129,6 @@ function pkgDir() {
     return process.cwd()
   }
 }
+
+module.exports = nextTranslate
+export default nextTranslate
