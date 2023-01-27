@@ -6,6 +6,7 @@ import type { NextConfig } from 'next'
 import { parseFile, getDefaultExport, hasStaticName, hasHOC } from './utils'
 import { LoaderOptions } from './types'
 import type { NextI18nConfig, I18nConfig } from 'next-translate'
+import { splitNamespacesChunks } from './utils'
 
 function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   const test = /\.(tsx|ts|js|mjs|jsx)$/
@@ -100,6 +101,13 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
       // any document, allowing them to manually add the necessary helpers on each
       // page to load the namespaces.
       if (!loader) return config
+
+      // Split namespaces into chunks to reduce the bundle size of each page
+      splitNamespacesChunks(config, {
+        namespaces: ['common', 'dynamic', 'home', 'more-examples', 'error'],
+        locales: ['en', 'ca', 'es'],
+        loadLocaleFrom: restI18n.loadLocaleFrom,
+      })
 
       config.module.rules.push({
         test,

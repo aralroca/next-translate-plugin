@@ -1,4 +1,4 @@
-import { isPageToIgnore } from '../src/utils'
+import { isPageToIgnore, splitNamespacesChunks } from '../src/utils'
 
 describe('utils', () => {
   describe('utils -> isPageToIgnore', () => {
@@ -69,5 +69,175 @@ describe('utils', () => {
     test('does not ignore nested page files', () => {
       testPath('/nested/index', false)
     })
+  })
+
+  describe('splitNamespacesChunks', () => {
+    it('should add splitChunks config to an empty webpack config with namespaces and locales', () => {
+      const config = {}
+      splitNamespacesChunks(config, {
+        namespaces: ['common', 'test'],
+        locales: ['en', 'es'],
+      })
+      expect(config).toEqual({
+        optimization: {
+          splitChunks: {
+            cacheGroups: {
+              common_es: {
+                test: new RegExp(`locales/es/common.*$`),
+                name: 'common_es',
+                chunks: 'all',
+                enforce: true,
+              },
+              common_en: {
+                test: new RegExp(`locales/en/common.*$`),
+                name: 'common_en',
+                chunks: 'all',
+                enforce: true,
+              },
+              test_es: {
+                test: new RegExp(`locales/es/test.*$`),
+                name: 'test_es',
+                chunks: 'all',
+                enforce: true,
+              },
+              test_en: {
+                test: new RegExp(`locales/en/test.*$`),
+                name: 'test_en',
+                chunks: 'all',
+                enforce: true,
+              },
+            },
+          },
+        }
+      })
+    })
+
+    it('should add splitChunks config with loadLocaleFrom as string', () => {
+      const config = {}
+      splitNamespacesChunks(config, {
+        namespaces: ['common', 'test'],
+        locales: ['en', 'es'],
+        loadLocaleFrom: 'src/my_locales',
+      })
+      expect(config).toEqual({
+        optimization: {
+          splitChunks: {
+            cacheGroups: {
+              common_es: {
+                test: new RegExp(`src/my_locales/es/common.*$`),
+                name: 'common_es',
+                chunks: 'all',
+                enforce: true,
+              },
+              common_en: {
+                test: new RegExp(`src/my_locales/en/common.*$`),
+                name: 'common_en',
+                chunks: 'all',
+                enforce: true,
+              },
+              test_es: {
+                test: new RegExp(`src/my_locales/es/test.*$`),
+                name: 'test_es',
+                chunks: 'all',
+                enforce: true,
+              },
+              test_en: {
+                test: new RegExp(`src/my_locales/en/test.*$`),
+                name: 'test_en',
+                chunks: 'all',
+                enforce: true,
+              },
+            },
+          },
+        }
+      })
+    })
+
+    it('should add splitChunks config with loadLocaleFrom as function that return a string', () => {
+      const config = {}
+      splitNamespacesChunks(config, {
+        namespaces: ['common', 'test'],
+        locales: ['en', 'es'],
+        loadLocaleFrom: (l, n) => `src/translations/${l}/${n}.json`,
+      })
+      expect(config).toEqual({
+        optimization: {
+          splitChunks: {
+            cacheGroups: {
+              common_es: {
+                test: new RegExp(`src/translations/es/common.json.*$`),
+                name: 'common_es',
+                chunks: 'all',
+                enforce: true,
+              },
+              common_en: {
+                test: new RegExp(`src/translations/en/common.json.*$`),
+                name: 'common_en',
+                chunks: 'all',
+                enforce: true,
+              },
+              test_es: {
+                test: new RegExp(`src/translations/es/test.json.*$`),
+                name: 'test_es',
+                chunks: 'all',
+                enforce: true,
+              },
+              test_en: {
+                test: new RegExp(`src/translations/en/test.json.*$`),
+                name: 'test_en',
+                chunks: 'all',
+                enforce: true,
+              },
+            },
+          },
+        }
+      })
+    });
+
+    it('should not execute loadLocaleFrom when is an AsyncFunction and split the defaults chunks', () => {
+      const config = {}
+      const mockLoadLocaleFrom = jest.fn()
+      splitNamespacesChunks(config, {
+        namespaces: ['common', 'test'],
+        locales: ['en', 'es'],
+        loadLocaleFrom: async (l, n) => {
+          mockLoadLocaleFrom(l, n)
+          return `src/translations/${l}/${n}.json`
+        },
+      })
+      expect(config).toEqual({
+        optimization: {
+          splitChunks: {
+            cacheGroups: {
+              common_es: {
+                test: new RegExp(`locales/es/common.*$`),
+                name: 'common_es',
+                chunks: 'all',
+                enforce: true,
+              },
+              common_en: {
+                test: new RegExp(`locales/en/common.*$`),
+                name: 'common_en',
+                chunks: 'all',
+                enforce: true,
+              },
+              test_es: {
+                test: new RegExp(`locales/es/test.*$`),
+                name: 'test_es',
+                chunks: 'all',
+                enforce: true,
+              },
+              test_en: {
+                test: new RegExp(`locales/en/test.*$`),
+                name: 'test_en',
+                chunks: 'all',
+                enforce: true,
+              },
+            },
+          },
+        }
+      })
+      expect(mockLoadLocaleFrom).not.toHaveBeenCalled()
+    });
   })
 })

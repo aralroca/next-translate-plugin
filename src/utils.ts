@@ -1,5 +1,8 @@
 import ts from 'typescript'
 import { ParsedFilePkg, Transformer } from './types'
+import type webpack from 'webpack'
+import type { I18nConfig } from 'next-translate'
+import { Project } from "ts-morph";
 
 const specFileOrFolderRgx =
   /(__mocks__|__tests__)|(\.(spec|test)\.(tsx|ts|js|jsx)$)/
@@ -571,4 +574,55 @@ export function interceptExport(
   }
 
   return finalLocalName
+}
+
+type SplitNamespacesChunksOptions = {
+  namespaces: string[]
+  locales: string[]
+  loadLocaleFrom: I18nConfig["loadLocaleFrom"]
+}
+
+/**
+ * This function mutates the Webpack config to split the chunks by namespaces and locales.
+ */
+export function splitNamespacesChunks(config: webpack.Configuration, { namespaces, locales, loadLocaleFrom }: SplitNamespacesChunksOptions) {
+  let getNamespacesRegExp = (locale: string, namespace: string) => new RegExp(`locales/${locale}/${namespace}.*$`)
+
+  if (typeof loadLocaleFrom === 'string') {
+    getNamespacesRegExp = (locale: string, namespace: string) => new RegExp(`${loadLocaleFrom}/${locale}/${namespace}.*$`)
+  }
+
+  // constructor.name === 'Function' is to avoid to execute the function if is an AsyncFunction
+  if (typeof loadLocaleFrom === 'function' && loadLocaleFrom.constructor.name === 'Function') {
+    getNamespacesRegExp = (locale: string, namespace: string) => {
+      const result = loadLocaleFrom(locale, namespace)
+      if (typeof result === 'string') return new RegExp(result + '.*$')
+      console.warn(`loadLocaleFrom function should return a string, but got ${typeof result}, if you are returning a Promise, please add the async keyword to the function.`)
+      return new RegExp(`locales/${locale}/${namespace}.*$`)
+    }
+  }
+
+  namespaces.forEach((namespace) => {
+    locales.forEach((locale) => {
+      const { optimization = {} } = config
+      const splitChunks = optimization?.splitChunks || {} as any
+      const cacheGroups = splitChunks?.cacheGroups || {} as any
+
+      config.optimization = {
+        ...optimization,
+        splitChunks: {
+          ...splitChunks,
+          cacheGroups: {
+            ...cacheGroups,
+            [`${namespace}_${locale}`]: {
+              test: getNamespacesRegExp(locale, namespace),
+              name: `${namespace}_${locale}`,
+              chunks: 'all',
+              enforce: true,
+            },
+          }
+        }
+      }
+    })
+  })
 }
