@@ -8,6 +8,7 @@ export interface LoaderOptions {
   hasLoadLocaleFrom: boolean
   extensionsRgx: RegExp
   revalidate: number
+  isAppDirNext13: boolean
 }
 
 export type Transformer = (
