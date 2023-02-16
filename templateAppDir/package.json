@@ -1,7 +1,0 @@
-{
-  "name": "templateappdir",
-  "private": true,
-  "main": "../lib/cjs/templateAppDir.js",
-  "module": "../lib/esm/templateAppDir.js",
-  "types": "../templateAppDir.d.ts"
-}

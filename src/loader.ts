@@ -44,7 +44,7 @@ export default function loader(
   }
 
   // Skip rest of files that are not inside /pages
-  if (!normalizedResourcePath.startsWith(normalizedPagesPath)) return rawCode
+  if (!isAppDirNext13 && !normalizedResourcePath.startsWith(normalizedPagesPath)) return rawCode
 
   const page = normalizedResourcePath.replace(normalizedPagesPath, '/')
   const pageNoExt = page.replace(extensionsRgx, '')
@@ -56,7 +56,7 @@ export default function loader(
   if (!defaultExport) return rawCode
 
   if (isAppDirNext13) {
-    return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt })
+    return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt, normalizedResourcePath, normalizedPagesPath })
   }
 
   // Skip any transformation if the page is not in raw code
