@@ -1,12 +1,13 @@
 import { ParsedFilePkg } from "./types";
-import { interceptExport, overwriteLoadLocales, getNamedExport } from "./utils";
+import { interceptExport, overwriteLoadLocales, getNamedExport, removeCommentsFromCode } from "./utils";
 
 const clientLine = ['"use client"', "'use client'"]
 const defaultDynamicExport = `export const dynamic = 'force-dynamic';`
 
 export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFrom = false, pageNoExt = '/', normalizedResourcePath = '', normalizedPagesPath = '' } = {}) {
   let code = pagePkg.getCode()
-  const isClientCode = clientLine.some(line => code.startsWith(line)) // hasUseClientDirective(pagePkg.sourceFile)
+  const codeWithoutComments = removeCommentsFromCode(code).trim()
+  const isClientCode = clientLine.some(line => codeWithoutComments.startsWith(line))
   const isPage = pageNoExt.endsWith('/page') && normalizedResourcePath.startsWith(normalizedPagesPath)
 
   if (!isPage && !isClientCode) return code

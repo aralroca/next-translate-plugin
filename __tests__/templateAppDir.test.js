@@ -66,8 +66,13 @@ const tests = [
     cases: [{ pageNoExt: '/page', ...insideAppDir }, { pageNoExt: '/page', hasLoadLocaleFrom: true, ...insideAppDir }, { pageNoExt: '/about/us/page', ...insideAppDir }],
   },
   {
-    describe: 'should load using an useEffect the translations in a client page ("use client" with double quotes)',
+    describe: 'should load using an useEffect the translations in a client page ("use client" with double quotes and comment before)',
     code: `
+      // Some comment before
+
+      /* 
+        Another comment before
+      */
       "use client"
       import useTranslation from 'next-translate/useTranslation'
 

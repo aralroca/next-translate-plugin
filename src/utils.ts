@@ -572,3 +572,7 @@ export function interceptExport(
 
   return finalLocalName
 }
+
+export function removeCommentsFromCode(code: string) {
+  return code.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '')
+}
