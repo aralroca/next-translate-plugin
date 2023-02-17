@@ -12,6 +12,7 @@ import {
   hasHOC,
 } from './utils'
 import { LoaderOptions } from './types'
+import templateAppDir from './templateAppDir'
 
 export default function loader(
   this: webpack.LoaderContext<LoaderOptions>,
@@ -25,6 +26,7 @@ export default function loader(
     hasLoadLocaleFrom,
     extensionsRgx,
     revalidate,
+    isAppDirNext13,
   } = this.getOptions()
 
   // Normalize slashes in a file path to be posix/unix-like forward slashes
@@ -42,7 +44,7 @@ export default function loader(
   }
 
   // Skip rest of files that are not inside /pages
-  if (!normalizedResourcePath.startsWith(normalizedPagesPath)) return rawCode
+  if (!isAppDirNext13 && !normalizedResourcePath.startsWith(normalizedPagesPath)) return rawCode
 
   const page = normalizedResourcePath.replace(normalizedPagesPath, '/')
   const pageNoExt = page.replace(extensionsRgx, '')
@@ -52,6 +54,10 @@ export default function loader(
   // Skip any transformation if for some reason they forgot to write the
   // "export default" on the page
   if (!defaultExport) return rawCode
+
+  if (isAppDirNext13) {
+    return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt, normalizedResourcePath, normalizedPagesPath })
+  }
 
   // Skip any transformation if the page is not in raw code
   // Fixes issue with Nx: https://github.com/vinissimus/next-translate/issues/677

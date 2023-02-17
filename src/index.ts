@@ -7,17 +7,20 @@ import { parseFile, getDefaultExport, hasStaticName, hasHOC } from './utils'
 import { LoaderOptions } from './types'
 import type { NextI18nConfig, I18nConfig } from 'next-translate'
 
-function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
-  const test = /\.(tsx|ts|js|mjs|jsx)$/
-  const basePath = pkgDir()
+const test = /\.(tsx|ts|js|mjs|jsx)$/
+const appDirNext13 = ['app', 'src/app']
 
-  // https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
-  const possiblePageDirs = [
-    'pages',
-    'src/pages',
-    'app/pages',
-    'integrations/pages',
-  ] as const
+// https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
+const possiblePageDirs = [
+  'pages',
+  'src/pages',
+  'app/pages',
+  'integrations/pages',
+  ...appDirNext13,
+] as const
+
+function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
+  const basePath = pkgDir()
 
   // NEXT_TRANSLATE_PATH env is supported both relative and absolute path
   const translationDir = path.resolve(
@@ -35,7 +38,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     ...restI18n
   } = require(path.join(translationDir, 'i18n')) as I18nConfig
 
-  const nextConfigWithI18n: NextConfig = {
+  let nextConfigWithI18n: NextConfig = {
     ...nextConfig,
     i18n: {
       locales,
@@ -46,11 +49,13 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   }
 
   let hasGetInitialPropsOnAppJs = false
+  let isAppDirNext13 = false
 
   if (!pagesInDir) {
     for (const possiblePageDir of possiblePageDirs) {
       if (fs.existsSync(path.join(basePath, possiblePageDir))) {
         pagesInDir = possiblePageDir
+        isAppDirNext13 = appDirNext13.includes(possiblePageDir)
         break
       }
     }
@@ -113,6 +118,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
             hasLoadLocaleFrom: typeof restI18n.loadLocaleFrom === 'function',
             extensionsRgx: restI18n.extensionsRgx || test,
             revalidate: restI18n.revalidate || 0,
+            isAppDirNext13,
           } as LoaderOptions,
         },
       })
