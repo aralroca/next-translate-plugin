@@ -35,7 +35,8 @@
     "loader*",
     "template*",
     "types*",
-    "utils*"
+    "utils*",
+    "postinstall-message.js"
   ],
   "scripts": {
     "build": "yarn clean && cross-env NODE_ENV=production && yarn tsc",
@@ -49,7 +50,7 @@
     "test:coverage": "cross-env NODE_ENV=test jest --env=jsdom --coverage",
     "test:watch": "cross-env NODE_ENV=test jest --env=jsdom --watch",
     "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && node build-packages.js",
-    "postinstall": "node postinstall-message.js"
+    "postinstall": "node ./postinstall-message.js"
   },
   "dependencies": {
     "typescript": "4.5.2"
