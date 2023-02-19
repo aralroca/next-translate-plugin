@@ -48,7 +48,8 @@
     "test": "cross-env NODE_ENV=test jest --env=jsdom",
     "test:coverage": "cross-env NODE_ENV=test jest --env=jsdom --coverage",
     "test:watch": "cross-env NODE_ENV=test jest --env=jsdom --watch",
-    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && node build-packages.js"
+    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && node build-packages.js",
+    "postinstall": "node postinstall-message.js"
   },
   "dependencies": {
     "typescript": "4.5.2"
