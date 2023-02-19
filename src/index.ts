@@ -23,7 +23,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   const basePath = pkgDir()
 
   // NEXT_TRANSLATE_PATH env is supported both relative and absolute path
-  const translationDir = path.resolve(
+  const dir = path.resolve(
     path.relative(basePath, process.env.NEXT_TRANSLATE_PATH || '.')
   )
 
@@ -36,7 +36,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     loader = true,
     pagesInDir,
     ...restI18n
-  } = require(path.join(translationDir, 'i18n')) as I18nConfig
+  } = require(path.join(dir, 'i18n')) as I18nConfig
 
   let nextConfigWithI18n: NextConfig = {
     ...nextConfig,
@@ -53,7 +53,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
 
   if (!pagesInDir) {
     for (const possiblePageDir of possiblePageDirs) {
-      if (fs.existsSync(path.join(basePath, possiblePageDir))) {
+      if (fs.existsSync(path.join(dir, possiblePageDir))) {
         pagesInDir = possiblePageDir
         isAppDirNext13 = appDirNext13.includes(possiblePageDir)
         break
@@ -61,16 +61,16 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     }
   }
 
-  if (!pagesInDir || !fs.existsSync(path.join(basePath, pagesInDir))) {
+  if (!pagesInDir || !fs.existsSync(path.join(dir, pagesInDir))) {
     // Pages folder not found, so we're not using the loader
     return nextConfigWithI18n
   }
 
-  const pagesPath = path.join(basePath, pagesInDir)
+  const pagesPath = path.join(dir, pagesInDir)
   const app = fs.readdirSync(pagesPath).find((page) => page.startsWith('_app.'))
 
   if (app) {
-    const appPkg = parseFile(basePath, path.join(pagesPath, app))
+    const appPkg = parseFile(dir, path.join(pagesPath, app))
     const defaultExport = getDefaultExport(appPkg)
 
     if (defaultExport) {
@@ -98,7 +98,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
 
       config.resolve.alias = {
         ...(config.resolve.alias || {}),
-        '@next-translate-root': path.resolve(translationDir),
+        '@next-translate-root': path.resolve(dir),
       }
 
       // we give the opportunity for people to use next-translate without altering
