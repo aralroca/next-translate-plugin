@@ -13,7 +13,7 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
   if (!isPage && !isClientCode) return code
 
   const hash = Date.now().toString(16)
-  const pathname = pageNoExt.replace('/page', '/')
+  const pathname = pageNoExt.replace('/page', '') || '/'
 
   // Removes the export default from the page
   // and tells under what name we can get the old export
