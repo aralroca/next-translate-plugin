@@ -3,9 +3,9 @@ import path from 'path'
 import type webpack from 'webpack'
 import type { NextConfig } from 'next'
 
-import { parseFile, getDefaultExport, hasStaticName, hasHOC } from './utils'
+import { getDefaultExport, hasHOC, hasStaticName, parseFile } from './utils'
 import { LoaderOptions } from './types'
-import type { NextI18nConfig, I18nConfig } from 'next-translate'
+import type { I18nConfig, NextI18nConfig } from 'next-translate'
 
 const test = /\.(tsx|ts|js|mjs|jsx)$/
 const appDirNext13 = ['app', 'src/app']
@@ -49,13 +49,11 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   }
 
   let hasGetInitialPropsOnAppJs = false
-  let isAppDirNext13 = false
 
   if (!pagesInDir) {
     for (const possiblePageDir of possiblePageDirs) {
       if (fs.existsSync(path.join(dir, possiblePageDir))) {
         pagesInDir = possiblePageDir
-        isAppDirNext13 = appDirNext13.includes(possiblePageDir)
         break
       }
     }
@@ -65,6 +63,8 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     // Pages folder not found, so we're not using the loader
     return nextConfigWithI18n
   }
+
+  const isAppDirNext13 = appDirNext13.includes(pagesInDir);
 
   const pagesPath = path.join(dir, pagesInDir)
   const app = fs.readdirSync(pagesPath).find((page) => page.startsWith('_app.'))
