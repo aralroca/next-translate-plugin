@@ -27,6 +27,7 @@ export default function loader(
     extensionsRgx,
     revalidate,
     isAppDirNext13,
+    forceStatic
   } = this.getOptions()
 
   // Normalize slashes in a file path to be posix/unix-like forward slashes
@@ -90,6 +91,15 @@ export default function loader(
   // There are some files that although they are inside pages, are not pages:
   // _app, _document, /api... In that case, let's skip any transformation :)
   if (isPageToIgnore(page)) return rawCode
+
+  if (forceStatic) {
+    return templateWithLoader(pagePkg, {
+      page: pageNoExt,
+      loader: 'getStaticProps',
+      hasLoadLocaleFrom,
+      revalidate,
+    })
+  }
 
   // This is where the most complicated part is, since to support automatic page
   // optimization what we do is use:

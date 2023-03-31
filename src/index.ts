@@ -123,6 +123,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
             hasLoadLocaleFrom: typeof restI18n.loadLocaleFrom === 'function',
             extensionsRgx: restI18n.extensionsRgx || test,
             revalidate: restI18n.revalidate || 0,
+            forceStatic: !!restI18n.forceStatic,
             isAppDirNext13,
           } as LoaderOptions,
         },

@@ -9,6 +9,7 @@ export interface LoaderOptions {
   extensionsRgx: RegExp
   revalidate: number
   isAppDirNext13: boolean
+  forceStatic?: boolean
 }
 
 export type Transformer = (
