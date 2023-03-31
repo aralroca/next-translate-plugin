@@ -105,8 +105,8 @@ export default function loader(
   //   This is in order to avoid issues because the getInitialProps is the only
   //   one that can be overwritten on a HoC.
   // Use getInitialProps to load the namespaces
-  const isWrapperWithExternalHOC = hasHOC(pagePkg)
-  const isDynamicPage = page.includes('[')
+  const isWrapperWithExternalHOC = hasHOC(pagePkg) && !forceStatic;
+  const isDynamicPage = page.includes('[') && !forceStatic;
   const isGetStaticProps = hasExportName(pagePkg, 'getStaticProps')
   const isGetStaticPaths = hasExportName(pagePkg, 'getStaticPaths')
   const isGetServerSideProps = hasExportName(pagePkg, 'getServerSideProps')
@@ -123,9 +123,7 @@ export default function loader(
     return templateWithHoc(pagePkg, { hasLoadLocaleFrom })
   }
 
-  const loader = forceStatic 
-    ? 'getStaticProps'
-    : isGetServerSideProps || (!hasLoader && isDynamicPage && !isGetStaticPaths)
+  const loader = isGetServerSideProps || (!hasLoader && isDynamicPage && !isGetStaticPaths)
       ? 'getServerSideProps'
       : 'getStaticProps'
 
