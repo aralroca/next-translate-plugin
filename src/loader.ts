@@ -132,6 +132,7 @@ export default function loader(
     loader,
     hasLoadLocaleFrom,
     revalidate,
+    isDynamicPage,
     isGetStaticPaths
   })
 }
