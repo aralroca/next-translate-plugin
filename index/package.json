@@ -1,0 +1,7 @@
+{
+  "name": "index",
+  "private": true,
+  "main": "../lib/cjs/index.js",
+  "module": "../lib/esm/index.js",
+  "types": "../index.d.ts"
+}
