@@ -27,6 +27,7 @@ export default function loader(
     extensionsRgx,
     revalidate,
     isAppDirNext13,
+    forceStatic
   } = this.getOptions()
 
   // Normalize slashes in a file path to be posix/unix-like forward slashes
@@ -104,8 +105,8 @@ export default function loader(
   //   This is in order to avoid issues because the getInitialProps is the only
   //   one that can be overwritten on a HoC.
   // Use getInitialProps to load the namespaces
-  const isWrapperWithExternalHOC = hasHOC(pagePkg)
-  const isDynamicPage = page.includes('[')
+  const isWrapperWithExternalHOC = hasHOC(pagePkg);
+  const isDynamicPage = page.includes('[');
   const isGetStaticProps = hasExportName(pagePkg, 'getStaticProps')
   const isGetStaticPaths = hasExportName(pagePkg, 'getStaticPaths')
   const isGetServerSideProps = hasExportName(pagePkg, 'getServerSideProps')
@@ -118,12 +119,11 @@ export default function loader(
   const hasLoader =
     isGetStaticProps || isGetServerSideProps || isGetInitialProps
 
-  if (isGetInitialProps || (!hasLoader && isWrapperWithExternalHOC)) {
+  if (isGetInitialProps || (!hasLoader && isWrapperWithExternalHOC && !forceStatic)) {
     return templateWithHoc(pagePkg, { hasLoadLocaleFrom })
   }
 
-  const loader =
-    isGetServerSideProps || (!hasLoader && isDynamicPage && !isGetStaticPaths)
+  const loader = isGetServerSideProps || (!hasLoader && isDynamicPage && !isGetStaticPaths && !forceStatic)
       ? 'getServerSideProps'
       : 'getStaticProps'
 
@@ -132,5 +132,7 @@ export default function loader(
     loader,
     hasLoadLocaleFrom,
     revalidate,
+    isDynamicPage,
+    isGetStaticPaths
   })
 }

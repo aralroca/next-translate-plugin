@@ -1,0 +1,7 @@
+{
+  "name": "loader",
+  "private": true,
+  "main": "../lib/cjs/loader.js",
+  "module": "../lib/esm/loader.js",
+  "types": "../loader.d.ts"
+}

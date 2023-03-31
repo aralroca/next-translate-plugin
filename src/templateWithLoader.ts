@@ -8,6 +8,8 @@ export default function templateWithLoader(
     loader = 'getStaticProps',
     revalidate = 0,
     hasLoadLocaleFrom = false,
+    isDynamicPage = false,
+    isGetStaticPaths = false,
   } = {}
 ) {
   // Random string based on current time
@@ -46,5 +48,15 @@ export default function templateWithLoader(
       }
     }
     export { ${newLoaderName} as ${loader} }
+
+    ${loader === 'getStaticProps' && isDynamicPage && !isGetStaticPaths ?
+    `export const getStaticPaths = () => {
+      return {
+        paths: [],
+        fallback: true,
+      };
+    };`
+    : ''
+    }
   `
 }
