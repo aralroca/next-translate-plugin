@@ -92,15 +92,6 @@ export default function loader(
   // _app, _document, /api... In that case, let's skip any transformation :)
   if (isPageToIgnore(page)) return rawCode
 
-  if (forceStatic) {
-    return templateWithLoader(pagePkg, {
-      page: pageNoExt,
-      loader: 'getStaticProps',
-      hasLoadLocaleFrom,
-      revalidate,
-    })
-  }
-
   // This is where the most complicated part is, since to support automatic page
   // optimization what we do is use:
   //
@@ -132,8 +123,9 @@ export default function loader(
     return templateWithHoc(pagePkg, { hasLoadLocaleFrom })
   }
 
-  const loader =
-    isGetServerSideProps || (!hasLoader && isDynamicPage && !isGetStaticPaths)
+  const loader = forceStatic 
+    ? 'getStaticProps'
+    : isGetServerSideProps || (!hasLoader && isDynamicPage && !isGetStaticPaths)
       ? 'getServerSideProps'
       : 'getStaticProps'
 
