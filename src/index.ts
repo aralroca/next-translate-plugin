@@ -8,7 +8,12 @@ import { LoaderOptions } from './types'
 import type { I18nConfig, NextI18nConfig } from 'next-translate'
 
 const test = /\.(tsx|ts|js|mjs|jsx)$/
-const appDirNext13 = ['app', 'src/app']
+const appDirNext13 = [
+  'app',
+  'src/app',
+  'app/app',
+  'integrations/app'
+] as const
 
 // https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
 const possiblePageDirs = [
@@ -16,11 +21,12 @@ const possiblePageDirs = [
   'src/pages',
   'app/pages',
   'integrations/pages',
-  ...appDirNext13,
 ] as const
 
 function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   const basePath = pkgDir()
+  const isAppDirNext13 = nextConfig.experimental?.appDir;
+  const dirs = isAppDirNext13 ? appDirNext13 : possiblePageDirs;
 
   // NEXT_TRANSLATE_PATH env is supported both relative and absolute path
   const dir = path.resolve(
@@ -51,7 +57,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   let hasGetInitialPropsOnAppJs = false
 
   if (!pagesInDir) {
-    for (const possiblePageDir of possiblePageDirs) {
+    for (const possiblePageDir of dirs) {
       if (fs.existsSync(path.join(dir, possiblePageDir))) {
         pagesInDir = possiblePageDir
         break
@@ -64,7 +70,6 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     return nextConfigWithI18n
   }
 
-  const isAppDirNext13 = appDirNext13.includes(pagesInDir);
 
   const pagesPath = path.join(dir, pagesInDir)
   const app = fs.readdirSync(pagesPath).find((page) => page.startsWith('_app.'))
