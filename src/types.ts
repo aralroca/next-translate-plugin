@@ -2,13 +2,12 @@ import type ts from 'typescript'
 
 export interface LoaderOptions {
   basePath: string
-  pagesPath: string
+  pagesPaths: string[]
   hasAppJs: boolean
   hasGetInitialPropsOnAppJs: boolean
   hasLoadLocaleFrom: boolean
   extensionsRgx: RegExp
   revalidate: number
-  isAppDirNext13: boolean
 }
 
 export type Transformer = (

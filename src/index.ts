@@ -8,25 +8,22 @@ import { LoaderOptions } from './types'
 import type { I18nConfig, NextI18nConfig } from 'next-translate'
 
 const test = /\.(tsx|ts|js|mjs|jsx)$/
-const appDirNext13 = [
-  'app',
-  'src/app',
-  'app/app',
-  'integrations/app'
-] as const
-
-// https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
-const possiblePageDirs = [
-  'pages',
-  'src/pages',
-  'app/pages',
-  'integrations/pages',
-] as const
 
 function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   const basePath = pkgDir()
-  const isAppDirNext13 = nextConfig.experimental?.appDir;
-  const dirs = isAppDirNext13 ? appDirNext13 : possiblePageDirs;
+  const dirs = [
+    // Next 13 app dir
+    'app',
+    'src/app',
+    'app/app',
+    'integrations/app',
+
+    // https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
+    'pages',
+    'src/pages',
+    'app/pages',
+    'integrations/pages',
+  ]
 
   // NEXT_TRANSLATE_PATH env is supported both relative and absolute path
   const dir = path.resolve(
@@ -56,26 +53,30 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
 
   let hasGetInitialPropsOnAppJs = false
 
-  if (!pagesInDir) {
-    for (const possiblePageDir of dirs) {
-      if (fs.existsSync(path.join(dir, possiblePageDir))) {
-        pagesInDir = possiblePageDir
-        break
-      }
-    }
-  }
+  const pagesInDirs = pagesInDir
+    ? [pagesInDir]
+    : dirs.filter((possiblePageDir) =>
+        fs.existsSync(path.join(dir, possiblePageDir))
+      )
 
-  if (!pagesInDir || !fs.existsSync(path.join(dir, pagesInDir))) {
+  if (!pagesInDirs.length) {
     // Pages folder not found, so we're not using the loader
     return nextConfigWithI18n
   }
 
-
-  const pagesPath = path.join(dir, pagesInDir)
-  const app = fs.readdirSync(pagesPath).find((page) => page.startsWith('_app.'))
+  const pagesPaths = pagesInDirs.map((pagesInDir) => path.join(dir, pagesInDir))
+  const app = pagesPaths
+    .filter((pagePath) => pagePath.endsWith('/pages'))
+    .map((pagePath) => {
+      const appPagePath = fs
+        .readdirSync(pagePath)
+        .find((page) => page.startsWith('_app.'))
+      return appPagePath && path.join(pagePath, appPagePath)
+    })
+    .find(Boolean)
 
   if (app) {
-    const appPkg = parseFile(dir, path.join(pagesPath, app))
+    const appPkg = parseFile(dir, app)
     const defaultExport = getDefaultExport(appPkg)
 
     if (defaultExport) {
@@ -117,13 +118,12 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
           loader: 'next-translate-plugin/loader',
           options: {
             basePath,
-            pagesPath: path.join(pagesPath, '/'),
+            pagesPaths: pagesPaths.map((pagePath) => path.join(pagePath, '/')),
             hasAppJs: Boolean(app),
             hasGetInitialPropsOnAppJs,
             hasLoadLocaleFrom: typeof restI18n.loadLocaleFrom === 'function',
             extensionsRgx: restI18n.extensionsRgx || test,
             revalidate: restI18n.revalidate || 0,
-            isAppDirNext13,
           } as LoaderOptions,
         },
       })

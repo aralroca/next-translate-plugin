@@ -20,18 +20,22 @@ export default function loader(
 ) {
   const {
     basePath,
-    pagesPath,
+    pagesPaths,
     hasAppJs,
     hasGetInitialPropsOnAppJs,
     hasLoadLocaleFrom,
     extensionsRgx,
     revalidate,
-    isAppDirNext13,
   } = this.getOptions()
 
   // Normalize slashes in a file path to be posix/unix-like forward slashes
-  const normalizedPagesPath = pagesPath.replace(/\\/g, '/')
+  const normalizedPagesPaths = pagesPaths.map((pagesPath) =>
+    pagesPath.replace(/\\/g, '/')
+  )
   const normalizedResourcePath = this.resourcePath.replace(/\\/g, '/')
+  const normalizedPagesPath = normalizedPagesPaths.find((pagesPath) =>
+    normalizedResourcePath.startsWith(pagesPath)
+  )
 
   // In case that there aren't /_app.js we want to overwrite the default _app
   // to provide the I18Provider on top.
@@ -43,8 +47,8 @@ export default function loader(
     return getDefaultAppJs(hasLoadLocaleFrom)
   }
 
-  // Skip rest of files that are not inside /pages
-  if (!isAppDirNext13 && !normalizedResourcePath.startsWith(normalizedPagesPath)) return rawCode
+  // Skip files that are not inside a valid page dir
+  if (!normalizedPagesPath) return rawCode
 
   const page = normalizedResourcePath.replace(normalizedPagesPath, '/')
   const pageNoExt = page.replace(extensionsRgx, '')
@@ -55,8 +59,17 @@ export default function loader(
   // "export default" on the page
   if (!defaultExport) return rawCode
 
-  if (isAppDirNext13) {
-    return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt, normalizedResourcePath, normalizedPagesPath })
+  if (normalizedPagesPath.endsWith('app/')) {
+    if (page.endsWith('page.tsx')) {
+      return templateAppDir(pagePkg, {
+        hasLoadLocaleFrom,
+        pageNoExt,
+        normalizedResourcePath,
+        normalizedPagesPath,
+      })
+    }
+
+    return rawCode
   }
 
   // Skip any transformation if the page is not in raw code
