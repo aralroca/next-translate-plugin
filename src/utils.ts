@@ -576,3 +576,17 @@ export function interceptExport(
 export function removeCommentsFromCode(code: string) {
   return code.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '')
 }
+
+export const possiblePagesDirs = [
+  // Next 13 app dir
+  'app',
+  'src/app',
+  'app/app',
+  'integrations/app',
+
+  // https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
+  'pages',
+  'src/pages',
+  'app/pages',
+  'integrations/pages',
+] as const

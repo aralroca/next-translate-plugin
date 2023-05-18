@@ -3,7 +3,13 @@ import path from 'path'
 import type webpack from 'webpack'
 import type { NextConfig } from 'next'
 
-import { getDefaultExport, hasHOC, hasStaticName, parseFile } from './utils'
+import {
+  getDefaultExport,
+  hasHOC,
+  hasStaticName,
+  parseFile,
+  possiblePagesDirs,
+} from './utils'
 import { LoaderOptions } from './types'
 import type { I18nConfig, NextI18nConfig } from 'next-translate'
 
@@ -11,19 +17,6 @@ const test = /\.(tsx|ts|js|mjs|jsx)$/
 
 function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   const basePath = pkgDir()
-  const dirs = [
-    // Next 13 app dir
-    'app',
-    'src/app',
-    'app/app',
-    'integrations/app',
-
-    // https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
-    'pages',
-    'src/pages',
-    'app/pages',
-    'integrations/pages',
-  ]
 
   // NEXT_TRANSLATE_PATH env is supported both relative and absolute path
   const dir = path.resolve(
@@ -55,8 +48,8 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
 
   const pagesInDirs = pagesInDir
     ? [pagesInDir]
-    : dirs.filter((possiblePageDir) =>
-        fs.existsSync(path.join(dir, possiblePageDir))
+    : possiblePagesDirs.filter((possiblePagesDir) =>
+        fs.existsSync(path.join(dir, possiblePagesDir))
       )
 
   if (!pagesInDirs.length) {
