@@ -1,7 +1,8 @@
 import type webpack from 'webpack'
 
-import templateWithHoc from './templateWithHoc'
 import templateWithLoader from './templateWithLoader'
+import templateWithHoc from './templateWithHoc'
+import templateAppDir from './templateAppDir'
 import {
   parseFile,
   getDefaultAppJs,
@@ -11,8 +12,8 @@ import {
   isPageToIgnore,
   hasHOC,
 } from './utils'
+import { removeCommentsFromCode } from './utils'
 import { LoaderOptions } from './types'
-import templateAppDir from './templateAppDir'
 
 export default function loader(
   this: webpack.LoaderContext<LoaderOptions>,
@@ -47,10 +48,8 @@ export default function loader(
     return getDefaultAppJs(hasLoadLocaleFrom)
   }
 
-  // Skip files that are not inside a valid page dir
-  if (!normalizedPagesPath) return rawCode
 
-  const page = normalizedResourcePath.replace(normalizedPagesPath, '/')
+  const page = normalizedResourcePath.replace(normalizedPagesPath || '', '/')
   const pageNoExt = page.replace(extensionsRgx, '')
   const pagePkg = parseFile(basePath, normalizedResourcePath)
   const defaultExport = getDefaultExport(pagePkg)
@@ -59,18 +58,21 @@ export default function loader(
   // "export default" on the page
   if (!defaultExport) return rawCode
 
-  if (normalizedPagesPath.endsWith('app/')) {
-    if (page.endsWith('page.tsx')) {
+  // In Next 13 "use client" components must be transpiled to include helpers
+  // even though it is tipically not inside a pages directory
+  const isClientComponent = /^['"]use client['"]/.test(removeCommentsFromCode(pagePkg.getCode()))
+
+  if (normalizedPagesPath?.endsWith('app/') || isClientComponent) {
       return templateAppDir(pagePkg, {
         hasLoadLocaleFrom,
         pageNoExt,
         normalizedResourcePath,
         normalizedPagesPath,
       })
-    }
-
-    return rawCode
   }
+
+  // Skip files that are not inside a valid page dir
+  if (!normalizedPagesPath) return rawCode
 
   // Skip any transformation if the page is not in raw code
   // Fixes issue with Nx: https://github.com/vinissimus/next-translate/issues/677

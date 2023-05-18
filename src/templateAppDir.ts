@@ -92,8 +92,9 @@ function templateAppDirClientComponent({ code, hash, pageVariableName }: ClientT
     export default function __Next_Translate_new__${hash}__(props) {
       const forceUpdate = __react.useReducer(() => [])[1]
       const isClient = typeof window !== 'undefined'
+      const el = isClient && document.getElementById('__NEXT_TRANSLATE_DATA__')
 
-      if (isClient && !window.__NEXT_TRANSLATE__) {
+      if (isClient && !window.__NEXT_TRANSLATE__ && el) {
         window.__NEXT_TRANSLATE__ = { lang: __i18nConfig.defaultLocale, namespaces: {} }
         update(false)
       }
@@ -105,8 +106,6 @@ function templateAppDirClientComponent({ code, hash, pageVariableName }: ClientT
       __react.useEffect(update)
 
       function update(rerender = true) {
-        const el = document.getElementById('__NEXT_TRANSLATE_DATA__')
-
         if (!el) return
 
         const { lang, ns, pathname } = el.dataset
