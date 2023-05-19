@@ -1,4 +1,79 @@
-import { isPageToIgnore } from '../src/utils'
+import {
+  isPageToIgnore,
+  determineResourceType,
+  possibleAppRouterPagesDirs,
+  possiblePageRouterPagesDirs,
+  possiblePagesDirs,
+} from '../src/utils'
+import fs from 'fs'
+
+jest.spyOn(fs, 'readFileSync')
+
+const determineResourceTypeTests = [
+  {
+    name: 'app router server page',
+    paths: possibleAppRouterPagesDirs.map((path) => `${path}/page.tsx`),
+    case: 'APP_ROUTER_SERVER_PAGE'
+  },
+  {
+    name: 'app router server layout',
+    paths: possibleAppRouterPagesDirs.map((path) => `${path}/layout.tsx`),
+    case: 'APP_ROUTER_SERVER_LAYOUT'
+  },
+  {
+    name: 'app router server loading',
+    paths: possibleAppRouterPagesDirs.map((path) => `${path}/loading.tsx`),
+    case: 'APP_ROUTER_SERVER_LOADING'
+  },
+  {
+    name: 'app router server error',
+    paths: possibleAppRouterPagesDirs.map((path) => `${path}/error.tsx`),
+    case: 'APP_ROUTER_SERVER_ERROR'
+  },
+
+  {
+    name: 'app router client page',
+    paths: possibleAppRouterPagesDirs.map((path) => `${path}/page.tsx`),
+    fsImpl: '"use client"',
+    case: 'APP_ROUTER_CLIENT_PAGE'
+  },
+  {
+    name: 'app router client layout',
+    paths: possibleAppRouterPagesDirs.map((path) => `${path}/layout.tsx`),
+    fsImpl: '"use client"',
+    case: 'APP_ROUTER_CLIENT_LAYOUT'
+  },
+  {
+    name: 'app router client loading',
+    paths: possibleAppRouterPagesDirs.map((path) => `${path}/loading.tsx`),
+    fsImpl: '"use client"',
+    case: 'APP_ROUTER_CLIENT_LOADING'
+  },
+  {
+    name: 'app router client error',
+    paths: possibleAppRouterPagesDirs.map((path) => `${path}/error.tsx`),
+    fsImpl: '"use client"',
+    case: 'APP_ROUTER_CLIENT_ERROR'
+  },
+
+  {
+    name: 'page router page',
+    paths: possiblePageRouterPagesDirs.map((path) => `${path}/about/index.tsx`),
+    case: 'PAGE_ROUTER_CLIENT_PAGE'
+  },
+
+  {
+    name: 'server component',
+    paths: ['app/components/index.tsx', 'components/index.tsx', 'app/index.tsx'],
+    case: 'UNROUTED_SERVER_COMPONENT'
+  },
+  {
+    name: 'client component',
+    fsImpl: '"use client"',
+    paths: ['app/components/index.tsx', 'components/index.tsx'],
+    case: 'UNROUTED_CLIENT_COMPONENT'
+  },
+]
 
 describe('utils', () => {
   describe('utils -> isPageToIgnore', () => {
@@ -68,6 +143,23 @@ describe('utils', () => {
 
     test('does not ignore nested page files', () => {
       testPath('/nested/index', false)
+    })
+  })
+
+  describe('utils -> determineResourceType', () => {
+    determineResourceTypeTests.forEach(({ name, paths, fsImpl = '', case: expectCase }) => {
+      test(name, () => {
+        fs.readFileSync.mockImplementation(() => fsImpl)
+
+        paths.forEach((path) => {
+          const type = determineResourceType({
+            normalizedResourcePath: path,
+            extensionsRgx: /\.(tsx)$/,
+          })
+          
+          expect(type).toBe(expectCase)
+        })
+      })
     })
   })
 })

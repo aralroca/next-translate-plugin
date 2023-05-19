@@ -1,11 +1,39 @@
+import {
+  ComponentType,
+  DetermineResourceTypeParams,
+  ParsedFilePkg,
+  ResourceType,
+  RouterType,
+  SideType,
+  Transformer
+} from './types'
+
+import path from 'path'
 import ts from 'typescript'
-import { ParsedFilePkg, Transformer } from './types'
+import fs from 'fs'
+
+export const possibleAppRouterPagesDirs = [
+  'app',
+  'src/app',
+  'app/app',
+  'integrations/app',
+] as const
+
+// https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
+export const possiblePageRouterPagesDirs = [
+  'pages',
+  'src/pages',
+  'integrations/pages',
+] as const
+
+export const possiblePagesDirs = [...possibleAppRouterPagesDirs, ...possiblePageRouterPagesDirs] as const
 
 const specFileOrFolderRgx =
   /(__mocks__|__tests__)|(\.(spec|test)\.(tsx|ts|js|jsx)$)/
 
 export const defaultLoader =
   '(l, n) => import(`@next-translate-root/locales/${l}/${n}`).then(m => m.default)'
+
 
 export function getDefaultAppJs(hasLoadLocaleFrom: boolean) {
   return `
@@ -577,16 +605,47 @@ export function removeCommentsFromCode(code: string) {
   return code.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '')
 }
 
-export const possiblePagesDirs = [
-  // Next 13 app dir
-  'app',
-  'src/app',
-  'app/app',
-  'integrations/app',
 
-  // https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
-  'pages',
-  'src/pages',
-  'app/pages',
-  'integrations/pages',
-] as const
+export function determineResourceType({
+  normalizedResourcePath,
+  extensionsRgx,
+  basePath = '',
+}: DetermineResourceTypeParams): ResourceType {
+  const normalizedPagesPath = possiblePagesDirs.find((possiblePagesDir) => normalizedResourcePath.startsWith(possiblePagesDir))
+  const page = normalizedResourcePath.replace((normalizedPagesPath || '') + '/', '/')
+  const pageNoExt = page.replace(extensionsRgx, '')
+  const code = fs.readFileSync(path.join(basePath, normalizedResourcePath)).toString()
+
+  const isAppRouter = possibleAppRouterPagesDirs.some((appPageDir) => normalizedResourcePath.startsWith(appPageDir))
+  const isPageRouter = possiblePageRouterPagesDirs.some((pageAppDir) => normalizedResourcePath.startsWith(pageAppDir))  
+
+  const isPage = isPageRouter || (isAppRouter && pageNoExt.endsWith('/page'))
+  const isLayout = isAppRouter && pageNoExt.endsWith('/layout')
+  const isError = isAppRouter && pageNoExt.endsWith('/error')
+  const isLoading = isAppRouter && pageNoExt.endsWith('/loading')
+
+  const isClient = /^['"]use client['"]/.test(removeCommentsFromCode(code))
+  console.log({isClient, code})
+
+  const routerType: RouterType = (isAppRouter && (isPage || isLayout || isError || isLoading))
+    ? 'APP_ROUTER'
+    : isPageRouter
+    ? 'PAGE_ROUTER'
+    : 'UNROUTED'
+
+  const sideType: SideType = (isClient || isPageRouter)
+    ? 'CLIENT'
+    : 'SERVER'
+
+  const componentType: ComponentType = isPage
+    ? 'PAGE'
+    : isLayout
+    ? 'LAYOUT'
+    : isError
+    ? 'ERROR'
+    : isLoading
+    ? 'LOADING'
+    : 'COMPONENT'
+
+  return [routerType, sideType, componentType].join('_') as ResourceType
+}
