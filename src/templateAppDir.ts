@@ -46,7 +46,7 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
     export default async function __Next_Translate_new__${hash}__(props) {
       let config = { 
         ...__i18nConfig,
-        locale: props.searchParams?.lang,
+        locale: props.params?.lang || props.searchParams?.lang,
         loaderName: \`\${dynamic} (server page)\`,
         pathname: '${pathname}',
         ${overwriteLoadLocales(hasLoadLocaleFrom)}
@@ -136,7 +136,7 @@ function templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasL
 
     export default function __Next_Translate_new__${hash}__(props) {
       const forceUpdate = __react.useReducer(() => [])[1]
-      const lang = __useSearchParams().get('lang')
+      const lang = props.params?.lang || __useSearchParams().get('lang')
       const pathname = '${pathname}'
       const isServer = typeof window === 'undefined'
       const config = { 
