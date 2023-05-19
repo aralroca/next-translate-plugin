@@ -3,7 +3,6 @@ import {
   determineResourceType,
   possibleAppRouterPagesDirs,
   possiblePageRouterPagesDirs,
-  possiblePagesDirs,
 } from '../src/utils'
 import fs from 'fs'
 
