@@ -150,7 +150,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.params?.lang || props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
     loadLocaleFrom: (l, n) =>
@@ -198,7 +198,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.params?.lang || props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
   };
@@ -244,7 +244,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.params?.lang || props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom: (l, n) =>
@@ -292,7 +292,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.params?.lang || props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
     loadLocaleFrom: (l, n) =>
@@ -340,7 +340,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.params?.lang || props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
   };
@@ -386,7 +386,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.params?.lang || props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom: (l, n) =>
@@ -435,7 +435,7 @@ export const dynamic = \\"force-dynamic\\";
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.params?.lang || props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
     loadLocaleFrom: (l, n) =>
@@ -484,7 +484,7 @@ export const dynamic = \\"force-dynamic\\";
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.params?.lang || props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
   };
@@ -531,7 +531,7 @@ export const dynamic = \\"force-dynamic\\";
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.params?.lang || props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom: (l, n) =>
@@ -584,7 +584,7 @@ function Page() {
 
 export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
-  const lang = __useSearchParams().get(\\"lang\\");
+  const lang = props.params?.lang || __useSearchParams().get(\\"lang\\");
   const pathname = \\"/about/us/\\";
   const isServer = typeof window === \\"undefined\\";
   const config = {
@@ -647,7 +647,7 @@ function Page() {
 
 export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
-  const lang = __useSearchParams().get(\\"lang\\");
+  const lang = props.params?.lang || __useSearchParams().get(\\"lang\\");
   const pathname = \\"/\\";
   const isServer = typeof window === \\"undefined\\";
   const config = {
@@ -708,7 +708,7 @@ function Page() {
 
 export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
-  const lang = __useSearchParams().get(\\"lang\\");
+  const lang = props.params?.lang || __useSearchParams().get(\\"lang\\");
   const pathname = \\"/\\";
   const isServer = typeof window === \\"undefined\\";
   const config = {
@@ -766,7 +766,7 @@ function Page() {
 
 export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
-  const lang = __useSearchParams().get(\\"lang\\");
+  const lang = props.params?.lang || __useSearchParams().get(\\"lang\\");
   const pathname = \\"/about/us/\\";
   const isServer = typeof window === \\"undefined\\";
   const config = {
@@ -824,7 +824,7 @@ function Page() {
 
 export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
-  const lang = __useSearchParams().get(\\"lang\\");
+  const lang = props.params?.lang || __useSearchParams().get(\\"lang\\");
   const pathname = \\"/\\";
   const isServer = typeof window === \\"undefined\\";
   const config = {
@@ -880,7 +880,7 @@ function Page() {
 
 export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
-  const lang = __useSearchParams().get(\\"lang\\");
+  const lang = props.params?.lang || __useSearchParams().get(\\"lang\\");
   const pathname = \\"/\\";
   const isServer = typeof window === \\"undefined\\";
   const config = {
