@@ -48,7 +48,6 @@ export default function loader(
     return getDefaultAppJs(hasLoadLocaleFrom)
   }
 
-
   const page = normalizedResourcePath.replace(normalizedPagesPath || '', '/')
   const pageNoExt = page.replace(extensionsRgx, '')
   const pagePkg = parseFile(basePath, normalizedResourcePath)

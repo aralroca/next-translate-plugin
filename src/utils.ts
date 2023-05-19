@@ -625,7 +625,6 @@ export function determineResourceType({
   const isLoading = isAppRouter && pageNoExt.endsWith('/loading')
 
   const isClient = /^['"]use client['"]/.test(removeCommentsFromCode(code))
-  console.log({isClient, code})
 
   const routerType: RouterType = (isAppRouter && (isPage || isLayout || isError || isLoading))
     ? 'APP_ROUTER'
