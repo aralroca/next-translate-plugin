@@ -9,8 +9,13 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
   const codeWithoutComments = removeCommentsFromCode(code).trim()
   const isClientCode = clientLine.some(line => codeWithoutComments.startsWith(line))
   const isPage = pageNoExt.endsWith('/page') && normalizedResourcePath.startsWith(normalizedPagesPath)
+  const isLayout = pageNoExt.endsWith('/layout') && normalizedPagesPath.startsWith(normalizedPagesPath)
+  const isError = pageNoExt.endsWith('/error') && normalizedPagesPath.startsWith(normalizedPagesPath)
+  const isLoading = pageNoExt.endsWith('/loading') && normalizedPagesPath.startsWith(normalizedPagesPath)
 
-  if (!isPage && !isClientCode) return code
+  const isComponent = !isPage && !isLayout && !isError && !isLoading
+
+  if (!isPage && !isComponent && !isClientCode) return code
 
   const hash = Date.now().toString(16)
   const pathname = pageNoExt.replace('/page', '/')
@@ -31,8 +36,8 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
   // Get the new code after intercepting the export
   code = pagePkg.getCode()
 
-  if (isClientCode && !isPage) return templateAppDirClientComponent({ code, hash, pageVariableName })
-  if (isClientCode && isPage) return templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasLoadLocaleFrom })
+  if (isClientCode && isComponent) return templateAppDirClientComponent({ code, hash, pageVariableName })
+  if (isClientCode && !isComponent) return templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasLoadLocaleFrom })
 
   return `
     import __i18nConfig from '@next-translate-root/i18n'
@@ -92,7 +97,7 @@ function templateAppDirClientComponent({ code, hash, pageVariableName }: ClientT
     export default function __Next_Translate_new__${hash}__(props) {
       const forceUpdate = __react.useReducer(() => [])[1]
       const isClient = typeof window !== 'undefined'
-      const el = isClient && document.getElementById('__NEXT_TRANSLATE_DATA__')
+      let el = isClient && document.getElementById('__NEXT_TRANSLATE_DATA__')
 
       if (isClient && !window.__NEXT_TRANSLATE__ && el) {
         window.__NEXT_TRANSLATE__ = { lang: __i18nConfig.defaultLocale, namespaces: {} }
@@ -106,6 +111,8 @@ function templateAppDirClientComponent({ code, hash, pageVariableName }: ClientT
       __react.useEffect(update)
 
       function update(rerender = true) {
+        el = document.getElementById('__NEXT_TRANSLATE_DATA__')
+
         if (!el) return
 
         const { lang, ns, pathname } = el.dataset
