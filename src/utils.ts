@@ -31,6 +31,10 @@ export const possiblePagesDirs = [...possibleAppRouterPagesDirs, ...possiblePage
 const specFileOrFolderRgx =
   /(__mocks__|__tests__)|(\.(spec|test)\.(tsx|ts|js|jsx)$)/
 
+// Checks if path is a root layout
+// Matches a 'layout.xxx' put right next to a '[lang]' dynamic route excluding group directories with optional extension
+export const rootLayoutRgx = /^\/(\(.*\)\/)*(\[lang\])(\/\(.+\))*\/layout(\.m?(t|j)sx?)?$/
+
 export const defaultLoader =
   '(l, n) => import(`@next-translate-root/locales/${l}/${n}`).then(m => m.default)'
 

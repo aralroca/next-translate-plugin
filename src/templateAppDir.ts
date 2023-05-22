@@ -1,21 +1,17 @@
+import { interceptExport, overwriteLoadLocales, getNamedExport, removeCommentsFromCode, rootLayoutRgx } from "./utils";
 import { ParsedFilePkg } from "./types";
-import { interceptExport, overwriteLoadLocales, getNamedExport, removeCommentsFromCode } from "./utils";
 
 const clientLine = ['"use client"', "'use client'"]
 const defaultDynamicExport = `export const dynamic = 'force-dynamic';`
+const appDirPagesEnding = ['/page', '/layout', '/error', '/loading']
 
 export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFrom = false, pageNoExt = '/', normalizedResourcePath = '', normalizedPagesPath = '' } = {}) {
   let code = pagePkg.getCode()
   const codeWithoutComments = removeCommentsFromCode(code).trim()
   const isClientCode = clientLine.some(line => codeWithoutComments.startsWith(line))
-  const isPage = pageNoExt.endsWith('/page') && normalizedResourcePath.startsWith(normalizedPagesPath)
-  const isLayout = pageNoExt.endsWith('/layout') && normalizedPagesPath.startsWith(normalizedPagesPath)
-  const isError = pageNoExt.endsWith('/error') && normalizedPagesPath.startsWith(normalizedPagesPath)
-  const isLoading = pageNoExt.endsWith('/loading') && normalizedPagesPath.startsWith(normalizedPagesPath)
+  const isPage = appDirPagesEnding.some((ending) => pageNoExt.endsWith(ending)) && normalizedResourcePath.startsWith(normalizedPagesPath)
 
-  const isComponent = !isPage && !isLayout && !isError && !isLoading
-
-  if (!isPage && !isComponent && !isClientCode) return code
+  if (!isPage && !isClientCode) return code
 
   const hash = Date.now().toString(16)
   const pathname = pageNoExt.replace('/page', '/')
@@ -36,8 +32,13 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
   // Get the new code after intercepting the export
   code = pagePkg.getCode()
 
-  if (isClientCode && isComponent) return templateAppDirClientComponent({ code, hash, pageVariableName })
-  if (isClientCode && !isComponent) return templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasLoadLocaleFrom })
+  if (isClientCode && !isPage) return templateAppDirClientComponent({ code, hash, pageVariableName })
+  if (isClientCode && isPage) return templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasLoadLocaleFrom })
+
+  const isLayout = pageNoExt.endsWith('/layout')
+  const isRootLayout = rootLayoutRgx.test(pageNoExt)
+  const isLayoutExceptRootLayout = isLayout && !isRootLayout
+  const isAppPage = pageNoExt.endsWith('/page')
 
   return `
     import __i18nConfig from '@next-translate-root/i18n'
@@ -56,22 +57,26 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
         pathname: '${pathname}',
         ${overwriteLoadLocales(hasLoadLocaleFrom)}
       }
-  
-      if (!globalThis.__NEXT_TRANSLATE__) {
-        globalThis.__NEXT_TRANSLATE__ = {}
-      }
-  
+
+      ${isLayout ? `
+        if (!globalThis.__NEXT_TRANSLATE__) {
+          globalThis.__NEXT_TRANSLATE__ = {}
+        }
+      ` : ''}
+
       const { __lang, __namespaces } = await __loadNamespaces(config)
-      globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, pathname: '${pathname}' }
+      ${isLayout ? `globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, pathname: '${pathname}' }` : ''}
 
       return (
         <>
-          <div 
-            id="__NEXT_TRANSLATE_DATA__" 
-            data-lang={__lang} 
-            data-ns={JSON.stringify(__namespaces)}
-            data-pathname="${pathname}"
-          />
+          ${(isLayoutExceptRootLayout || isAppPage) ? (`
+            <div 
+              id="__NEXT_TRANSLATE_DATA__" 
+              data-lang={__lang} 
+              data-ns={JSON.stringify(__namespaces)}
+              data-pathname="${pathname}"
+            />
+          `) : ''}
           <${pageVariableName} {...props} />
         </>
       )
@@ -97,10 +102,8 @@ function templateAppDirClientComponent({ code, hash, pageVariableName }: ClientT
     export default function __Next_Translate_new__${hash}__(props) {
       const forceUpdate = __react.useReducer(() => [])[1]
       const isClient = typeof window !== 'undefined'
-      let el = isClient && document.getElementById('__NEXT_TRANSLATE_DATA__')
 
-      if (isClient && !window.__NEXT_TRANSLATE__ && el) {
-        window.__NEXT_TRANSLATE__ = { lang: __i18nConfig.defaultLocale, namespaces: {} }
+      if (isClient && !globalThis.__NEXT_TRANSLATE__) {
         update(false)
       }
 
@@ -111,14 +114,20 @@ function templateAppDirClientComponent({ code, hash, pageVariableName }: ClientT
       __react.useEffect(update)
 
       function update(rerender = true) {
-        el = document.getElementById('__NEXT_TRANSLATE_DATA__')
+        const el = document.getElementById('__NEXT_TRANSLATE_DATA__')
 
         if (!el) return
 
+        if (!globalThis.__NEXT_TRANSLATE__) {
+          globalThis.__NEXT_TRANSLATE__ = { lang: __i18nConfig.defaultLocale, namespaces: {} }
+        }
+
         const { lang, ns, pathname } = el.dataset
-        const shouldRerender = lang !== window.__NEXT_TRANSLATE__.lang || pathname !== window.__NEXT_TRANSLATE__.pathname
-        window.__NEXT_TRANSLATE__ = { lang, namespaces: JSON.parse(ns), pathname }
-        if (shouldRerender && rerender) forceUpdate()
+        const shouldRerender = lang !== globalThis.__NEXT_TRANSLATE__.lang || pathname !== globalThis.__NEXT_TRANSLATE__.pathname
+        globalThis.__NEXT_TRANSLATE__ = { lang, namespaces: JSON.parse(ns), pathname }
+        if (shouldRerender && rerender) {
+          forceUpdate()
+        }
       }
 
       return <${pageVariableName} {...props} />
@@ -155,19 +164,19 @@ function templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasL
       }
 
       __react.useEffect(() => {
-        const shouldLoad = lang !== window.__NEXT_TRANSLATE__?.lang || pathname !== window.__NEXT_TRANSLATE__?.pathname
+        const shouldLoad = lang !== globalThis.__NEXT_TRANSLATE__?.lang || pathname !== globalThis.__NEXT_TRANSLATE__?.pathname
 
         if (!shouldLoad) return
 
         __loadNamespaces(config).then(({ __lang, __namespaces }) => {
-          window.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, pathname: '${pathname}' }
-          window.i18nConfig = __i18nConfig
+          globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, pathname: '${pathname}' }
+          globalThis.i18nConfig = __i18nConfig
           forceUpdate()
         })
       }, [lang])
 
       if (isServer) __log(config, { page: pathname, lang, namespaces: ['calculated in client-side'] })
-      if (isServer || !window.__NEXT_TRANSLATE__) return null
+      if (isServer || !globalThis.__NEXT_TRANSLATE__) return null
 
       return <${pageVariableName} {...props} />
     }
