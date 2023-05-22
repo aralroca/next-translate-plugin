@@ -35,6 +35,9 @@ export type ResourceType = Exclude<
   // It doesn't make sense to have routed components
   | `APP_ROUTER_${SideType}_COMPONENT`
   | `PAGE_ROUTER_${SideType}_COMPONENT`
+  // Page Router only includes client page
+  | `PAGE_ROUTER_SERVER_${ComponentType}`
+  | `PAGE_ROUTER_CLIENT_${Exclude<ComponentType, 'PAGE'>}`
 >
 
 export interface DetermineResourceTypeParams {
