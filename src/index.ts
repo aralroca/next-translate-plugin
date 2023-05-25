@@ -7,13 +7,13 @@ import {
   getDefaultExport,
   hasHOC,
   hasStaticName,
+  loaderTest,
   parseFile,
   possiblePagesDirs,
 } from './utils'
 import { LoaderOptions } from './types'
 import type { I18nConfig, NextI18nConfig } from 'next-translate'
 
-const test = /\.(tsx|ts|js|mjs|jsx)$/
 
 function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   const basePath = pkgDir()
@@ -106,7 +106,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
       if (!loader) return config
 
       config.module.rules.push({
-        test,
+        test: loaderTest,
         use: {
           loader: 'next-translate-plugin/loader',
           options: {
@@ -115,7 +115,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
             hasAppJs: Boolean(app),
             hasGetInitialPropsOnAppJs,
             hasLoadLocaleFrom: typeof restI18n.loadLocaleFrom === 'function',
-            extensionsRgx: restI18n.extensionsRgx || test,
+            extensionsRgx: restI18n.extensionsRgx || loaderTest,
             revalidate: restI18n.revalidate || 0,
           } as LoaderOptions,
         },

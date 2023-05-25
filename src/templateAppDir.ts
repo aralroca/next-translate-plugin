@@ -11,6 +11,11 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
   const isClientCode = clientLine.some(line => codeWithoutComments.startsWith(line))
   const isPage = appDirPagesEnding.some((ending) => pageNoExt.endsWith(ending)) && normalizedResourcePath.startsWith(normalizedPagesPath)
 
+  const isLayout = pageNoExt.endsWith('/layout')
+  const isRootLayout = rootLayoutRgx.test(pageNoExt)
+  const isLayoutExceptRootLayout = isLayout && !isRootLayout
+  const isAppPage = pageNoExt.endsWith('/page')
+
   if (!isPage && !isClientCode) return code
 
   const hash = Date.now().toString(16)
@@ -35,11 +40,6 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
   if (isClientCode && !isPage) return templateAppDirClientComponent({ code, hash, pageVariableName })
   if (isClientCode && isPage) return templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasLoadLocaleFrom })
 
-  const isLayout = pageNoExt.endsWith('/layout')
-  const isRootLayout = rootLayoutRgx.test(pageNoExt)
-  const isLayoutExceptRootLayout = isLayout && !isRootLayout
-  const isAppPage = pageNoExt.endsWith('/page')
-
   return `
     import __i18nConfig from '@next-translate-root/i18n'
     import __loadNamespaces from 'next-translate/loadNamespaces'
@@ -58,14 +58,16 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
         ${overwriteLoadLocales(hasLoadLocaleFrom)}
       }
 
-      ${isLayout ? `
-        if (!globalThis.__NEXT_TRANSLATE__) {
-          globalThis.__NEXT_TRANSLATE__ = {}
+      const { __lang, __namespaces } = await __loadNamespaces(config)
+      ${(isLayout || isAppPage) ? `
+        globalThis.__NEXT_TRANSLATE__ = {
+          lang: __lang,
+          namespaces: globalThis.__NEXT_TRANSLATE__?.lang !== __lang
+            ? [__namespaces]
+            : [...(globalThis.__NEXT_TRANSLATE__?.namespaces || []), __namespaces],
+          pathname: '${pathname}'
         }
       ` : ''}
-
-      const { __lang, __namespaces } = await __loadNamespaces(config)
-      ${isLayout ? `globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, pathname: '${pathname}' }` : ''}
 
       return (
         <>
@@ -114,7 +116,7 @@ function templateAppDirClientComponent({ code, hash, pageVariableName }: ClientT
       __react.useEffect(update)
 
       function update(rerender = true) {
-        const el = document.getElementById('__NEXT_TRANSLATE_DATA__')
+        const el = [...document.querySelectorAll('#__NEXT_TRANSLATE_DATA__')].slice(-1)[0]
 
         if (!el) return
 

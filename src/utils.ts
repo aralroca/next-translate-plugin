@@ -35,6 +35,8 @@ const specFileOrFolderRgx =
 // Matches a 'layout.xxx' put right next to a '[lang]' dynamic route excluding group directories with optional extension
 export const rootLayoutRgx = /^\/(\(.*\)\/)*(\[lang\])(\/\(.+\))*\/layout(\.m?(t|j)sx?)?$/
 
+export const loaderTest = /\.(tsx|ts|js|mjs|jsx)$/
+
 export const defaultLoader =
   '(l, n) => import(`@next-translate-root/locales/${l}/${n}`).then(m => m.default)'
 
