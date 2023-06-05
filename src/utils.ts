@@ -592,7 +592,7 @@ export function calculatePageDir(name: 'pages' | 'app', pagesInDir: string | und
 
   for (const possiblePageDir of dirs) {
     if (fs.existsSync(path.join(dir, possiblePageDir))) {
-      return possiblePageDir
+      return path.join(possiblePageDir)
     }
   }
 
