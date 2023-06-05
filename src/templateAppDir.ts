@@ -4,11 +4,11 @@ import { interceptExport, overwriteLoadLocales, getNamedExport, removeCommentsFr
 const clientLine = ['"use client"', "'use client'"]
 const defaultDynamicExport = `export const dynamic = 'force-dynamic';`
 
-export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFrom = false, pageNoExt = '/', normalizedResourcePath = '', normalizedPagesPath = '' } = {}) {
+export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFrom = false, pageNoExt = '/', normalizedResourcePath = '', appFolder = '' } = {}) {
   let code = pagePkg.getCode()
   const codeWithoutComments = removeCommentsFromCode(code).trim()
   const isClientCode = clientLine.some(line => codeWithoutComments.startsWith(line))
-  const isPage = pageNoExt.endsWith('/page')
+  const isPage = pageNoExt.endsWith('/page') && normalizedResourcePath.startsWith(appFolder)
 
   if (!isPage && !isClientCode) return code
 

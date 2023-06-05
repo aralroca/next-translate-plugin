@@ -4,12 +4,12 @@ import { clean } from './templateWith.utils'
 
 const insideAppDir = {
   normalizedResourcePath: '/Users/username/Projects/nextjs-blog/app/page.js',
-  normalizedPagesPath: '/Users/username/Projects/nextjs-blog/app',
+  appFolder: 'app',
 }
 
 const outsideAppDir = {
   normalizedResourcePath: '/Users/username/Projects/nextjs-blog/page.js',
-  normalizedPagesPath: '/Users/username/Projects/nextjs-blog/app',
+  appFolder: 'app',
 }
 
 const tests = [

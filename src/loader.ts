@@ -54,7 +54,7 @@ export default function loader(
   const pagePkg = parseFile(basePath, normalizedResourcePath)
 
   if (isAppDirNext13) {
-    return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt, normalizedResourcePath, normalizedPagesPath })
+    return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt, normalizedResourcePath, appFolder })
   }
 
   const defaultExport = getDefaultExport(pagePkg)
