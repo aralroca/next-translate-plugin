@@ -1,4 +1,8 @@
-import { isPageToIgnore } from '../src/utils'
+import { isPageToIgnore, calculatePageDir } from '../src/utils'
+import fs from 'fs'
+import path from 'path'
+
+jest.spyOn(fs, 'existsSync')
 
 describe('utils', () => {
   describe('utils -> isPageToIgnore', () => {
@@ -9,65 +13,107 @@ describe('utils', () => {
       })
     }
 
-    test('ignores api pages', () => {
+    test('should ignore api pages', () => {
       testPath('/api/test', true)
     })
 
-    test('ignores nested api pages', () => {
+    test('should ignore nested api pages', () => {
       testPath('/api/nested/test', true)
     })
 
-    test('ignores _document', () => {
+    test('should ignore _document', () => {
       testPath('/_document', true)
     })
 
-    test('ignores root middleware', () => {
+    test('should ignore root middleware', () => {
       expect(isPageToIgnore(`/middleware.js`)).toBe(true)
       expect(isPageToIgnore(`/middleware.ts`)).toBe(true)
     })
 
-    test('ignores _middleware', () => {
+    test('should ignore _middleware', () => {
       testPath('/_middleware', true)
     })
 
-    test('ignores nested _middleware', () => {
+    test('should ignore nested _middleware', () => {
       testPath('/nested/_middleware', true)
     })
 
-    test('ignores files in __mocks__ folder', () => {
+    test('should ignore files in __mocks__ folder', () => {
       testPath('/__mocks__/test', true)
     })
 
-    test('ignores files in __tests__ folder', () => {
+    test('should ignore files in __tests__ folder', () => {
       testPath('/__tests__/test', true)
     })
 
-    test('ignores .test files', () => {
+    test('should ignore .test files', () => {
       testPath('/file.test', true)
     })
 
-    test('ignores nested .test files', () => {
+    test('should ignore nested .test files', () => {
       testPath('/nested/file.test', true)
     })
 
-    test('ignores .spec files', () => {
+    test('should ignore .spec files', () => {
       testPath('/file.spec', true)
     })
 
-    test('ignores nested .spec files', () => {
+    test('should ignore nested .spec files', () => {
       testPath('/nested/file.spec', true)
     })
 
-    test('does not ignore _app', () => {
+    test('should does not ignore _app', () => {
       testPath('_app', false)
     })
 
-    test('does not ignore page files', () => {
+    test('should does not ignore page files', () => {
       testPath('index', false)
     })
 
-    test('does not ignore nested page files', () => {
+    test('should does not ignore nested page files', () => {
       testPath('/nested/index', false)
+    })
+  })
+
+  describe('utils -> calculatePageDir', () => {
+    test('should detect src/pages', () => {
+      const name = 'pages'
+      const pagesInDir = undefined
+      const dir = path.join('/home/user/project')
+
+      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/src/pages'))
+
+      expect(calculatePageDir(name, pagesInDir, dir)).toBe(path.join('src/pages'))
+    })
+
+    test('should detect src/app', () => {
+      const name = 'app'
+      const pagesInDir = undefined
+      const dir = path.join('/home/user/project')
+
+      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/src/app'))
+
+      expect(calculatePageDir(name, pagesInDir, dir)).toBe(path.join('src/app'))
+    })
+
+    test('should use the pagesInDir for appDir', () => {
+      const name = 'app'
+      const dir = path.join('/home/user/project')
+
+      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/somepath/app'))
+
+      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe(path.join('somepath/app'))
+      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe(path.join('somepath/app'))
+    })
+
+    test('should use the pagesInDir for pages folder', () => {
+      const name = 'pages'
+      const dir = path.join('/home/user/project')
+
+      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/somepath/pages'))
+
+      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe(path.join('somepath/pages'))
+      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe(path.join('somepath/pages'))
     })
   })
 })
