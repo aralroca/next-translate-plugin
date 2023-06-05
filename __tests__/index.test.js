@@ -1,8 +1,12 @@
 import nextTranslate from '../src/index'
 import fs from 'fs'
 
-jest.spyOn(fs, 'existsSync')
 jest.spyOn(fs, 'readdirSync')
+
+jest.mock('../src/utils', () => ({
+  ...jest.requireActual('../src/utils'),
+  existPages: jest.fn(() => true),
+}))
 
 jest.mock(
   '../i18n',
@@ -19,9 +23,8 @@ jest.mock(
 
 describe('nextTranslate', () => {
   describe('nextTranslate -> pagesInDir', () => {
-    test('uses app dir loader if pagesInDir points to app dir', () => {
+    test('should detect correctly the appFolder and pagesFolder depending on the pagesInDir', () => {
       fs.readdirSync.mockImplementationOnce(() => [])
-      fs.existsSync.mockImplementationOnce(() => true)
 
       const config = nextTranslate({})
 
@@ -33,7 +36,8 @@ describe('nextTranslate', () => {
                 use: expect.objectContaining({
                   loader: 'next-translate-plugin/loader',
                   options: expect.objectContaining({
-                    isAppDirNext13: true,
+                    appFolder: 'src/app/',
+                    pagesFolder: 'src/pages/',
                   }),
                 }),
               }),

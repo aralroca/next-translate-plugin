@@ -3,30 +3,14 @@ import path from 'path'
 import type webpack from 'webpack'
 import type { NextConfig } from 'next'
 
-import { getDefaultExport, hasHOC, hasStaticName, parseFile } from './utils'
+import { getDefaultExport, hasHOC, hasStaticName, parseFile, calculatePageDir, existPages } from './utils'
 import { LoaderOptions } from './types'
 import type { I18nConfig, NextI18nConfig } from 'next-translate'
 
 const test = /\.(tsx|ts|js|mjs|jsx)$/
-const appDirNext13 = [
-  'app',
-  'src/app',
-  'app/app',
-  'integrations/app'
-] as const
-
-// https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
-const possiblePageDirs = [
-  'pages',
-  'src/pages',
-  'app/pages',
-  'integrations/pages',
-] as const
 
 function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   const basePath = pkgDir()
-  const isAppDirNext13 = nextConfig.experimental?.appDir;
-  const dirs = isAppDirNext13 ? appDirNext13 : possiblePageDirs;
 
   // NEXT_TRANSLATE_PATH env is supported both relative and absolute path
   const dir = path.resolve(
@@ -54,37 +38,34 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     },
   }
 
+  const pagesFolder = calculatePageDir('pages', pagesInDir, dir)
+  const appFolder = calculatePageDir('app', pagesInDir, dir)
   let hasGetInitialPropsOnAppJs = false
+  let hasAppJs = false
 
-  if (!pagesInDir) {
-    for (const possiblePageDir of dirs) {
-      if (fs.existsSync(path.join(dir, possiblePageDir))) {
-        pagesInDir = possiblePageDir
-        break
-      }
-    }
-  }
-
-  if (!pagesInDir || !fs.existsSync(path.join(dir, pagesInDir))) {
-    // Pages folder not found, so we're not using the loader
+  // Pages folder not found, so we're not using the loader
+  if (!existPages(dir, pagesFolder) && !existPages(dir, appFolder)) {
     return nextConfigWithI18n
   }
 
+  if (pagesFolder) {
+    const pagesPath = path.join(dir, pagesFolder)
+    const app = fs.readdirSync(pagesPath).find((page) => page.startsWith('_app.'))
 
-  const pagesPath = path.join(dir, pagesInDir)
-  const app = fs.readdirSync(pagesPath).find((page) => page.startsWith('_app.'))
+    if (app) {
+      const appPkg = parseFile(dir, path.join(pagesPath, app))
+      const defaultExport = getDefaultExport(appPkg)
 
-  if (app) {
-    const appPkg = parseFile(dir, path.join(pagesPath, app))
-    const defaultExport = getDefaultExport(appPkg)
+      hasAppJs = true
 
-    if (defaultExport) {
-      const isGetInitialProps = hasStaticName(
-        appPkg,
-        defaultExport,
-        'getInitialProps'
-      )
-      hasGetInitialPropsOnAppJs = isGetInitialProps || hasHOC(appPkg)
+      if (defaultExport) {
+        const isGetInitialProps = hasStaticName(
+          appPkg,
+          defaultExport,
+          'getInitialProps'
+        )
+        hasGetInitialPropsOnAppJs = isGetInitialProps || hasHOC(appPkg)
+      }
     }
   }
 
@@ -117,13 +98,13 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
           loader: 'next-translate-plugin/loader',
           options: {
             basePath,
-            pagesPath: path.join(pagesPath, '/'),
-            hasAppJs: Boolean(app),
+            pagesFolder: pagesFolder ? path.join(pagesFolder, '/') : undefined,
+            appFolder: appFolder ? path.join(appFolder, '/') : undefined,
+            hasAppJs,
             hasGetInitialPropsOnAppJs,
             hasLoadLocaleFrom: typeof restI18n.loadLocaleFrom === 'function',
             extensionsRgx: restI18n.extensionsRgx || test,
             revalidate: restI18n.revalidate || 0,
-            isAppDirNext13,
           } as LoaderOptions,
         },
       })

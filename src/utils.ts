@@ -1,4 +1,6 @@
 import ts from 'typescript'
+import path from 'path'
+import fs from 'fs'
 import { ParsedFilePkg, Transformer } from './types'
 
 const specFileOrFolderRgx =
@@ -575,4 +577,28 @@ export function interceptExport(
 
 export function removeCommentsFromCode(code: string) {
   return code.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '')
+}
+
+export function calculatePageDir(name: 'pages' | 'app', pagesInDir: string | undefined, dir: string) {
+  if (pagesInDir) return pagesInDir.replace(new RegExp('(app|pages)$'), name)
+
+  const dirs = [
+    name,
+    `src/${name}`,
+    // https://github.com/blitz-js/blitz/blob/canary/nextjs/packages/next/build/utils.ts#L54-L59
+    `app/${name}`,
+    `integrations/${name}`,
+  ] as const
+
+  for (const possiblePageDir of dirs) {
+    if (fs.existsSync(path.join(dir, possiblePageDir))) {
+      return possiblePageDir
+    }
+  }
+
+  return
+}
+
+export function existPages(dir: string, pages: string | undefined) {
+  return pages && fs.existsSync(path.join(dir, pages))
 }

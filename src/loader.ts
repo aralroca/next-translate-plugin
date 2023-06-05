@@ -20,18 +20,20 @@ export default function loader(
 ) {
   const {
     basePath,
-    pagesPath,
+    pagesFolder,
+    appFolder,
     hasAppJs,
     hasGetInitialPropsOnAppJs,
     hasLoadLocaleFrom,
     extensionsRgx,
     revalidate,
-    isAppDirNext13,
   } = this.getOptions()
+  const normalizedResourcePath = this.resourcePath.replace(/\\/g, '/')
+  const isAppDirNext13 = appFolder && normalizedResourcePath.includes(appFolder)
+  const pagesPath = (isAppDirNext13 ? pagesFolder : appFolder) as string
 
   // Normalize slashes in a file path to be posix/unix-like forward slashes
   const normalizedPagesPath = pagesPath.replace(/\\/g, '/')
-  const normalizedResourcePath = this.resourcePath.replace(/\\/g, '/')
 
   // In case that there aren't /_app.js we want to overwrite the default _app
   // to provide the I18Provider on top.
