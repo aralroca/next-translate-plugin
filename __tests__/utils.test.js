@@ -1,5 +1,6 @@
 import { isPageToIgnore, calculatePageDir } from '../src/utils'
 import fs from 'fs'
+import path from 'path'
 
 jest.spyOn(fs, 'existsSync')
 
@@ -78,41 +79,41 @@ describe('utils', () => {
     test('should detect src/pages', () => {
       const name = 'pages'
       const pagesInDir = undefined
-      const dir = '/home/user/project'
+      const dir = path.join('/home/user/project')
 
-      fs.existsSync.mockImplementation((path) => path === '/home/user/project/src/pages')
+      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/src/pages'))
 
-      expect(calculatePageDir(name, pagesInDir, dir)).toBe('src/pages')
+      expect(calculatePageDir(name, pagesInDir, dir)).toBe(path.join('src/pages'))
     })
 
     test('should detect src/app', () => {
       const name = 'app'
       const pagesInDir = undefined
-      const dir = '/home/user/project'
+      const dir = path.join('/home/user/project')
 
-      fs.existsSync.mockImplementation((path) => path === '/home/user/project/src/app')
+      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/src/app'))
 
-      expect(calculatePageDir(name, pagesInDir, dir)).toBe('src/app')
+      expect(calculatePageDir(name, pagesInDir, dir)).toBe(path.join('src/app'))
     })
 
     test('should use the pagesInDir for appDir', () => {
       const name = 'app'
-      const dir = '/home/user/project'
+      const dir = path.join('/home/user/project')
 
-      fs.existsSync.mockImplementation((path) => path === '/home/user/project/somepath/app')
+      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/somepath/app'))
 
-      expect(calculatePageDir(name, 'somepath/pages', dir)).toBe('somepath/app')
-      expect(calculatePageDir(name, 'somepath/app', dir)).toBe('somepath/app')
+      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe(path.join('somepath/app'))
+      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe(path.join('somepath/app'))
     })
 
     test('should use the pagesInDir for pages folder', () => {
       const name = 'pages'
-      const dir = '/home/user/project'
+      const dir = path.join('/home/user/project')
 
-      fs.existsSync.mockImplementation((path) => path === '/home/user/project/somepath/pages')
+      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/somepath/pages'))
 
-      expect(calculatePageDir(name, 'somepath/pages', dir)).toBe('somepath/pages')
-      expect(calculatePageDir(name, 'somepath/app', dir)).toBe('somepath/pages')
+      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe(path.join('somepath/pages'))
+      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe(path.join('somepath/pages'))
     })
   })
 })
