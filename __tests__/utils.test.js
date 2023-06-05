@@ -93,7 +93,7 @@ describe('utils', () => {
 
       fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/src/app'))
 
-      expect(calculatePageDir(name, pagesInDir, dir)).toBe('src/app')
+      expect(calculatePageDir(name, pagesInDir, dir)).toBe(path.join('src/app'))
     })
 
     test('should use the pagesInDir for appDir', () => {
