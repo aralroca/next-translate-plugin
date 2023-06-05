@@ -83,7 +83,7 @@ describe('utils', () => {
 
       fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/src/pages'))
 
-      expect(calculatePageDir(name, pagesInDir, dir)).toBe(path.join('src/pages'))
+      expect(calculatePageDir(name, pagesInDir, dir)).toBe('src/pages')
     })
 
     test('should detect src/app', () => {
@@ -93,7 +93,7 @@ describe('utils', () => {
 
       fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/src/app'))
 
-      expect(calculatePageDir(name, pagesInDir, dir)).toBe(path.join('src/app'))
+      expect(calculatePageDir(name, pagesInDir, dir)).toBe('src/app')
     })
 
     test('should use the pagesInDir for appDir', () => {
@@ -102,8 +102,8 @@ describe('utils', () => {
 
       fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/somepath/app'))
 
-      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe(path.join('somepath/app'))
-      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe(path.join('somepath/app'))
+      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe('somepath/app')
+      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe('somepath/app')
     })
 
     test('should use the pagesInDir for pages folder', () => {
@@ -112,8 +112,8 @@ describe('utils', () => {
 
       fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/somepath/pages'))
 
-      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe(path.join('somepath/pages'))
-      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe(path.join('somepath/pages'))
+      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe('somepath/pages')
+      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe('somepath/pages')
     })
   })
 })
