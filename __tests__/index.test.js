@@ -1,5 +1,6 @@
 import nextTranslate from '../src/index'
 import fs from 'fs'
+import path from 'path'
 
 jest.spyOn(fs, 'readdirSync')
 
@@ -36,8 +37,8 @@ describe('nextTranslate', () => {
                 use: expect.objectContaining({
                   loader: 'next-translate-plugin/loader',
                   options: expect.objectContaining({
-                    appFolder: 'src/app/',
-                    pagesFolder: 'src/pages/',
+                    appFolder: path.join('src/app', '/'),
+                    pagesFolder: path.join('src/pages', '/'),
                   }),
                 }),
               }),
