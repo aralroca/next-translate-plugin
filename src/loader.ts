@@ -1,4 +1,5 @@
 import type webpack from 'webpack'
+import path from 'path'
 
 import templateWithHoc from './templateWithHoc'
 import templateWithLoader from './templateWithLoader'
@@ -16,7 +17,7 @@ import templateAppDir from './templateAppDir'
 
 export default function loader(
   this: webpack.LoaderContext<LoaderOptions>,
-  rawCode: string
+  rawCode: string,
 ) {
   const {
     basePath,
@@ -28,9 +29,9 @@ export default function loader(
     extensionsRgx,
     revalidate,
   } = this.getOptions()
-  const normalizedResourcePath = this.resourcePath.replace(/\\/g, '/')
-  const isAppDirNext13 = appFolder && normalizedResourcePath.includes(appFolder)
-  const pagesPath = (isAppDirNext13 ? pagesFolder : appFolder) as string
+  const normalizedResourcePath = path.join(path.relative(basePath, this.resourcePath)).replace(/\\/g, '/')
+  const isAppDirNext13 = appFolder && normalizedResourcePath.includes(appFolder.replace(/\\/g, '/'))
+  const pagesPath = (isAppDirNext13 ? appFolder : pagesFolder) as string
 
   // Normalize slashes in a file path to be posix/unix-like forward slashes
   const normalizedPagesPath = pagesPath.replace(/\\/g, '/')
@@ -46,23 +47,24 @@ export default function loader(
   }
 
   // Skip rest of files that are not inside /pages
-  if (!isAppDirNext13 && !normalizedResourcePath.startsWith(normalizedPagesPath)) return rawCode
+  if (!isAppDirNext13 && !normalizedResourcePath.includes(normalizedPagesPath)) return rawCode
 
   const page = normalizedResourcePath.replace(normalizedPagesPath, '/')
   const pageNoExt = page.replace(extensionsRgx, '')
   const pagePkg = parseFile(basePath, normalizedResourcePath)
+
+  if (isAppDirNext13) {
+    return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt, normalizedResourcePath, normalizedPagesPath })
+  }
+
   const defaultExport = getDefaultExport(pagePkg)
 
   // Skip any transformation if for some reason they forgot to write the
   // "export default" on the page
   if (!defaultExport) return rawCode
 
-  if (isAppDirNext13) {
-    return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt, normalizedResourcePath, normalizedPagesPath })
-  }
-
   // Skip any transformation if the page is not in raw code
-  // Fixes issue with Nx: https://github.com/vinissimus/next-translate/issues/677
+  // Fixes issue with Nx: https://github.com/aralroca/next-translate/issues/677
   if (hasExportName(pagePkg, '__N_SSP') || hasExportName(pagePkg, '__N_SSG')) {
     return rawCode
   }
