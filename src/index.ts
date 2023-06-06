@@ -40,15 +40,16 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
 
   const pagesFolder = calculatePageDir('pages', pagesInDir, dir)
   const appFolder = calculatePageDir('app', pagesInDir, dir)
+  const existPagesFolder = existPages(dir, pagesFolder)
   let hasGetInitialPropsOnAppJs = false
   let hasAppJs = false
 
   // Pages folder not found, so we're not using the loader
-  if (!existPages(dir, pagesFolder) && !existPages(dir, appFolder)) {
+  if (!existPagesFolder && !existPages(dir, appFolder)) {
     return nextConfigWithI18n
   }
 
-  if (pagesFolder) {
+  if (existPagesFolder) {
     const pagesPath = path.join(dir, pagesFolder)
     const app = fs.readdirSync(pagesPath).find((page) => page.startsWith('_app.'))
 
@@ -98,8 +99,8 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
           loader: 'next-translate-plugin/loader',
           options: {
             basePath,
-            pagesFolder: pagesFolder ? path.join(pagesFolder, '/') : undefined,
-            appFolder: appFolder ? path.join(appFolder, '/') : undefined,
+            pagesFolder: path.join(pagesFolder, '/'),
+            appFolder: path.join(appFolder, '/'),
             hasAppJs,
             hasGetInitialPropsOnAppJs,
             hasLoadLocaleFrom: typeof restI18n.loadLocaleFrom === 'function',

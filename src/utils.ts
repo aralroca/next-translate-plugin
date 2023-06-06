@@ -596,7 +596,7 @@ export function calculatePageDir(name: 'pages' | 'app', pagesInDir: string | und
     }
   }
 
-  return
+  return name
 }
 
 export function existPages(dir: string, pages: string | undefined) {
