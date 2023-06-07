@@ -6,6 +6,8 @@ import { ParsedFilePkg, Transformer } from './types'
 const specFileOrFolderRgx =
   /(__mocks__|__tests__)|(\.(spec|test)\.(tsx|ts|js|jsx)$)/
 
+export const clientLine = ['"use client"', "'use client'"]
+
 export const defaultLoader =
   '(l, n) => import(`@next-translate-root/locales/${l}/${n}`).then(m => m.default)'
 

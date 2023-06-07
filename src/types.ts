@@ -2,8 +2,8 @@ import type ts from 'typescript'
 
 export interface LoaderOptions {
   basePath: string
-  pagesFolder: string | undefined
-  appFolder: string | undefined
+  pagesFolder: string
+  appFolder: string
   hasAppJs: boolean
   hasGetInitialPropsOnAppJs: boolean
   hasLoadLocaleFrom: boolean

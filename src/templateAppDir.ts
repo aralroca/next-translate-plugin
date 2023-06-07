@@ -1,16 +1,13 @@
 import { ParsedFilePkg } from "./types";
-import { interceptExport, overwriteLoadLocales, getNamedExport, removeCommentsFromCode } from "./utils";
+import { interceptExport, overwriteLoadLocales, getNamedExport, clientLine } from "./utils";
 
-const clientLine = ['"use client"', "'use client'"]
 const defaultDynamicExport = `export const dynamic = 'force-dynamic';`
 
-export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFrom = false, pageNoExt = '/', normalizedResourcePath = '', appFolder = '' } = {}) {
+export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFrom = false, pageNoExt = '/', normalizedResourcePath = '', appFolder = '', isClientComponent = false } = {}) {
   let code = pagePkg.getCode()
-  const codeWithoutComments = removeCommentsFromCode(code).trim()
-  const isClientCode = clientLine.some(line => codeWithoutComments.startsWith(line))
   const isPage = pageNoExt.endsWith('/page') && normalizedResourcePath.startsWith(appFolder)
 
-  if (!isPage && !isClientCode) return code
+  if (!isPage && !isClientComponent) return code
 
   const hash = Date.now().toString(16)
   const pathname = pageNoExt.replace('/page', '/')
@@ -26,13 +23,13 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
   const dynamicVariable = getNamedExport(pagePkg, 'dynamic', false)
   const dynamicExport = dynamicVariable ? '' : defaultDynamicExport;
 
-  if (!pageVariableName) return code
+  if (isPage && !pageVariableName) return code
 
   // Get the new code after intercepting the export
   code = pagePkg.getCode()
 
-  if (isClientCode && !isPage) return templateAppDirClientComponent({ code, hash, pageVariableName })
-  if (isClientCode && isPage) return templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasLoadLocaleFrom })
+  if (isClientComponent && !isPage) return templateAppDirClientComponent({ code, hash, pageVariableName })
+  if (isClientComponent && isPage) return templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasLoadLocaleFrom })
 
   return `
     import __i18nConfig from '@next-translate-root/i18n'
