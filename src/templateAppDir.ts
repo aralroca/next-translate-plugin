@@ -81,46 +81,45 @@ function templateAppDirClientComponent({ pagePkg, hash, pageVariableName }: Clie
   // Clear current "use client" top line
   clientLine.forEach(line => { clientCode = clientCode.replace(line, '') })
 
-  const wrapComponent = (exportName: string, defaultLocalName: string, exportDefault = true) => `
-    ${exportDefault ? 'export default' : ''} function ${defaultLocalName}(props) {
-      const forceUpdate = __react.useReducer(() => [])[1]
-      const isClient = typeof window !== 'undefined'
-
-      if (isClient && !window.__NEXT_TRANSLATE__) {
-        window.__NEXT_TRANSLATE__ = { lang: __i18nConfig.defaultLocale, namespaces: {} }
-        update(false)
-      }
-
-      if (isClient && !window.i18nConfig) {
-        window.i18nConfig = __i18nConfig
-      }
-
-      __react.useEffect(update)
-
-      function update(rerender = true) {
-        const el = document.getElementById('__NEXT_TRANSLATE_DATA__')
-
-        if (!el) return
-
-        const { lang, ns, pathname } = el.dataset
-        const shouldRerender = lang !== window.__NEXT_TRANSLATE__.lang || pathname !== window.__NEXT_TRANSLATE__.pathname
-        window.__NEXT_TRANSLATE__ = { lang, namespaces: JSON.parse(ns), pathname }
-        if (shouldRerender && rerender) forceUpdate()
-      }
-
-      return <${exportName} {...props} />
-    }
-    ${exportDefault ? '' : `export { ${defaultLocalName} as ${exportName} }`}
-  `
-
-  const defaultExportModified = pageVariableName ? wrapComponent(pageVariableName, `__Next_Translate_new__${hash}__`) : ''
-  const namedExportsModified = namedExports.map(({ exportName, defaultLocalName }) => wrapComponent(exportName, defaultLocalName, false)).join('\n')
+  const defaultExportModified = pageVariableName ? addExportIntoTheTemplate(pageVariableName) : ''
+  const namedExportsModified = namedExports.map(({ exportName, defaultLocalName }) => addExportIntoTheTemplate(exportName, defaultLocalName, false)).join('')
 
   return `${topLine}
     import __i18nConfig from '@next-translate-root/i18n'
     import * as __react from 'react'
 
     ${clientCode}
+
+    function _withClientTranslations(Component) {
+      return function (props) {
+        const forceUpdate = __react.useReducer(() => [])[1]
+        const isClient = typeof window !== 'undefined'
+
+        if (isClient && !window.__NEXT_TRANSLATE__) {
+          window.__NEXT_TRANSLATE__ = { lang: __i18nConfig.defaultLocale, namespaces: {} }
+          update(false)
+        }
+
+        if (isClient && !window.i18nConfig) {
+          window.i18nConfig = __i18nConfig
+        }
+
+        __react.useEffect(update)
+
+        function update(rerender = true) {
+          const el = document.getElementById('__NEXT_TRANSLATE_DATA__')
+
+          if (!el) return
+
+          const { lang, ns, pathname } = el.dataset
+          const shouldRerender = lang !== window.__NEXT_TRANSLATE__.lang || pathname !== window.__NEXT_TRANSLATE__.pathname
+          window.__NEXT_TRANSLATE__ = { lang, namespaces: JSON.parse(ns), pathname }
+          if (shouldRerender && rerender) forceUpdate()
+        }
+
+        return <Component {...props} />
+      }
+    }
 
     ${defaultExportModified}
 
@@ -173,5 +172,15 @@ function templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasL
 
       return <${pageVariableName} {...props} />
     }
+  `
+}
+
+function addExportIntoTheTemplate(exportName: string, defaultLocalName?: string, exportDefault = true) {
+  if (exportDefault) {
+    return `export default _withClientTranslations(${exportName})`
+  }
+  return `
+    const ${defaultLocalName} = _withClientTranslations(${exportName})
+    export { ${defaultLocalName} as ${exportName} }
   `
 }
