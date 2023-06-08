@@ -2,6 +2,7 @@ import { ParsedFilePkg } from "./types";
 import { interceptExport, overwriteLoadLocales, getNamedExport, clientLine, interceptNamedExportsFromReactComponents } from "./utils";
 
 const defaultDynamicExport = `export const dynamic = 'force-dynamic';`
+const hocName = '__withTranslationClientComponent'
 
 export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFrom = false, pageNoExt = '/', normalizedResourcePath = '', appFolder = '', isClientComponent = false } = {}) {
   let code = pagePkg.getCode()
@@ -28,8 +29,8 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
   // Get the new code after intercepting the export
   code = pagePkg.getCode()
 
-  if (isClientComponent && !isPage) return templateAppDirClientComponent({ pagePkg, code, hash, pageVariableName })
-  if (isClientComponent && isPage) return templateAppDirClientPage({ pagePkg, code, hash, pageVariableName, pathname, hasLoadLocaleFrom })
+  if (isClientComponent && !isPage) return templateAppDirClientComponent({ pagePkg, hash, pageVariableName })
+  if (isClientComponent && isPage) return templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname, hasLoadLocaleFrom })
 
   return `
     import __i18nConfig from '@next-translate-root/i18n'
@@ -71,22 +72,17 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
 `
 }
 
-type ClientTemplateParams = { pagePkg: ParsedFilePkg, code: string, hash: string, pageVariableName: string, pathname?: string, hasLoadLocaleFrom?: boolean }
+type ClientTemplateParams = { pagePkg: ParsedFilePkg, hash: string, pageVariableName: string, pathname?: string, hasLoadLocaleFrom?: boolean }
 
 function templateAppDirClientComponent({ pagePkg, hash, pageVariableName }: ClientTemplateParams) {
   const topLine = clientLine[0]
-  const namedExports = interceptNamedExportsFromReactComponents(pagePkg, hash)
+  const namedExportsModified = modifyNamedExportsComponents(pagePkg, hash)
   let clientCode = pagePkg.getCode()
 
   // Clear current "use client" top line
   clientLine.forEach(line => { clientCode = clientCode.replace(line, '') })
 
-  const hocName = '__withTranslationClientComponent'
   const defaultExportModified = pageVariableName ? `export default ${hocName}(${pageVariableName}, __i18nConfig)` : ''
-  const namedExportsModified = namedExports.map(({ exportName, defaultLocalName }) => `
-    const ${defaultLocalName} = ${hocName}(${exportName}, __i18nConfig)
-    export { ${defaultLocalName} as ${exportName} }
-  `).join('')
 
   return `${topLine}
     import __i18nConfig from '@next-translate-root/i18n'
@@ -101,9 +97,9 @@ function templateAppDirClientComponent({ pagePkg, hash, pageVariableName }: Clie
   `
 }
 
-function templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasLoadLocaleFrom }: ClientTemplateParams) {
-  let clientCode = code
+function templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname, hasLoadLocaleFrom }: ClientTemplateParams) {
   const topLine = clientLine[0]
+  let clientCode = pagePkg.getCode()
 
   // Clear current "use client" top line
   clientLine.forEach(line => { clientCode = clientCode.replace(line, '') })
@@ -118,9 +114,10 @@ function templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasL
 
     export default function __Next_Translate_new__${hash}__(props) {
       const forceUpdate = __react.useReducer(() => [])[1]
-      const lang = __useSearchParams().get('lang')
       const pathname = '${pathname}'
       const isServer = typeof window === 'undefined'
+      let lang = __useSearchParams().get('lang')
+
       const config = { 
         ...__i18nConfig,
         locale: lang,
@@ -135,16 +132,28 @@ function templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasL
         if (!shouldLoad) return
 
         __loadNamespaces(config).then(({ __lang, __namespaces }) => {
-          window.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, pathname: '${pathname}' }
+          window.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces || {}, pathname: '${pathname}' }
           window.i18nConfig = __i18nConfig
           forceUpdate()
         })
       }, [lang])
 
-      if (isServer) __log(config, { page: pathname, lang, namespaces: ['calculated in client-side'] })
-      if (isServer || !window.__NEXT_TRANSLATE__) return null
+      if (isServer) {
+        __log(config, { page: pathname, lang, namespaces: ['calculated in client-side'] })
+        return null
+      }
+
+      if (!window.__NEXT_TRANSLATE__) return null
 
       return <${pageVariableName} {...props} />
     }
   `
+}
+
+function modifyNamedExportsComponents(pagePkg: ParsedFilePkg, hash: string) {
+  return interceptNamedExportsFromReactComponents(pagePkg, hash)
+    .map(({ exportName, defaultLocalName }) => `
+    const ${defaultLocalName} = ${hocName}(${exportName}, __i18nConfig)
+    export { ${defaultLocalName} as ${exportName} }
+  `).join('').trim()
 }
