@@ -11,6 +11,8 @@ import {
   hasStaticName,
   isPageToIgnore,
   hasHOC,
+  removeCommentsFromCode,
+  clientLine,
 } from './utils'
 import { LoaderOptions } from './types'
 import templateAppDir from './templateAppDir'
@@ -31,8 +33,11 @@ export default function loader(
   } = this.getOptions()
   try {
     const normalizedResourcePath = path.join(path.relative(basePath, this.resourcePath)).replace(/\\/g, '/')
-    const isAppDirNext13 = appFolder && normalizedResourcePath.includes(appFolder.replace(/\\/g, '/'))
-    const pagesPath = (isAppDirNext13 ? appFolder : pagesFolder) as string
+    const isNextInternal = normalizedResourcePath.includes('node_modules/next/dist/')
+    const codeWithoutComments = removeCommentsFromCode(rawCode).trim()
+    const isClientComponent = !isNextInternal && clientLine.some(line => codeWithoutComments.startsWith(line))
+    const shouldUseTemplateAppDir = isClientComponent || normalizedResourcePath.includes(appFolder.replace(/\\/g, '/'))
+    const pagesPath = (shouldUseTemplateAppDir ? appFolder : pagesFolder) as string
 
     // Normalize slashes in a file path to be posix/unix-like forward slashes
     const normalizedPagesPath = pagesPath.replace(/\\/g, '/')
@@ -47,15 +52,15 @@ export default function loader(
       return getDefaultAppJs(hasLoadLocaleFrom)
     }
 
-    // Skip rest of files that are not inside /pages
-    if (!isAppDirNext13 && !normalizedResourcePath.includes(normalizedPagesPath)) return rawCode
+    // Skip rest of files that are not inside /pages (and is not detected as appDir)
+    if (!shouldUseTemplateAppDir && !normalizedResourcePath.includes(normalizedPagesPath)) return rawCode
 
     const page = normalizedResourcePath.replace(normalizedPagesPath, '/')
     const pageNoExt = page.replace(extensionsRgx, '')
     const pagePkg = parseFile(basePath, normalizedResourcePath)
 
-    if (isAppDirNext13) {
-      return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt, normalizedResourcePath, appFolder })
+    if (shouldUseTemplateAppDir) {
+      return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt, normalizedResourcePath, appFolder, isClientComponent })
     }
 
     const defaultExport = getDefaultExport(pagePkg)
