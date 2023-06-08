@@ -1,5 +1,5 @@
 import { ParsedFilePkg } from "./types";
-import { interceptExport, overwriteLoadLocales, getNamedExport, clientLine } from "./utils";
+import { interceptExport, overwriteLoadLocales, getNamedExport, clientLine, interceptNamedExportsFromReactComponents } from "./utils";
 
 const defaultDynamicExport = `export const dynamic = 'force-dynamic';`
 
@@ -28,8 +28,8 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
   // Get the new code after intercepting the export
   code = pagePkg.getCode()
 
-  if (isClientComponent && !isPage) return templateAppDirClientComponent({ code, hash, pageVariableName })
-  if (isClientComponent && isPage) return templateAppDirClientPage({ code, hash, pageVariableName, pathname, hasLoadLocaleFrom })
+  if (isClientComponent && !isPage) return templateAppDirClientComponent({ pagePkg, code, hash, pageVariableName })
+  if (isClientComponent && isPage) return templateAppDirClientPage({ pagePkg, code, hash, pageVariableName, pathname, hasLoadLocaleFrom })
 
   return `
     import __i18nConfig from '@next-translate-root/i18n'
@@ -71,22 +71,18 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFr
 `
 }
 
-type ClientTemplateParams = { code: string, hash: string, pageVariableName: string, pathname?: string, hasLoadLocaleFrom?: boolean }
+type ClientTemplateParams = { pagePkg: ParsedFilePkg, code: string, hash: string, pageVariableName: string, pathname?: string, hasLoadLocaleFrom?: boolean }
 
-function templateAppDirClientComponent({ code, hash, pageVariableName }: ClientTemplateParams) {
-  let clientCode = code
+function templateAppDirClientComponent({ pagePkg, hash, pageVariableName }: ClientTemplateParams) {
   const topLine = clientLine[0]
+  const namedExports = interceptNamedExportsFromReactComponents(pagePkg, hash)
+  let clientCode = pagePkg.getCode()
 
   // Clear current "use client" top line
   clientLine.forEach(line => { clientCode = clientCode.replace(line, '') })
 
-  return `${topLine}
-    import __i18nConfig from '@next-translate-root/i18n'
-    import * as __react from 'react'
-
-    ${clientCode}
-
-    export default function __Next_Translate_new__${hash}__(props) {
+  const wrapComponent = (exportName: string, defaultLocalName: string, exportDefault = true) => `
+    ${exportDefault ? 'export default' : ''} function ${defaultLocalName}(props) {
       const forceUpdate = __react.useReducer(() => [])[1]
       const isClient = typeof window !== 'undefined'
 
@@ -112,8 +108,23 @@ function templateAppDirClientComponent({ code, hash, pageVariableName }: ClientT
         if (shouldRerender && rerender) forceUpdate()
       }
 
-      return <${pageVariableName} {...props} />
+      return <${exportName} {...props} />
     }
+    ${exportDefault ? '' : `export { ${defaultLocalName} as ${exportName} }`}
+  `
+
+  const defaultExportModified = pageVariableName ? wrapComponent(pageVariableName, `__Next_Translate_new__${hash}__`) : ''
+  const namedExportsModified = namedExports.map(({ exportName, defaultLocalName }) => wrapComponent(exportName, defaultLocalName, false)).join('\n')
+
+  return `${topLine}
+    import __i18nConfig from '@next-translate-root/i18n'
+    import * as __react from 'react'
+
+    ${clientCode}
+
+    ${defaultExportModified}
+
+    ${namedExportsModified}
   `
 }
 
