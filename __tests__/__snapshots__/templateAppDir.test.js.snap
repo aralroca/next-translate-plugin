@@ -64,7 +64,9 @@ export { __Next_Translate_Component_88d9831a00_0 as Component };
 
 exports[`templateAppDir should hydrate (if is not done yet) the translations in a client component with named export (already have the namespaces from the page) pageNoExt: /component | isClientComponent: false | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "\\"use client\\";
+
 import useTranslation from \\"next-translate/useTranslation\\";
+
 export function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
@@ -903,6 +905,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 
 exports[`templateAppDir should not do any transformation in a server component (already have the namespaces from the page) pageNoExt: /about/us/component | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
+
 export default function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
@@ -912,6 +915,7 @@ export default function Component() {
 
 exports[`templateAppDir should not do any transformation in a server component (already have the namespaces from the page) pageNoExt: /component | hasLoadLocaleFrom: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
+
 export default function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
@@ -921,6 +925,7 @@ export default function Component() {
 
 exports[`templateAppDir should not do any transformation in a server component (already have the namespaces from the page) pageNoExt: /component | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
+
 export default function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
@@ -930,6 +935,7 @@ export default function Component() {
 
 exports[`templateAppDir should not transform any page outside app dir pageNoExt: /about/us/page | normalizedResourcePath: /components/page.js | appFolder: app 1`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
+
 export default function Page() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
@@ -939,6 +945,7 @@ export default function Page() {
 
 exports[`templateAppDir should not transform any page outside app dir pageNoExt: /page | hasLoadLocaleFrom: true | normalizedResourcePath: /components/page.js | appFolder: app 1`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
+
 export default function Page() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
@@ -948,6 +955,7 @@ export default function Page() {
 
 exports[`templateAppDir should not transform any page outside app dir pageNoExt: /page | normalizedResourcePath: /components/page.js | appFolder: app 1`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
+
 export default function Page() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;

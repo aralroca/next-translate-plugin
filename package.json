@@ -80,7 +80,7 @@
     "supertest": "6.3.3"
   },
   "peerDependencies": {
-    "next-translate": ">= 2.0.0-canary.1"
+    "next-translate": ">= 2.3.0-canary.3"
   },
   "prettier": {
     "trailingComma": "es5",

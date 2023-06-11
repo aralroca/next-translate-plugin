@@ -4,8 +4,7 @@ import { interceptExport, overwriteLoadLocales, getNamedExport, clientLine, inte
 const defaultDynamicExport = `export const dynamic = 'force-dynamic';`
 const hocName = '__withTranslationClientComponent'
 
-export default function templateAppDir(pagePkg: ParsedFilePkg, { hasLoadLocaleFrom = false, pageNoExt = '/', normalizedResourcePath = '', appFolder = '', isClientComponent = false } = {}) {
-  let code = pagePkg.getCode()
+export default function templateAppDir(pagePkg: ParsedFilePkg, { code = '', hasLoadLocaleFrom = false, pageNoExt = '/', normalizedResourcePath = '', appFolder = '', isClientComponent = false } = {}) {
   const isPage = pageNoExt.endsWith('/page') && normalizedResourcePath.startsWith(appFolder)
 
   if (!isPage && !isClientComponent) return code
