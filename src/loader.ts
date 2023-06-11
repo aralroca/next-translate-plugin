@@ -3,6 +3,8 @@ import path from 'path'
 
 import templateWithHoc from './templateWithHoc'
 import templateWithLoader from './templateWithLoader'
+import templateAppDir from './templateAppDir'
+import type { LoaderOptions } from './types'
 import {
   parseFile,
   getDefaultAppJs,
@@ -14,12 +16,10 @@ import {
   removeCommentsFromCode,
   clientLine,
 } from './utils'
-import { LoaderOptions } from './types'
-import templateAppDir from './templateAppDir'
 
 export default function loader(
   this: webpack.LoaderContext<LoaderOptions>,
-  rawCode: string,
+  rawCode: string
 ) {
   const {
     basePath,
@@ -32,12 +32,26 @@ export default function loader(
     revalidate,
   } = this.getOptions()
   try {
-    const normalizedResourcePath = path.join(path.relative(basePath, this.resourcePath)).replace(/\\/g, '/')
-    const isNextInternal = normalizedResourcePath.includes('node_modules/next/dist/')
     const codeWithoutComments = removeCommentsFromCode(rawCode).trim()
-    const isClientComponent = !isNextInternal && clientLine.some(line => codeWithoutComments.startsWith(line))
-    const shouldUseTemplateAppDir = isClientComponent || normalizedResourcePath.includes(appFolder.replace(/\\/g, '/'))
-    const pagesPath = (shouldUseTemplateAppDir ? appFolder : pagesFolder) as string
+    const normalizedResourcePath = path
+      .join(path.relative(basePath, this.resourcePath))
+      .replace(/\\/g, '/')
+
+    const isNextInternal = normalizedResourcePath.includes(
+      'node_modules/next/dist/'
+    )
+
+    const isClientComponent =
+      !isNextInternal &&
+      clientLine.some((line) => codeWithoutComments.startsWith(line))
+
+    const shouldUseTemplateAppDir =
+      isClientComponent ||
+      normalizedResourcePath.includes(appFolder.replace(/\\/g, '/'))
+
+    const pagesPath = (
+      shouldUseTemplateAppDir ? appFolder : pagesFolder
+    ) as string
 
     // Normalize slashes in a file path to be posix/unix-like forward slashes
     const normalizedPagesPath = pagesPath.replace(/\\/g, '/')
@@ -53,14 +67,38 @@ export default function loader(
     }
 
     // Skip rest of files that are not inside /pages (and is not detected as appDir)
-    if (!shouldUseTemplateAppDir && !normalizedResourcePath.includes(normalizedPagesPath)) return rawCode
+    if (
+      !shouldUseTemplateAppDir &&
+      !normalizedResourcePath.includes(normalizedPagesPath)
+    )
+      return rawCode
 
     const page = normalizedResourcePath.replace(normalizedPagesPath, '/')
     const pageNoExt = page.replace(extensionsRgx, '')
     const pagePkg = parseFile(basePath, normalizedResourcePath)
 
+    // Skip any transformation if the page is not in raw code
+    // Fixes issues with Nx: 
+    // - https://github.com/aralroca/next-translate/issues/677
+    // - https://github.com/aralroca/next-translate-plugin/issues/28
+    if (
+      hasExportName(pagePkg, '__N_SSP') ||
+      hasExportName(pagePkg, '__N_SSG')
+    ) {
+      return rawCode
+    }
+
+    // In case the page is inside the app folder, we need to use the template
+    // for pages (default export) and client components (default export or named export)
     if (shouldUseTemplateAppDir) {
-      return templateAppDir(pagePkg, { hasLoadLocaleFrom, pageNoExt, normalizedResourcePath, appFolder, isClientComponent })
+      return templateAppDir(pagePkg, {
+        hasLoadLocaleFrom,
+        pageNoExt,
+        normalizedResourcePath,
+        appFolder,
+        isClientComponent,
+        code: rawCode,
+      })
     }
 
     const defaultExport = getDefaultExport(pagePkg)
@@ -69,11 +107,6 @@ export default function loader(
     // "export default" on the page
     if (!defaultExport) return rawCode
 
-    // Skip any transformation if the page is not in raw code
-    // Fixes issue with Nx: https://github.com/aralroca/next-translate/issues/677
-    if (hasExportName(pagePkg, '__N_SSP') || hasExportName(pagePkg, '__N_SSG')) {
-      return rawCode
-    }
 
     // In case there is a getInitialProps in _app it means that we can
     // reuse the existing getInitialProps on the top to load the namespaces.

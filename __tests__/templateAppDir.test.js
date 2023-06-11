@@ -151,7 +151,7 @@ describe('templateAppDir', () => {
         fn(testName.join(' | '), () => {
           Date.now = jest.fn(() => 587764800000)
           expect(
-            clean(templateAppDir(parseCode('jsx', d.code), options))
+            clean(templateAppDir(parseCode('jsx', d.code), { ...options, code: d.code }))
           ).toMatchSnapshot()
         })
       })
