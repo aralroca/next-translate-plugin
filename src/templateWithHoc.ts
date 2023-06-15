@@ -1,9 +1,9 @@
-import { interceptExport, overwriteLoadLocales } from './utils'
+import { INTERNAL_CONFIG_KEY, interceptExport, addLoadLocalesFrom } from './utils'
 import { ParsedFilePkg } from './types'
 
 export default function templateWithHoc(
   pagePkg: ParsedFilePkg,
-  { skipInitialProps = false, hasLoadLocaleFrom = false } = {}
+  { skipInitialProps = false } = {}
 ) {
   // Random string based on current time
   const hash = Date.now().toString(16)
@@ -21,14 +21,14 @@ export default function templateWithHoc(
   if (!hasDefaultExport) return pagePkg.getCode()
 
   return `
-    import __i18nConfig from '@next-translate-root/i18n'
+    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
     import __appWithI18n from 'next-translate/appWithI18n'
     ${pagePkg.getCode()}
     export default __appWithI18n(${pageVariableName}, {
-      ...__i18nConfig,
+      ...${INTERNAL_CONFIG_KEY},
       isLoader: true,
       skipInitialProps: ${skipInitialProps},
-      ${overwriteLoadLocales(hasLoadLocaleFrom)}
+      ${addLoadLocalesFrom()}
     });
   `
 }

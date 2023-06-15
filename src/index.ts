@@ -103,7 +103,6 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
             appFolder: path.join(appFolder, '/'),
             hasAppJs,
             hasGetInitialPropsOnAppJs,
-            hasLoadLocaleFrom: typeof restI18n.loadLocaleFrom === 'function',
             extensionsRgx: restI18n.extensionsRgx || test,
             revalidate: restI18n.revalidate || 0,
           } as LoaderOptions,

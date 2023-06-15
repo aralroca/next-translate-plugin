@@ -1,10 +1,10 @@
 import { ParsedFilePkg } from "./types";
-import { interceptExport, overwriteLoadLocales, getNamedExport, clientLine, interceptNamedExportsFromReactComponents } from "./utils";
+import { interceptExport, addLoadLocalesFrom, getNamedExport, clientLine, interceptNamedExportsFromReactComponents, INTERNAL_CONFIG_KEY } from "./utils";
 
 const defaultDynamicExport = `export const dynamic = 'force-dynamic';`
 const hocName = '__withTranslationClientComponent'
 
-export default function templateAppDir(pagePkg: ParsedFilePkg, { code = '', hasLoadLocaleFrom = false, pageNoExt = '/', normalizedResourcePath = '', appFolder = '', isClientComponent = false } = {}) {
+export default function templateAppDir(pagePkg: ParsedFilePkg, { code = '', pageNoExt = '/', normalizedResourcePath = '', appFolder = '', isClientComponent = false } = {}) {
   const isPage = pageNoExt.endsWith('/page') && normalizedResourcePath.startsWith(appFolder)
 
   if (!isPage && !isClientComponent) return code
@@ -29,24 +29,24 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { code = '', hasL
   code = pagePkg.getCode()
 
   if (isClientComponent && !isPage) return templateAppDirClientComponent({ pagePkg, hash, pageVariableName })
-  if (isClientComponent && isPage) return templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname, hasLoadLocaleFrom })
+  if (isClientComponent && isPage) return templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname })
 
   return `
-    import __i18nConfig from '@next-translate-root/i18n'
+    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
     import __loadNamespaces from 'next-translate/loadNamespaces'
     ${code}
 
-    globalThis.i18nConfig = __i18nConfig
+    globalThis.i18nConfig = ${INTERNAL_CONFIG_KEY}
 
     ${dynamicExport}
 
     export default async function __Next_Translate_new__${hash}__(props) {
       let config = { 
-        ...__i18nConfig,
+        ...${INTERNAL_CONFIG_KEY},
         locale: props.searchParams?.lang,
         loaderName: \`\${dynamic} (server page)\`,
         pathname: '${pathname}',
-        ${overwriteLoadLocales(hasLoadLocaleFrom)}
+        ${addLoadLocalesFrom()}
       }
   
       if (!globalThis.__NEXT_TRANSLATE__) {
@@ -71,7 +71,7 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { code = '', hasL
 `
 }
 
-type ClientTemplateParams = { pagePkg: ParsedFilePkg, hash: string, pageVariableName: string, pathname?: string, hasLoadLocaleFrom?: boolean }
+type ClientTemplateParams = { pagePkg: ParsedFilePkg, hash: string, pageVariableName: string, pathname?: string }
 
 function templateAppDirClientComponent({ pagePkg, hash, pageVariableName }: ClientTemplateParams) {
   const topLine = clientLine[0]
@@ -81,10 +81,10 @@ function templateAppDirClientComponent({ pagePkg, hash, pageVariableName }: Clie
   // Clear current "use client" top line
   clientLine.forEach(line => { clientCode = clientCode.replace(line, '') })
 
-  const defaultExportModified = pageVariableName ? `export default ${hocName}(${pageVariableName}, __i18nConfig)` : ''
+  const defaultExportModified = pageVariableName ? `export default ${hocName}(${pageVariableName}, ${INTERNAL_CONFIG_KEY})` : ''
 
   return `${topLine}
-    import __i18nConfig from '@next-translate-root/i18n'
+    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
     import * as __react from 'react'
     import ${hocName} from 'next-translate/withTranslationClientComponent'
 
@@ -96,7 +96,7 @@ function templateAppDirClientComponent({ pagePkg, hash, pageVariableName }: Clie
   `
 }
 
-function templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname, hasLoadLocaleFrom }: ClientTemplateParams) {
+function templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname }: ClientTemplateParams) {
   const topLine = clientLine[0]
   let clientCode = pagePkg.getCode()
 
@@ -104,7 +104,7 @@ function templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname, h
   clientLine.forEach(line => { clientCode = clientCode.replace(line, '') })
 
   return `${topLine}
-    import __i18nConfig from '@next-translate-root/i18n'
+    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
     import __loadNamespaces, { log as __log } from 'next-translate/loadNamespaces'
     import { useSearchParams as __useSearchParams } from 'next/navigation'
     import * as __react from 'react'
@@ -118,11 +118,11 @@ function templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname, h
       let lang = __useSearchParams().get('lang')
 
       const config = { 
-        ...__i18nConfig,
+        ...${INTERNAL_CONFIG_KEY},
         locale: lang,
         loaderName: 'useEffect (client page)',
         pathname,
-        ${overwriteLoadLocales(hasLoadLocaleFrom!)}
+        ${addLoadLocalesFrom()}
       }
 
       __react.useEffect(() => {
@@ -132,7 +132,7 @@ function templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname, h
 
         __loadNamespaces(config).then(({ __lang, __namespaces }) => {
           window.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces || {}, pathname: '${pathname}' }
-          window.i18nConfig = __i18nConfig
+          window.i18nConfig = ${INTERNAL_CONFIG_KEY}
           forceUpdate()
         })
       }, [lang])
@@ -152,7 +152,7 @@ function templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname, h
 function modifyNamedExportsComponents(pagePkg: ParsedFilePkg, hash: string) {
   return interceptNamedExportsFromReactComponents(pagePkg, hash)
     .map(({ exportName, defaultLocalName }) => `
-    const ${defaultLocalName} = ${hocName}(${exportName}, __i18nConfig)
+    const ${defaultLocalName} = ${hocName}(${exportName}, ${INTERNAL_CONFIG_KEY})
     export { ${defaultLocalName} as ${exportName} }
   `).join('').trim()
 }
