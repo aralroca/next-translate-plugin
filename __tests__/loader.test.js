@@ -80,6 +80,20 @@ describe('loader', () => {
     expect(mockTemplateWithLoader).toBeCalled();
   });
 
+  it('should not call any template if a client component inside node_modules', () => {
+    const code = `
+      "use client";
+      
+      export default function Page() {
+        return <h1>Page</h1>
+      }
+    `
+    loader.call({ ...config, resourcePath: 'node_modules/component/some-page.ts' }, code);
+    expect(mockTemplateWithLoader).not.toBeCalled();
+    expect(mockTemplateWithHoc).not.toBeCalled();
+    expect(mockTemplateAppDir).not.toBeCalled();
+  });
+
   it('should not call any template if a component from pages', () => {
     const code = `
       export default function Page() {
