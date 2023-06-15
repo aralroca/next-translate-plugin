@@ -6,7 +6,6 @@ export interface LoaderOptions {
   appFolder: string
   hasAppJs: boolean
   hasGetInitialPropsOnAppJs: boolean
-  hasLoadLocaleFrom: boolean
   extensionsRgx: RegExp
   revalidate: number
 }

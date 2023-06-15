@@ -6,14 +6,16 @@ import { ParsedFilePkg, Transformer } from './types'
 const specFileOrFolderRgx =
   /(__mocks__|__tests__)|(\.(spec|test)\.(tsx|ts|js|jsx)$)/
 
+export const INTERNAL_CONFIG_KEY = '__i18nConfig'
+
 export const clientLine = ['"use client"', "'use client'"]
 
 export const defaultLoader =
   '(l, n) => import(`@next-translate-root/locales/${l}/${n}`).then(m => m.default)'
 
-export function getDefaultAppJs(hasLoadLocaleFrom: boolean) {
+export function getDefaultAppJs() {
   return `
-    import i18nConfig from '@next-translate-root/i18n'
+    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
     import appWithI18n from 'next-translate/appWithI18n'
   
     function MyApp({ Component, pageProps }) {
@@ -21,17 +23,16 @@ export function getDefaultAppJs(hasLoadLocaleFrom: boolean) {
     }
   
     export default appWithI18n(MyApp, {
-      ...i18nConfig,
+      ...${INTERNAL_CONFIG_KEY},
       skipInitialProps: true,
       isLoader: true,
-      ${overwriteLoadLocales(hasLoadLocaleFrom)}
+      ${addLoadLocalesFrom()}
     })
   `
 }
 
-export function overwriteLoadLocales(hasLoadLocaleFrom: boolean) {
-  if (hasLoadLocaleFrom) return ''
-  return `loadLocaleFrom: ${defaultLoader},`
+export function addLoadLocalesFrom() {
+  return `loadLocaleFrom: typeof ${INTERNAL_CONFIG_KEY}.loadLocaleFrom === 'function' ? ${INTERNAL_CONFIG_KEY}.loadLocaleFrom : ${defaultLoader},`
 }
 
 /**

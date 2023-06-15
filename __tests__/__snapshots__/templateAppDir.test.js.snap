@@ -15,7 +15,7 @@ export default __withTranslationClientComponent(Component, __i18nConfig);
 "
 `;
 
-exports[`templateAppDir should hydrate (if is not done yet) the translations in a client component (already have the namespaces from the page) pageNoExt: /component | isClientComponent: true | hasLoadLocaleFrom: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should hydrate (if is not done yet) the translations in a client component (already have the namespaces from the page) pageNoExt: /component | isClientComponent: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
 import * as __react from \\"react\\";
@@ -30,7 +30,7 @@ export default __withTranslationClientComponent(Component, __i18nConfig);
 "
 `;
 
-exports[`templateAppDir should hydrate (if is not done yet) the translations in a client component (already have the namespaces from the page) pageNoExt: /component | isClientComponent: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should hydrate (if is not done yet) the translations in a client component (already have the namespaces from the page) pageNoExt: /component | isClientComponent: true | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
 import * as __react from \\"react\\";
@@ -74,7 +74,7 @@ export function Component() {
 "
 `;
 
-exports[`templateAppDir should hydrate (if is not done yet) the translations in a client component with named export (already have the namespaces from the page) pageNoExt: /component | isClientComponent: true | hasLoadLocaleFrom: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should hydrate (if is not done yet) the translations in a client component with named export (already have the namespaces from the page) pageNoExt: /component | isClientComponent: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
 import * as __react from \\"react\\";
@@ -109,8 +109,13 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     locale: props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
-    loadLocaleFrom: (l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default),
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   if (!globalThis.__NEXT_TRANSLATE__) {
@@ -139,7 +144,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 "
 `;
 
-exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /page | hasLoadLocaleFrom: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
@@ -157,6 +162,13 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     locale: props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   if (!globalThis.__NEXT_TRANSLATE__) {
@@ -185,7 +197,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 "
 `;
 
-exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
@@ -203,8 +215,13 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     locale: props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
-    loadLocaleFrom: (l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default),
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   if (!globalThis.__NEXT_TRANSLATE__) {
@@ -251,8 +268,13 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     locale: props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
-    loadLocaleFrom: (l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default),
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   if (!globalThis.__NEXT_TRANSLATE__) {
@@ -281,7 +303,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 "
 `;
 
-exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /page | hasLoadLocaleFrom: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
@@ -299,6 +321,13 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     locale: props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   if (!globalThis.__NEXT_TRANSLATE__) {
@@ -327,7 +356,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 "
 `;
 
-exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
@@ -345,8 +374,13 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     locale: props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
-    loadLocaleFrom: (l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default),
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   if (!globalThis.__NEXT_TRANSLATE__) {
@@ -394,8 +428,13 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     locale: props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
-    loadLocaleFrom: (l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default),
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   if (!globalThis.__NEXT_TRANSLATE__) {
@@ -424,7 +463,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 "
 `;
 
-exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /page | hasLoadLocaleFrom: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
@@ -443,6 +482,13 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     locale: props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   if (!globalThis.__NEXT_TRANSLATE__) {
@@ -471,7 +517,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 "
 `;
 
-exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
@@ -490,8 +536,13 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     locale: props.searchParams?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
-    loadLocaleFrom: (l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default),
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   if (!globalThis.__NEXT_TRANSLATE__) {
@@ -549,8 +600,13 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     locale: lang,
     loaderName: \\"useEffect (client page)\\",
     pathname,
-    loadLocaleFrom: (l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default),
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   __react.useEffect(() => {
@@ -565,71 +621,6 @@ export default function __Next_Translate_new__88d9831a00__(props) {
         lang: __lang,
         namespaces: __namespaces || {},
         pathname: \\"/about/us/\\",
-      };
-      window.i18nConfig = __i18nConfig;
-      forceUpdate();
-    });
-  }, [lang]);
-
-  if (isServer) {
-    __log(config, {
-      page: pathname,
-      lang,
-      namespaces: [\\"calculated in client-side\\"],
-    });
-    return null;
-  }
-
-  if (!window.__NEXT_TRANSLATE__) return null;
-
-  return <Page {...props} />;
-}
-"
-`;
-
-exports[`templateAppDir should load using an useEffect the translations in a client page ("use client" with double quotes and comment before) pageNoExt: /page | isClientComponent: true | hasLoadLocaleFrom: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
-"\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces, { log as __log } from \\"next-translate/loadNamespaces\\";
-import { useSearchParams as __useSearchParams } from \\"next/navigation\\";
-import * as __react from \\"react\\";
-
-// Some comment before
-/*
-  Another comment before
-*/
-import useTranslation from \\"next-translate/useTranslation\\";
-export const dynamic = \\"force-static\\";
-function Page() {
-  const { t, lang } = useTranslation(\\"common\\");
-  return <h1>{t(\\"title\\")}</h1>;
-}
-
-export default function __Next_Translate_new__88d9831a00__(props) {
-  const forceUpdate = __react.useReducer(() => [])[1];
-  const pathname = \\"/\\";
-  const isServer = typeof window === \\"undefined\\";
-  let lang = __useSearchParams().get(\\"lang\\");
-
-  const config = {
-    ...__i18nConfig,
-    locale: lang,
-    loaderName: \\"useEffect (client page)\\",
-    pathname,
-  };
-
-  __react.useEffect(() => {
-    const shouldLoad =
-      lang !== window.__NEXT_TRANSLATE__?.lang ||
-      pathname !== window.__NEXT_TRANSLATE__?.pathname;
-
-    if (!shouldLoad) return;
-
-    __loadNamespaces(config).then(({ __lang, __namespaces }) => {
-      window.__NEXT_TRANSLATE__ = {
-        lang: __lang,
-        namespaces: __namespaces || {},
-        pathname: \\"/\\",
       };
       window.i18nConfig = __i18nConfig;
       forceUpdate();
@@ -681,8 +672,85 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     locale: lang,
     loaderName: \\"useEffect (client page)\\",
     pathname,
-    loadLocaleFrom: (l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default),
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
+  };
+
+  __react.useEffect(() => {
+    const shouldLoad =
+      lang !== window.__NEXT_TRANSLATE__?.lang ||
+      pathname !== window.__NEXT_TRANSLATE__?.pathname;
+
+    if (!shouldLoad) return;
+
+    __loadNamespaces(config).then(({ __lang, __namespaces }) => {
+      window.__NEXT_TRANSLATE__ = {
+        lang: __lang,
+        namespaces: __namespaces || {},
+        pathname: \\"/\\",
+      };
+      window.i18nConfig = __i18nConfig;
+      forceUpdate();
+    });
+  }, [lang]);
+
+  if (isServer) {
+    __log(config, {
+      page: pathname,
+      lang,
+      namespaces: [\\"calculated in client-side\\"],
+    });
+    return null;
+  }
+
+  if (!window.__NEXT_TRANSLATE__) return null;
+
+  return <Page {...props} />;
+}
+"
+`;
+
+exports[`templateAppDir should load using an useEffect the translations in a client page ("use client" with double quotes and comment before) pageNoExt: /page | isClientComponent: true | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
+"\\"use client\\";
+import __i18nConfig from \\"@next-translate-root/i18n\\";
+import __loadNamespaces, { log as __log } from \\"next-translate/loadNamespaces\\";
+import { useSearchParams as __useSearchParams } from \\"next/navigation\\";
+import * as __react from \\"react\\";
+
+// Some comment before
+/*
+  Another comment before
+*/
+import useTranslation from \\"next-translate/useTranslation\\";
+export const dynamic = \\"force-static\\";
+function Page() {
+  const { t, lang } = useTranslation(\\"common\\");
+  return <h1>{t(\\"title\\")}</h1>;
+}
+
+export default function __Next_Translate_new__88d9831a00__(props) {
+  const forceUpdate = __react.useReducer(() => [])[1];
+  const pathname = \\"/\\";
+  const isServer = typeof window === \\"undefined\\";
+  let lang = __useSearchParams().get(\\"lang\\");
+
+  const config = {
+    ...__i18nConfig,
+    locale: lang,
+    loaderName: \\"useEffect (client page)\\",
+    pathname,
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   __react.useEffect(() => {
@@ -743,8 +811,13 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     locale: lang,
     loaderName: \\"useEffect (client page)\\",
     pathname,
-    loadLocaleFrom: (l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default),
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   __react.useEffect(() => {
@@ -759,66 +832,6 @@ export default function __Next_Translate_new__88d9831a00__(props) {
         lang: __lang,
         namespaces: __namespaces || {},
         pathname: \\"/about/us/\\",
-      };
-      window.i18nConfig = __i18nConfig;
-      forceUpdate();
-    });
-  }, [lang]);
-
-  if (isServer) {
-    __log(config, {
-      page: pathname,
-      lang,
-      namespaces: [\\"calculated in client-side\\"],
-    });
-    return null;
-  }
-
-  if (!window.__NEXT_TRANSLATE__) return null;
-
-  return <Page {...props} />;
-}
-"
-`;
-
-exports[`templateAppDir should load using an useEffect the translations in a client page ('use client\` with simple quotes) pageNoExt: /page | isClientComponent: true | hasLoadLocaleFrom: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
-"\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces, { log as __log } from \\"next-translate/loadNamespaces\\";
-import { useSearchParams as __useSearchParams } from \\"next/navigation\\";
-import * as __react from \\"react\\";
-import useTranslation from \\"next-translate/useTranslation\\";
-export const dynamic = \\"force-static\\";
-function Page() {
-  const { t, lang } = useTranslation(\\"common\\");
-  return <h1>{t(\\"title\\")}</h1>;
-}
-
-export default function __Next_Translate_new__88d9831a00__(props) {
-  const forceUpdate = __react.useReducer(() => [])[1];
-  const pathname = \\"/\\";
-  const isServer = typeof window === \\"undefined\\";
-  let lang = __useSearchParams().get(\\"lang\\");
-
-  const config = {
-    ...__i18nConfig,
-    locale: lang,
-    loaderName: \\"useEffect (client page)\\",
-    pathname,
-  };
-
-  __react.useEffect(() => {
-    const shouldLoad =
-      lang !== window.__NEXT_TRANSLATE__?.lang ||
-      pathname !== window.__NEXT_TRANSLATE__?.pathname;
-
-    if (!shouldLoad) return;
-
-    __loadNamespaces(config).then(({ __lang, __namespaces }) => {
-      window.__NEXT_TRANSLATE__ = {
-        lang: __lang,
-        namespaces: __namespaces || {},
-        pathname: \\"/\\",
       };
       window.i18nConfig = __i18nConfig;
       forceUpdate();
@@ -865,8 +878,80 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     locale: lang,
     loaderName: \\"useEffect (client page)\\",
     pathname,
-    loadLocaleFrom: (l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default),
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
+  };
+
+  __react.useEffect(() => {
+    const shouldLoad =
+      lang !== window.__NEXT_TRANSLATE__?.lang ||
+      pathname !== window.__NEXT_TRANSLATE__?.pathname;
+
+    if (!shouldLoad) return;
+
+    __loadNamespaces(config).then(({ __lang, __namespaces }) => {
+      window.__NEXT_TRANSLATE__ = {
+        lang: __lang,
+        namespaces: __namespaces || {},
+        pathname: \\"/\\",
+      };
+      window.i18nConfig = __i18nConfig;
+      forceUpdate();
+    });
+  }, [lang]);
+
+  if (isServer) {
+    __log(config, {
+      page: pathname,
+      lang,
+      namespaces: [\\"calculated in client-side\\"],
+    });
+    return null;
+  }
+
+  if (!window.__NEXT_TRANSLATE__) return null;
+
+  return <Page {...props} />;
+}
+"
+`;
+
+exports[`templateAppDir should load using an useEffect the translations in a client page ('use client\` with simple quotes) pageNoExt: /page | isClientComponent: true | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
+"\\"use client\\";
+import __i18nConfig from \\"@next-translate-root/i18n\\";
+import __loadNamespaces, { log as __log } from \\"next-translate/loadNamespaces\\";
+import { useSearchParams as __useSearchParams } from \\"next/navigation\\";
+import * as __react from \\"react\\";
+import useTranslation from \\"next-translate/useTranslation\\";
+export const dynamic = \\"force-static\\";
+function Page() {
+  const { t, lang } = useTranslation(\\"common\\");
+  return <h1>{t(\\"title\\")}</h1>;
+}
+
+export default function __Next_Translate_new__88d9831a00__(props) {
+  const forceUpdate = __react.useReducer(() => [])[1];
+  const pathname = \\"/\\";
+  const isServer = typeof window === \\"undefined\\";
+  let lang = __useSearchParams().get(\\"lang\\");
+
+  const config = {
+    ...__i18nConfig,
+    locale: lang,
+    loaderName: \\"useEffect (client page)\\",
+    pathname,
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
   };
 
   __react.useEffect(() => {
@@ -913,7 +998,7 @@ export default function Component() {
 "
 `;
 
-exports[`templateAppDir should not do any transformation in a server component (already have the namespaces from the page) pageNoExt: /component | hasLoadLocaleFrom: true | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should not do any transformation in a server component (already have the namespaces from the page) pageNoExt: /component | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
 
 export default function Component() {
@@ -923,7 +1008,7 @@ export default function Component() {
 "
 `;
 
-exports[`templateAppDir should not do any transformation in a server component (already have the namespaces from the page) pageNoExt: /component | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should not do any transformation in a server component (already have the namespaces from the page) pageNoExt: /component | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
 
 export default function Component() {
@@ -943,7 +1028,7 @@ export default function Page() {
 "
 `;
 
-exports[`templateAppDir should not transform any page outside app dir pageNoExt: /page | hasLoadLocaleFrom: true | normalizedResourcePath: /components/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should not transform any page outside app dir pageNoExt: /page | normalizedResourcePath: /components/page.js | appFolder: app 1`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
 
 export default function Page() {
@@ -953,7 +1038,7 @@ export default function Page() {
 "
 `;
 
-exports[`templateAppDir should not transform any page outside app dir pageNoExt: /page | normalizedResourcePath: /components/page.js | appFolder: app 1`] = `
+exports[`templateAppDir should not transform any page outside app dir pageNoExt: /page | normalizedResourcePath: /components/page.js | appFolder: app 2`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
 
 export default function Page() {

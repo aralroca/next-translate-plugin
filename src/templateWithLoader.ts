@@ -1,4 +1,4 @@
-import { interceptExport, overwriteLoadLocales } from './utils'
+import { interceptExport, addLoadLocalesFrom, INTERNAL_CONFIG_KEY } from './utils'
 import { ParsedFilePkg } from './types'
 
 export default function templateWithLoader(
@@ -7,7 +7,6 @@ export default function templateWithLoader(
     page = '',
     loader = 'getStaticProps',
     revalidate = 0,
-    hasLoadLocaleFrom = false,
   } = {}
 ) {
   // Random string based on current time
@@ -25,7 +24,7 @@ export default function templateWithLoader(
   const hasLoader = Boolean(oldLoaderName)
 
   return `
-    import __i18nConfig from '@next-translate-root/i18n'
+    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
     import __loadNamespaces from 'next-translate/loadNamespaces'
     ${pagePkg.getCode()}
     async function ${newLoaderName}(ctx) {
@@ -37,10 +36,10 @@ export default function templateWithLoader(
           ${hasLoader ? '...(res.props || {}),' : ''}
           ...(await __loadNamespaces({
             ...ctx,
-            ...__i18nConfig,
+            ...${INTERNAL_CONFIG_KEY},
             pathname: '${page}',
             loaderName: '${loader}',
-            ${overwriteLoadLocales(hasLoadLocaleFrom)}
+            ${addLoadLocalesFrom()}
           }))
         }
       }

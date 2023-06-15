@@ -27,7 +27,6 @@ export default function loader(
     appFolder,
     hasAppJs,
     hasGetInitialPropsOnAppJs,
-    hasLoadLocaleFrom,
     extensionsRgx,
     revalidate,
   } = this.getOptions()
@@ -63,7 +62,7 @@ export default function loader(
       // an appjs defined. For example when using a class extended from NextApp.
       // For these cases we must not overwrite it.
       if (hasAppJs) return rawCode
-      return getDefaultAppJs(hasLoadLocaleFrom)
+      return getDefaultAppJs()
     }
 
     // Skip rest of files that are not inside /pages (and is not detected as appDir)
@@ -92,7 +91,6 @@ export default function loader(
     // for pages (default export) and client components (default export or named export)
     if (shouldUseTemplateAppDir) {
       return templateAppDir(pagePkg, {
-        hasLoadLocaleFrom,
         pageNoExt,
         normalizedResourcePath,
         appFolder,
@@ -117,7 +115,7 @@ export default function loader(
     // This way, the only modified file has to be the _app.js.
     if (hasGetInitialPropsOnAppJs) {
       return pageNoExt === '/_app'
-        ? templateWithHoc(pagePkg, { hasLoadLocaleFrom })
+        ? templateWithHoc(pagePkg)
         : rawCode
     }
 
@@ -126,7 +124,6 @@ export default function loader(
     if (pageNoExt === '/_app') {
       return templateWithHoc(pagePkg, {
         skipInitialProps: true,
-        hasLoadLocaleFrom,
       })
     }
 
@@ -162,7 +159,7 @@ export default function loader(
       isGetStaticProps || isGetServerSideProps || isGetInitialProps
 
     if (isGetInitialProps || (!hasLoader && isWrapperWithExternalHOC)) {
-      return templateWithHoc(pagePkg, { hasLoadLocaleFrom })
+      return templateWithHoc(pagePkg)
     }
 
     const loader =
@@ -173,7 +170,6 @@ export default function loader(
     return templateWithLoader(pagePkg, {
       page: pageNoExt,
       loader,
-      hasLoadLocaleFrom,
       revalidate,
     })
   } catch (e) {
