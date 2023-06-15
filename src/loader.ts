@@ -57,15 +57,17 @@ export default function loader(
 
     // In case that there aren't /_app.js we want to overwrite the default _app
     // to provide the I18Provider on top.
-    if (normalizedResourcePath.includes('node_modules/next/dist/pages/_app')) {
-      // There are cases that a default appjs is served even if it already has
-      // an appjs defined. For example when using a class extended from NextApp.
-      // For these cases we must not overwrite it.
-      if (hasAppJs) return rawCode
+    if (normalizedResourcePath.includes('node_modules/next/dist/pages/_app') && !hasAppJs) {
       return getDefaultAppJs()
     }
 
-    // Skip rest of files that are not inside /pages (and is not detected as appDir)
+    // Skip node_modules
+    if (normalizedResourcePath.includes('node_modules/')) return rawCode
+
+    // Skip rest of files that are not inside /pages and is not detected as appDir. 
+    // In /pages dir we only need to transform pages and always are inside the /pages folder. 
+    // However, for /app dir we also need to transform the client components and these can be
+    // outside the /app folder.
     if (
       !shouldUseTemplateAppDir &&
       !normalizedResourcePath.includes(normalizedPagesPath)
