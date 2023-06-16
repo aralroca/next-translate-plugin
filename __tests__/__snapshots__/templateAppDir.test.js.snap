@@ -106,7 +106,10 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang ?? props.params?.lang,
+    locale:
+      props.searchParams?.lang ??
+      props.params?.lang ??
+      __i18nConfig.defaultLocale,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
@@ -159,7 +162,10 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang ?? props.params?.lang,
+    locale:
+      props.searchParams?.lang ??
+      props.params?.lang ??
+      __i18nConfig.defaultLocale,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -212,7 +218,10 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang ?? props.params?.lang,
+    locale:
+      props.searchParams?.lang ??
+      props.params?.lang ??
+      __i18nConfig.defaultLocale,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -265,7 +274,10 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang ?? props.params?.lang,
+    locale:
+      props.searchParams?.lang ??
+      props.params?.lang ??
+      __i18nConfig.defaultLocale,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
@@ -318,7 +330,10 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang ?? props.params?.lang,
+    locale:
+      props.searchParams?.lang ??
+      props.params?.lang ??
+      __i18nConfig.defaultLocale,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -371,7 +386,10 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang ?? props.params?.lang,
+    locale:
+      props.searchParams?.lang ??
+      props.params?.lang ??
+      __i18nConfig.defaultLocale,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -425,7 +443,67 @@ export const dynamic = \\"force-dynamic\\";
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang ?? props.params?.lang,
+    locale:
+      props.searchParams?.lang ??
+      props.params?.lang ??
+      __i18nConfig.defaultLocale,
+    loaderName: \`\${dynamic} (server page)\`,
+    pathname: \\"/about/us/\\",
+    loadLocaleFrom:
+      typeof __i18nConfig.loadLocaleFrom === \\"function\\"
+        ? __i18nConfig.loadLocaleFrom
+        : (l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            ),
+  };
+
+  if (!globalThis.__NEXT_TRANSLATE__) {
+    globalThis.__NEXT_TRANSLATE__ = {};
+  }
+
+  const { __lang, __namespaces } = await __loadNamespaces(config);
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    pathname: \\"/about/us/\\",
+  };
+
+  return (
+    <>
+      <div
+        id=\\"__NEXT_TRANSLATE_DATA__\\"
+        data-lang={__lang}
+        data-ns={JSON.stringify(__namespaces)}
+        data-pathname=\\"/about/us/\\"
+      />
+      <Page {...props} />
+    </>
+  );
+}
+"
+`;
+
+exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /about/us/page | normalizedResourcePath: packages/app/page.js | appFolder: app/ 1`] = `
+"import __i18nConfig from \\"@next-translate-root/i18n\\";
+import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import useTranslation from \\"next-translate/useTranslation\\";
+function Page() {
+  const { t, lang } = useTranslation(\\"common\\");
+  return <h1>{t(\\"title\\")}</h1>;
+}
+
+globalThis.i18nConfig = __i18nConfig;
+
+export const dynamic = \\"force-dynamic\\";
+
+export default async function __Next_Translate_new__88d9831a00__(props) {
+  let config = {
+    ...__i18nConfig,
+    locale:
+      props.searchParams?.lang ??
+      props.params?.lang ??
+      __i18nConfig.defaultLocale,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
@@ -479,7 +557,10 @@ export const dynamic = \\"force-dynamic\\";
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang ?? props.params?.lang,
+    locale:
+      props.searchParams?.lang ??
+      props.params?.lang ??
+      __i18nConfig.defaultLocale,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -517,7 +598,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 "
 `;
 
-exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
+exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /page | normalizedResourcePath: packages/app/page.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
@@ -533,7 +614,10 @@ export const dynamic = \\"force-dynamic\\";
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang ?? props.params?.lang,
+    locale:
+      props.searchParams?.lang ??
+      props.params?.lang ??
+      __i18nConfig.defaultLocale,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -598,7 +682,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const isServer = typeof window === \\"undefined\\";
   const searchParams = __useSearchParams();
   const params = __useParams();
-  let lang = searchParams.get(\\"lang\\") ?? params.lang;
+  let lang =
+    searchParams.get(\\"lang\\") ?? params.lang ?? __i18nConfig.defaultLocale;
 
   const config = {
     ...__i18nConfig,
@@ -675,7 +760,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const isServer = typeof window === \\"undefined\\";
   const searchParams = __useSearchParams();
   const params = __useParams();
-  let lang = searchParams.get(\\"lang\\") ?? params.lang;
+  let lang =
+    searchParams.get(\\"lang\\") ?? params.lang ?? __i18nConfig.defaultLocale;
 
   const config = {
     ...__i18nConfig,
@@ -752,7 +838,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const isServer = typeof window === \\"undefined\\";
   const searchParams = __useSearchParams();
   const params = __useParams();
-  let lang = searchParams.get(\\"lang\\") ?? params.lang;
+  let lang =
+    searchParams.get(\\"lang\\") ?? params.lang ?? __i18nConfig.defaultLocale;
 
   const config = {
     ...__i18nConfig,
@@ -824,7 +911,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const isServer = typeof window === \\"undefined\\";
   const searchParams = __useSearchParams();
   const params = __useParams();
-  let lang = searchParams.get(\\"lang\\") ?? params.lang;
+  let lang =
+    searchParams.get(\\"lang\\") ?? params.lang ?? __i18nConfig.defaultLocale;
 
   const config = {
     ...__i18nConfig,
@@ -896,7 +984,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const isServer = typeof window === \\"undefined\\";
   const searchParams = __useSearchParams();
   const params = __useParams();
-  let lang = searchParams.get(\\"lang\\") ?? params.lang;
+  let lang =
+    searchParams.get(\\"lang\\") ?? params.lang ?? __i18nConfig.defaultLocale;
 
   const config = {
     ...__i18nConfig,
@@ -968,7 +1057,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const isServer = typeof window === \\"undefined\\";
   const searchParams = __useSearchParams();
   const params = __useParams();
-  let lang = searchParams.get(\\"lang\\") ?? params.lang;
+  let lang =
+    searchParams.get(\\"lang\\") ?? params.lang ?? __i18nConfig.defaultLocale;
 
   const config = {
     ...__i18nConfig,
