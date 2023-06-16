@@ -43,7 +43,7 @@ export default function templateAppDir(pagePkg: ParsedFilePkg, { code = '', page
     export default async function __Next_Translate_new__${hash}__(props) {
       let config = { 
         ...${INTERNAL_CONFIG_KEY},
-        locale: props.searchParams?.lang,
+        locale: props.searchParams?.lang ?? props.params?.lang,
         loaderName: \`\${dynamic} (server page)\`,
         pathname: '${pathname}',
         ${addLoadLocalesFrom()}
@@ -106,7 +106,7 @@ function templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname }:
   return `${topLine}
     import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
     import __loadNamespaces, { log as __log } from 'next-translate/loadNamespaces'
-    import { useSearchParams as __useSearchParams } from 'next/navigation'
+    import { useSearchParams as __useSearchParams, useParams as __useParams } from 'next/navigation'
     import * as __react from 'react'
 
     ${clientCode}
@@ -115,7 +115,9 @@ function templateAppDirClientPage({ pagePkg, hash, pageVariableName, pathname }:
       const forceUpdate = __react.useReducer(() => [])[1]
       const pathname = '${pathname}'
       const isServer = typeof window === 'undefined'
-      let lang = __useSearchParams().get('lang')
+      const searchParams = __useSearchParams()
+      const params = __useParams()
+      let lang = searchParams.get('lang') ?? params.lang
 
       const config = { 
         ...${INTERNAL_CONFIG_KEY},
