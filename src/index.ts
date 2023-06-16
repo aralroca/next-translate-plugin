@@ -3,17 +3,24 @@ import path from 'path'
 import type webpack from 'webpack'
 import type { NextConfig } from 'next'
 
-import { getDefaultExport, hasHOC, hasStaticName, parseFile, calculatePageDir, existPages } from './utils'
+import {
+  getDefaultExport,
+  hasHOC,
+  hasStaticName,
+  parseFile,
+  calculatePageDir,
+  existPages,
+} from './utils'
 import { LoaderOptions } from './types'
 import type { I18nConfig, NextI18nConfig } from 'next-translate'
 
 const test = /\.(tsx|ts|js|mjs|jsx)$/
 
 function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
-  const basePath = pkgDir()
+  let basePath = pkgDir()
 
   // NEXT_TRANSLATE_PATH env is supported both relative and absolute path
-  const dir = path.resolve(
+  basePath = path.resolve(
     path.relative(basePath, process.env.NEXT_TRANSLATE_PATH || '.')
   )
 
@@ -26,7 +33,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     loader = true,
     pagesInDir,
     ...restI18n
-  } = require(path.join(dir, 'i18n')) as I18nConfig
+  } = require(path.join(basePath, 'i18n')) as I18nConfig
 
   let nextConfigWithI18n: NextConfig = {
     ...nextConfig,
@@ -38,23 +45,25 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     },
   }
 
-  const pagesFolder = calculatePageDir('pages', pagesInDir, dir)
-  const appFolder = calculatePageDir('app', pagesInDir, dir)
-  const existPagesFolder = existPages(dir, pagesFolder)
+  const pagesFolder = calculatePageDir('pages', pagesInDir, basePath)
+  const appFolder = calculatePageDir('app', pagesInDir, basePath)
+  const existPagesFolder = existPages(basePath, pagesFolder)
   let hasGetInitialPropsOnAppJs = false
   let hasAppJs = false
 
   // Pages folder not found, so we're not using the loader
-  if (!existPagesFolder && !existPages(dir, appFolder)) {
+  if (!existPagesFolder && !existPages(basePath, appFolder)) {
     return nextConfigWithI18n
   }
 
   if (existPagesFolder) {
-    const pagesPath = path.join(dir, pagesFolder)
-    const app = fs.readdirSync(pagesPath).find((page) => page.startsWith('_app.'))
+    const pagesPath = path.join(basePath, pagesFolder)
+    const app = fs
+      .readdirSync(pagesPath)
+      .find((page) => page.startsWith('_app.'))
 
     if (app) {
-      const appPkg = parseFile(dir, path.join(pagesPath, app))
+      const appPkg = parseFile(basePath, path.join(pagesPath, app))
       const defaultExport = getDefaultExport(appPkg)
 
       hasAppJs = true
@@ -85,7 +94,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
 
       config.resolve.alias = {
         ...(config.resolve.alias || {}),
-        '@next-translate-root': path.resolve(dir),
+        '@next-translate-root': path.resolve(basePath),
       }
 
       // we give the opportunity for people to use next-translate without altering

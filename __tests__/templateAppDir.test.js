@@ -12,6 +12,11 @@ const outsideAppDir = {
   appFolder: 'app',
 }
 
+const monorepoAppDir = {
+  normalizedResourcePath: 'packages/app/page.js',
+  appFolder: 'app/',
+}
+
 const tests = [
   {
     describe: 'should not transform any page outside app dir',
@@ -23,10 +28,15 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [{ pageNoExt: '/page', ...outsideAppDir }, { pageNoExt: '/page', ...outsideAppDir }, { pageNoExt: '/about/us/page', ...outsideAppDir }],
+    cases: [
+      { pageNoExt: '/page', ...outsideAppDir },
+      { pageNoExt: '/page', ...outsideAppDir },
+      { pageNoExt: '/about/us/page', ...outsideAppDir },
+    ],
   },
   {
-    describe: 'should load translations in a server page without dynamic export',
+    describe:
+      'should load translations in a server page without dynamic export',
     code: `
       import useTranslation from 'next-translate/useTranslation'
 
@@ -35,10 +45,16 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [{ pageNoExt: '/page', ...insideAppDir }, { pageNoExt: '/page', ...insideAppDir }, { pageNoExt: '/about/us/page', ...insideAppDir }],
+    cases: [
+      { pageNoExt: '/page', ...insideAppDir },
+      { pageNoExt: '/page', ...monorepoAppDir },
+      { pageNoExt: '/about/us/page', ...insideAppDir },
+      { pageNoExt: '/about/us/page', ...monorepoAppDir },
+    ],
   },
   {
-    describe: 'should load translations in a server page with dynamic export force-dynamic',
+    describe:
+      'should load translations in a server page with dynamic export force-dynamic',
     code: `
       import useTranslation from 'next-translate/useTranslation'
 
@@ -49,10 +65,15 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [{ pageNoExt: '/page', ...insideAppDir }, { pageNoExt: '/page', ...insideAppDir }, { pageNoExt: '/about/us/page', ...insideAppDir }],
+    cases: [
+      { pageNoExt: '/page', ...insideAppDir },
+      { pageNoExt: '/page', ...insideAppDir },
+      { pageNoExt: '/about/us/page', ...insideAppDir },
+    ],
   },
   {
-    describe: 'should load translations in a server page with dynamic export force-static',
+    describe:
+      'should load translations in a server page with dynamic export force-static',
     code: `
       import useTranslation from 'next-translate/useTranslation'
 
@@ -63,10 +84,15 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [{ pageNoExt: '/page', ...insideAppDir }, { pageNoExt: '/page', ...insideAppDir }, { pageNoExt: '/about/us/page', ...insideAppDir }],
+    cases: [
+      { pageNoExt: '/page', ...insideAppDir },
+      { pageNoExt: '/page', ...insideAppDir },
+      { pageNoExt: '/about/us/page', ...insideAppDir },
+    ],
   },
   {
-    describe: 'should load using an useEffect the translations in a client page ("use client" with double quotes and comment before)',
+    describe:
+      'should load using an useEffect the translations in a client page ("use client" with double quotes and comment before)',
     code: `
       // Some comment before
 
@@ -83,10 +109,15 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [{ pageNoExt: '/page', isClientComponent: true, ...insideAppDir }, { pageNoExt: '/page', isClientComponent: true, ...insideAppDir }, { pageNoExt: '/about/us/page', isClientComponent: true, ...insideAppDir }],
+    cases: [
+      { pageNoExt: '/page', isClientComponent: true, ...insideAppDir },
+      { pageNoExt: '/page', isClientComponent: true, ...insideAppDir },
+      { pageNoExt: '/about/us/page', isClientComponent: true, ...insideAppDir },
+    ],
   },
   {
-    describe: 'should load using an useEffect the translations in a client page (\'use client\` with simple quotes)',
+    describe:
+      "should load using an useEffect the translations in a client page ('use client` with simple quotes)",
     code: `
       'use client';
       import useTranslation from 'next-translate/useTranslation'
@@ -98,10 +129,15 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [{ pageNoExt: '/page', isClientComponent: true, ...insideAppDir }, { pageNoExt: '/page', isClientComponent: true, ...insideAppDir }, { pageNoExt: '/about/us/page', isClientComponent: true, ...insideAppDir }],
+    cases: [
+      { pageNoExt: '/page', isClientComponent: true, ...insideAppDir },
+      { pageNoExt: '/page', isClientComponent: true, ...insideAppDir },
+      { pageNoExt: '/about/us/page', isClientComponent: true, ...insideAppDir },
+    ],
   },
   {
-    describe: 'should not do any transformation in a server component (already have the namespaces from the page)',
+    describe:
+      'should not do any transformation in a server component (already have the namespaces from the page)',
     code: `
       import useTranslation from 'next-translate/useTranslation'
 
@@ -110,10 +146,15 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [{ pageNoExt: '/component', ...insideAppDir }, { pageNoExt: '/component', ...insideAppDir }, { pageNoExt: '/about/us/component', ...insideAppDir }],
+    cases: [
+      { pageNoExt: '/component', ...insideAppDir },
+      { pageNoExt: '/component', ...insideAppDir },
+      { pageNoExt: '/about/us/component', ...insideAppDir },
+    ],
   },
   {
-    describe: 'should hydrate (if is not done yet) the translations in a client component (already have the namespaces from the page)',
+    describe:
+      'should hydrate (if is not done yet) the translations in a client component (already have the namespaces from the page)',
     code: `
       "use client"
 
@@ -124,10 +165,19 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [{ pageNoExt: '/component', isClientComponent: true, ...insideAppDir }, { pageNoExt: '/component', isClientComponent: true, ...insideAppDir }, { pageNoExt: '/about/us/component', ...insideAppDir, isClientComponent: true, }],
+    cases: [
+      { pageNoExt: '/component', isClientComponent: true, ...insideAppDir },
+      { pageNoExt: '/component', isClientComponent: true, ...insideAppDir },
+      {
+        pageNoExt: '/about/us/component',
+        ...insideAppDir,
+        isClientComponent: true,
+      },
+    ],
   },
   {
-    describe: 'should hydrate (if is not done yet) the translations in a client component with named export (already have the namespaces from the page)',
+    describe:
+      'should hydrate (if is not done yet) the translations in a client component with named export (already have the namespaces from the page)',
     code: `
       "use client"
 
@@ -138,7 +188,15 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [{ pageNoExt: '/component', isClientComponent: false, ...insideAppDir }, { pageNoExt: '/component', isClientComponent: true, ...insideAppDir }, { pageNoExt: '/about/us/component', ...insideAppDir, isClientComponent: true, }],
+    cases: [
+      { pageNoExt: '/component', isClientComponent: false, ...insideAppDir },
+      { pageNoExt: '/component', isClientComponent: true, ...insideAppDir },
+      {
+        pageNoExt: '/about/us/component',
+        ...insideAppDir,
+        isClientComponent: true,
+      },
+    ],
   },
 ]
 
@@ -151,7 +209,12 @@ describe('templateAppDir', () => {
         fn(testName.join(' | '), () => {
           Date.now = jest.fn(() => 587764800000)
           expect(
-            clean(templateAppDir(parseCode('jsx', d.code), { ...options, code: d.code }))
+            clean(
+              templateAppDir(parseCode('jsx', d.code), {
+                ...options,
+                code: d.code,
+              })
+            )
           ).toMatchSnapshot()
         })
       })
