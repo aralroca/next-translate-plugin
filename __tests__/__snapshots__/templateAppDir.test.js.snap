@@ -106,7 +106,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.searchParams?.lang ?? props.params?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
@@ -159,7 +159,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.searchParams?.lang ?? props.params?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -212,7 +212,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.searchParams?.lang ?? props.params?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -265,7 +265,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.searchParams?.lang ?? props.params?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
@@ -318,7 +318,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.searchParams?.lang ?? props.params?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -371,7 +371,7 @@ globalThis.i18nConfig = __i18nConfig;
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.searchParams?.lang ?? props.params?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -425,7 +425,7 @@ export const dynamic = \\"force-dynamic\\";
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.searchParams?.lang ?? props.params?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
@@ -479,7 +479,7 @@ export const dynamic = \\"force-dynamic\\";
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.searchParams?.lang ?? props.params?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -533,7 +533,7 @@ export const dynamic = \\"force-dynamic\\";
 export default async function __Next_Translate_new__88d9831a00__(props) {
   let config = {
     ...__i18nConfig,
-    locale: props.searchParams?.lang,
+    locale: props.searchParams?.lang ?? props.params?.lang,
     loaderName: \`\${dynamic} (server page)\`,
     pathname: \\"/\\",
     loadLocaleFrom:
@@ -575,7 +575,10 @@ exports[`templateAppDir should load using an useEffect the translations in a cli
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces, { log as __log } from \\"next-translate/loadNamespaces\\";
-import { useSearchParams as __useSearchParams } from \\"next/navigation\\";
+import {
+  useSearchParams as __useSearchParams,
+  useParams as __useParams,
+} from \\"next/navigation\\";
 import * as __react from \\"react\\";
 
 // Some comment before
@@ -593,7 +596,9 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
   const pathname = \\"/about/us/\\";
   const isServer = typeof window === \\"undefined\\";
-  let lang = __useSearchParams().get(\\"lang\\");
+  const searchParams = __useSearchParams();
+  const params = __useParams();
+  let lang = searchParams.get(\\"lang\\") ?? params.lang;
 
   const config = {
     ...__i18nConfig,
@@ -647,7 +652,10 @@ exports[`templateAppDir should load using an useEffect the translations in a cli
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces, { log as __log } from \\"next-translate/loadNamespaces\\";
-import { useSearchParams as __useSearchParams } from \\"next/navigation\\";
+import {
+  useSearchParams as __useSearchParams,
+  useParams as __useParams,
+} from \\"next/navigation\\";
 import * as __react from \\"react\\";
 
 // Some comment before
@@ -665,7 +673,9 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
   const pathname = \\"/\\";
   const isServer = typeof window === \\"undefined\\";
-  let lang = __useSearchParams().get(\\"lang\\");
+  const searchParams = __useSearchParams();
+  const params = __useParams();
+  let lang = searchParams.get(\\"lang\\") ?? params.lang;
 
   const config = {
     ...__i18nConfig,
@@ -719,7 +729,10 @@ exports[`templateAppDir should load using an useEffect the translations in a cli
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces, { log as __log } from \\"next-translate/loadNamespaces\\";
-import { useSearchParams as __useSearchParams } from \\"next/navigation\\";
+import {
+  useSearchParams as __useSearchParams,
+  useParams as __useParams,
+} from \\"next/navigation\\";
 import * as __react from \\"react\\";
 
 // Some comment before
@@ -737,7 +750,9 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
   const pathname = \\"/\\";
   const isServer = typeof window === \\"undefined\\";
-  let lang = __useSearchParams().get(\\"lang\\");
+  const searchParams = __useSearchParams();
+  const params = __useParams();
+  let lang = searchParams.get(\\"lang\\") ?? params.lang;
 
   const config = {
     ...__i18nConfig,
@@ -791,7 +806,10 @@ exports[`templateAppDir should load using an useEffect the translations in a cli
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces, { log as __log } from \\"next-translate/loadNamespaces\\";
-import { useSearchParams as __useSearchParams } from \\"next/navigation\\";
+import {
+  useSearchParams as __useSearchParams,
+  useParams as __useParams,
+} from \\"next/navigation\\";
 import * as __react from \\"react\\";
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -804,7 +822,9 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
   const pathname = \\"/about/us/\\";
   const isServer = typeof window === \\"undefined\\";
-  let lang = __useSearchParams().get(\\"lang\\");
+  const searchParams = __useSearchParams();
+  const params = __useParams();
+  let lang = searchParams.get(\\"lang\\") ?? params.lang;
 
   const config = {
     ...__i18nConfig,
@@ -858,7 +878,10 @@ exports[`templateAppDir should load using an useEffect the translations in a cli
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces, { log as __log } from \\"next-translate/loadNamespaces\\";
-import { useSearchParams as __useSearchParams } from \\"next/navigation\\";
+import {
+  useSearchParams as __useSearchParams,
+  useParams as __useParams,
+} from \\"next/navigation\\";
 import * as __react from \\"react\\";
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -871,7 +894,9 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
   const pathname = \\"/\\";
   const isServer = typeof window === \\"undefined\\";
-  let lang = __useSearchParams().get(\\"lang\\");
+  const searchParams = __useSearchParams();
+  const params = __useParams();
+  let lang = searchParams.get(\\"lang\\") ?? params.lang;
 
   const config = {
     ...__i18nConfig,
@@ -925,7 +950,10 @@ exports[`templateAppDir should load using an useEffect the translations in a cli
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
 import __loadNamespaces, { log as __log } from \\"next-translate/loadNamespaces\\";
-import { useSearchParams as __useSearchParams } from \\"next/navigation\\";
+import {
+  useSearchParams as __useSearchParams,
+  useParams as __useParams,
+} from \\"next/navigation\\";
 import * as __react from \\"react\\";
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -938,7 +966,9 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const forceUpdate = __react.useReducer(() => [])[1];
   const pathname = \\"/\\";
   const isServer = typeof window === \\"undefined\\";
-  let lang = __useSearchParams().get(\\"lang\\");
+  const searchParams = __useSearchParams();
+  const params = __useParams();
+  let lang = searchParams.get(\\"lang\\") ?? params.lang;
 
   const config = {
     ...__i18nConfig,
