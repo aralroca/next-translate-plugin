@@ -25,7 +25,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client component\\",
     pathname: \\"/about/us/\\",
     logBuild: false,
     loadLocaleFrom:
@@ -70,7 +70,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client component\\",
     pathname: \\"/about/us/\\",
     logBuild: false,
     loadLocaleFrom:
@@ -115,7 +115,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client component\\",
     pathname: \\"/about/us/\\",
     logBuild: false,
     loadLocaleFrom:
@@ -172,7 +172,7 @@ function __Next_Translate_Component_88d9831a00_0(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client component\\",
     pathname: \\"/about/us/\\",
     logBuild: false,
     loadLocaleFrom:
@@ -218,7 +218,7 @@ function __Next_Translate_Component_88d9831a00_0(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client component\\",
     pathname: \\"/about/us/\\",
     logBuild: false,
     loadLocaleFrom:
@@ -259,8 +259,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/about/us/error\\",
+    loaderName: \\"server /error\\",
+    pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -298,8 +298,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/about/us/error\\",
+    loaderName: \\"server /error\\",
+    pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -337,8 +337,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/error\\",
+    loaderName: \\"server /error\\",
+    pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -376,8 +376,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/error\\",
+    loaderName: \\"server /error\\",
+    pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -415,8 +415,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/about/us/global-error\\",
+    loaderName: \\"server /global-error\\",
+    pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -454,8 +454,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/about/us/global-error\\",
+    loaderName: \\"server /global-error\\",
+    pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -493,8 +493,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/global-error\\",
+    loaderName: \\"server /global-error\\",
+    pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -532,8 +532,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/global-error\\",
+    loaderName: \\"server /global-error\\",
+    pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -571,8 +571,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/about/us/layout\\",
+    loaderName: \\"server /layout\\",
+    pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -610,8 +610,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/about/us/layout\\",
+    loaderName: \\"server /layout\\",
+    pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -649,8 +649,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/layout\\",
+    loaderName: \\"server /layout\\",
+    pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -688,8 +688,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/layout\\",
+    loaderName: \\"server /layout\\",
+    pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -727,8 +727,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/about/us/loading\\",
+    loaderName: \\"server /loading\\",
+    pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -766,8 +766,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/about/us/loading\\",
+    loaderName: \\"server /loading\\",
+    pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -805,8 +805,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/loading\\",
+    loaderName: \\"server /loading\\",
+    pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -844,8 +844,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/loading\\",
+    loaderName: \\"server /loading\\",
+    pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -883,8 +883,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/about/us/not-found\\",
+    loaderName: \\"server /not-found\\",
+    pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -922,8 +922,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/about/us/not-found\\",
+    loaderName: \\"server /not-found\\",
+    pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -961,8 +961,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/not-found\\",
+    loaderName: \\"server /not-found\\",
+    pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -1000,8 +1000,8 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
-    pathname: \\"/not-found\\",
+    loaderName: \\"server /not-found\\",
+    pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
         ? __i18nConfig.loadLocaleFrom
@@ -1038,7 +1038,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1076,7 +1076,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1114,7 +1114,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1152,7 +1152,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1190,7 +1190,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1228,7 +1228,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1266,7 +1266,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1304,7 +1304,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1343,7 +1343,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1382,7 +1382,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1421,7 +1421,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1460,7 +1460,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       props.searchParams?.lang ??
       props.params?.lang ??
       __i18nConfig.defaultLocale,
-    loaderName: \`\${dynamic} (server page)\`,
+    loaderName: \\"server /page\\",
     pathname: \\"/\\",
     loadLocaleFrom:
       typeof __i18nConfig.loadLocaleFrom === \\"function\\"
@@ -1509,7 +1509,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client /page\\",
     pathname: \\"/about/us/\\",
     logBuild: true,
     loadLocaleFrom:
@@ -1559,7 +1559,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client /page\\",
     pathname: \\"/\\",
     logBuild: true,
     loadLocaleFrom:
@@ -1609,7 +1609,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client /page\\",
     pathname: \\"/\\",
     logBuild: true,
     loadLocaleFrom:
@@ -1655,7 +1655,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client /page\\",
     pathname: \\"/about/us/\\",
     logBuild: true,
     loadLocaleFrom:
@@ -1701,7 +1701,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client /page\\",
     pathname: \\"/\\",
     logBuild: true,
     loadLocaleFrom:
@@ -1747,7 +1747,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
     locale: lang,
-    loaderName: \\"client\\",
+    loaderName: \\"client /page\\",
     pathname: \\"/\\",
     logBuild: true,
     loadLocaleFrom:
