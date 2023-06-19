@@ -10,6 +10,7 @@ import {
 
 const defaultDynamicExport = `export const dynamic = 'force-dynamic';`
 const validPages = ['/page', '/layout', '/error', '/loading', '/not-found', '/global-error']
+const validPagesRegex = new RegExp(`(${validPages.join('|')})$`)
 let lastPathname = ''
 
 export default function templateAppDir(
@@ -22,13 +23,13 @@ export default function templateAppDir(
     isClientComponent = false,
   } = {}
 ) {
-  const isPage =
-    validPages.some(pageName => pageNoExt.endsWith(pageName)) && normalizedResourcePath.includes(appFolder)
+  const routeType = validPages.find(pageName => pageNoExt.endsWith(pageName)) || 'component'
+  const isPage = routeType !== 'component' && normalizedResourcePath.includes(appFolder)
 
   if (!isPage && !isClientComponent) return code
 
   const hash = Date.now().toString(16)
-  const pathname = isPage ? pageNoExt.replace('/page', '/') : lastPathname
+  const pathname = isPage ? pageNoExt.replace(validPagesRegex, '/') : lastPathname
 
   // For client components we need to remember the pathname of the current page
   lastPathname = pathname
@@ -51,6 +52,7 @@ export default function templateAppDir(
       pageVariableName,
       pathname,
       isPage,
+      routeType,
     });
   }
 
@@ -60,6 +62,7 @@ export default function templateAppDir(
     hash,
     pageVariableName,
     pathname,
+    routeType,
   })
 }
 
@@ -68,7 +71,8 @@ type Params = {
   hash: string
   pageVariableName: string
   pathname?: string
-  isPage?: boolean
+  isPage?: boolean,
+  routeType: string
 }
 
 function templateServerPage({
@@ -76,6 +80,7 @@ function templateServerPage({
   hash,
   pageVariableName,
   pathname,
+  routeType,
 }: Params) {
   const code = pagePkg.getCode()
   const dynamicVariable = getNamedExport(pagePkg, 'dynamic', false)
@@ -94,7 +99,7 @@ function templateServerPage({
     const config = { 
       ...${INTERNAL_CONFIG_KEY},
       locale: props.searchParams?.lang ?? props.params?.lang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
-      loaderName: \`\${dynamic} (server page)\`,
+      loaderName: 'server ${routeType}',
       pathname: '${pathname}',
       ${addLoadLocalesFrom()}
     }
@@ -112,12 +117,13 @@ function templateClientComponent({
   hash,
   pageVariableName,
   pathname,
-  isPage
+  isPage,
+  routeType
 }: Params) {
   const topLine = clientLine[0]
   const namedExportsModified = modifyNamedExportsComponents(pagePkg, hash)
   const exportDefault = pageVariableName
-    ? "export default " + wrapClientComponent({ name: `__Next_Translate_new__${hash}__`, pathname, isPage, pageVariableName })
+    ? "export default " + wrapClientComponent({ name: `__Next_Translate_new__${hash}__`, pathname, isPage, pageVariableName, routeType })
     : ''
 
 
@@ -142,7 +148,7 @@ function templateClientComponent({
 `
 }
 
-function wrapClientComponent({ name = '', pathname = '', isPage = false, pageVariableName = '' }) {
+function wrapClientComponent({ name = '', pathname = '', isPage = false, pageVariableName = '', routeType = 'component' }) {
   return `function ${name}(props) {
     const searchParams = __useSearchParams()
     const params = __useParams()
@@ -150,7 +156,7 @@ function wrapClientComponent({ name = '', pathname = '', isPage = false, pageVar
     const config = { 
       ...${INTERNAL_CONFIG_KEY},
       locale: lang,
-      loaderName: 'client',
+      loaderName: 'client ${routeType}',
       pathname: '${pathname}',
       logBuild: ${isPage},
       ${addLoadLocalesFrom()}
