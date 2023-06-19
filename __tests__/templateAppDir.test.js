@@ -2,20 +2,23 @@ import templateAppDir from '../src/templateAppDir'
 import { parseCode } from '../src/utils'
 import { clean } from './templateWith.utils'
 
-const insideAppDir = {
-  normalizedResourcePath: 'app/page.js',
+const insideAppDir = pageNoExt => ({
+  pageNoExt,
+  normalizedResourcePath: `app${pageNoExt}.js`,
   appFolder: 'app',
-}
+})
 
-const outsideAppDir = {
-  normalizedResourcePath: '/components/page.js',
+const outsideAppDir = pageNoExt => ({
+  pageNoExt,
+  normalizedResourcePath: `/components${pageNoExt}.js`,
   appFolder: 'app',
-}
+})
 
-const monorepoAppDir = {
-  normalizedResourcePath: 'packages/app/page.js',
+const monorepoAppDir = pageNoExt => ({
+  pageNoExt,
+  normalizedResourcePath: `packages/app${pageNoExt}.js`,
   appFolder: 'app/',
-}
+})
 
 const tests = [
   {
@@ -29,9 +32,8 @@ const tests = [
       }
     `,
     cases: [
-      { pageNoExt: '/page', ...outsideAppDir },
-      { pageNoExt: '/page', ...outsideAppDir },
-      { pageNoExt: '/about/us/page', ...outsideAppDir },
+      outsideAppDir('/page'),
+      outsideAppDir('/about/us/page')
     ],
   },
   {
@@ -46,10 +48,100 @@ const tests = [
       }
     `,
     cases: [
-      { pageNoExt: '/page', ...insideAppDir },
-      { pageNoExt: '/page', ...monorepoAppDir },
-      { pageNoExt: '/about/us/page', ...insideAppDir },
-      { pageNoExt: '/about/us/page', ...monorepoAppDir },
+      insideAppDir('/page'),
+      monorepoAppDir('/page'),
+      insideAppDir('/about/us/page'),
+      monorepoAppDir('/about/us/page'),
+    ],
+  },
+  {
+    describe:
+      'should load translations in a layout',
+    code: `
+      import useTranslation from 'next-translate/useTranslation'
+
+      export default function Layout() {
+        const { t, lang } = useTranslation('common')
+        return  <h1>{t('title')}</h1>
+      }
+    `,
+    cases: [
+      insideAppDir('/layout'),
+      monorepoAppDir('/layout'),
+      insideAppDir('/about/us/layout'),
+      monorepoAppDir('/about/us/layout'),
+    ],
+  },
+  {
+    describe:
+      'should load translations in a not-found page',
+    code: `
+      import useTranslation from 'next-translate/useTranslation'
+
+      export default function NotFound() {
+        const { t, lang } = useTranslation('common')
+        return  <h1>{t('title')}</h1>
+      }
+    `,
+    cases: [
+      insideAppDir('/not-found'),
+      monorepoAppDir('/not-found'),
+      insideAppDir('/about/us/not-found'),
+      monorepoAppDir('/about/us/not-found'),
+    ],
+  },
+  {
+    describe:
+      'should load translations in a loading page',
+    code: `
+      import useTranslation from 'next-translate/useTranslation'
+
+      export default function Loading() {
+        const { t, lang } = useTranslation('common')
+        return  <h1>{t('title')}</h1>
+      }
+    `,
+    cases: [
+      insideAppDir('/loading'),
+      monorepoAppDir('/loading'),
+      insideAppDir('/about/us/loading'),
+      monorepoAppDir('/about/us/loading'),
+    ],
+  },
+  {
+    describe:
+      'should load translations in a error page',
+    code: `
+      import useTranslation from 'next-translate/useTranslation'
+
+      export default function Error() {
+        const { t, lang } = useTranslation('common')
+        return  <h1>{t('title')}</h1>
+      }
+    `,
+    cases: [
+      insideAppDir('/error'),
+      monorepoAppDir('/error'),
+      insideAppDir('/about/us/error'),
+      monorepoAppDir('/about/us/error'),
+    ],
+  },
+  {
+    describe:
+      'should load translations in a global-error page',
+    code: `
+      import useTranslation from 'next-translate/useTranslation'
+
+      export default function GlobalError() {
+        const { t, lang } = useTranslation('common')
+        return  <h1>{t('title')}</h1>
+      }
+    `,
+    cases: [
+      insideAppDir('/global-error'),
+      monorepoAppDir('/global-error'),
+      insideAppDir('/about/us/global-error'),
+      monorepoAppDir('/about/us/global-error'),
     ],
   },
   {
@@ -66,9 +158,10 @@ const tests = [
       }
     `,
     cases: [
-      { pageNoExt: '/page', ...insideAppDir },
-      { pageNoExt: '/page', ...insideAppDir },
-      { pageNoExt: '/about/us/page', ...insideAppDir },
+      insideAppDir('/page'),
+      monorepoAppDir('/page'),
+      insideAppDir('/about/us/page'),
+      monorepoAppDir('/about/us/page'),
     ],
   },
   {
@@ -85,9 +178,10 @@ const tests = [
       }
     `,
     cases: [
-      { pageNoExt: '/page', ...insideAppDir },
-      { pageNoExt: '/page', ...insideAppDir },
-      { pageNoExt: '/about/us/page', ...insideAppDir },
+      insideAppDir('/page'),
+      monorepoAppDir('/page'),
+      insideAppDir('/about/us/page'),
+      monorepoAppDir('/about/us/page'),
     ],
   },
   {
@@ -110,9 +204,9 @@ const tests = [
       }
     `,
     cases: [
-      { pageNoExt: '/page', isClientComponent: true, ...insideAppDir },
-      { pageNoExt: '/page', isClientComponent: true, ...insideAppDir },
-      { pageNoExt: '/about/us/page', isClientComponent: true, ...insideAppDir },
+      { isClientComponent: true, ...insideAppDir('/page') },
+      { isClientComponent: true, ...insideAppDir('/page') },
+      { isClientComponent: true, ...insideAppDir('/about/us/page') },
     ],
   },
   {
@@ -130,9 +224,9 @@ const tests = [
       }
     `,
     cases: [
-      { pageNoExt: '/page', isClientComponent: true, ...insideAppDir },
-      { pageNoExt: '/page', isClientComponent: true, ...insideAppDir },
-      { pageNoExt: '/about/us/page', isClientComponent: true, ...insideAppDir },
+      { isClientComponent: true, ...insideAppDir('/page') },
+      { isClientComponent: true, ...insideAppDir('/page') },
+      { isClientComponent: true, ...insideAppDir('/about/us/page') },
     ],
   },
   {
@@ -147,9 +241,8 @@ const tests = [
       }
     `,
     cases: [
-      { pageNoExt: '/component', ...insideAppDir },
-      { pageNoExt: '/component', ...insideAppDir },
-      { pageNoExt: '/about/us/component', ...insideAppDir },
+      insideAppDir('/component'),
+      insideAppDir('/about/us/component'),
     ],
   },
   {
@@ -166,11 +259,10 @@ const tests = [
       }
     `,
     cases: [
-      { pageNoExt: '/component', isClientComponent: true, ...insideAppDir },
-      { pageNoExt: '/component', isClientComponent: true, ...insideAppDir },
+      { isClientComponent: true, ...insideAppDir('/component') },
+      { isClientComponent: true, ...insideAppDir('/component') },
       {
-        pageNoExt: '/about/us/component',
-        ...insideAppDir,
+        ...insideAppDir('/about/us/component'),
         isClientComponent: true,
       },
     ],
@@ -189,11 +281,10 @@ const tests = [
       }
     `,
     cases: [
-      { pageNoExt: '/component', isClientComponent: false, ...insideAppDir },
-      { pageNoExt: '/component', isClientComponent: true, ...insideAppDir },
+      { isClientComponent: false, ...insideAppDir('/component') },
+      { isClientComponent: true, ...insideAppDir('/component') },
       {
-        pageNoExt: '/about/us/component',
-        ...insideAppDir,
+        ...insideAppDir('/about/us/component'),
         isClientComponent: true,
       },
     ],
