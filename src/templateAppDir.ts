@@ -2,13 +2,11 @@ import { ParsedFilePkg } from './types'
 import {
   interceptExport,
   addLoadLocalesFrom,
-  getNamedExport,
   clientLine,
   interceptNamedExportsFromReactComponents,
   INTERNAL_CONFIG_KEY,
 } from './utils'
 
-const defaultDynamicExport = `export const dynamic = 'force-dynamic';`
 const validPages = ['/page', '/layout', '/error', '/loading', '/not-found', '/global-error']
 const validPagesRegex = new RegExp(`(${validPages.join('|')})$`)
 let lastPathname = ''
@@ -87,8 +85,6 @@ function templateServerPage({
   routeType,
 }: Params) {
   const code = pagePkg.getCode()
-  const dynamicVariable = getNamedExport(pagePkg, 'dynamic', false)
-  const dynamicExport = dynamicVariable ? '' : defaultDynamicExport
 
   return `
   import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
@@ -96,8 +92,6 @@ function templateServerPage({
   import __nt_store from 'next-translate/_store'
 
   ${code}
-
-  ${dynamicExport}
 
   export default async function __Next_Translate_new__${hash}__(props) {
     const config = { 
