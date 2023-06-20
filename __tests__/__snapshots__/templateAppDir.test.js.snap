@@ -250,8 +250,6 @@ function Error() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -288,8 +286,6 @@ function Error() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -328,8 +324,6 @@ function Error() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -366,8 +360,6 @@ function Error() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -406,8 +398,6 @@ function GlobalError() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -444,8 +434,6 @@ function GlobalError() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -484,8 +472,6 @@ function GlobalError() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -522,8 +508,6 @@ function GlobalError() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -562,8 +546,6 @@ function Layout() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -600,8 +582,6 @@ function Layout() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -640,8 +620,6 @@ function Layout() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -678,8 +656,6 @@ function Layout() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -718,8 +694,6 @@ function Loading() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -756,8 +730,6 @@ function Loading() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -796,8 +768,6 @@ function Loading() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -834,8 +804,6 @@ function Loading() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -874,8 +842,6 @@ function NotFound() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -912,8 +878,6 @@ function NotFound() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -952,8 +916,6 @@ function NotFound() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -990,8 +952,6 @@ function NotFound() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -1334,8 +1294,6 @@ function Page() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -1372,8 +1330,6 @@ function Page() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
@@ -1412,8 +1368,6 @@ function Page() {
   return <h1>{t(\\"title\\")}</h1>;
 }
 
-export const dynamic = \\"force-dynamic\\";
-
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
     ...__i18nConfig,
@@ -1450,8 +1404,6 @@ function Page() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-export const dynamic = \\"force-dynamic\\";
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
