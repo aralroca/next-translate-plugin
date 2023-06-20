@@ -1787,6 +1787,48 @@ export default function Component() {
 "
 `;
 
+exports[`templateAppDir should not transform a client component if there are no consuming translations isClientComponent: true | pageNoExt: /about/us/component | normalizedResourcePath: app/about/us/component.js | appFolder: app 1`] = `
+"// Some comment before
+
+/* 
+        Another comment before
+      */
+\\"use client\\";
+
+export default function Component() {
+  return <h1>Should not convert this component</h1>;
+}
+"
+`;
+
+exports[`templateAppDir should not transform a client component if there are no consuming translations isClientComponent: true | pageNoExt: /component | normalizedResourcePath: /components/component.js | appFolder: app 1`] = `
+"// Some comment before
+
+/* 
+        Another comment before
+      */
+\\"use client\\";
+
+export default function Component() {
+  return <h1>Should not convert this component</h1>;
+}
+"
+`;
+
+exports[`templateAppDir should not transform a client component if there are no consuming translations isClientComponent: true | pageNoExt: /component | normalizedResourcePath: app/component.js | appFolder: app 1`] = `
+"// Some comment before
+
+/* 
+        Another comment before
+      */
+\\"use client\\";
+
+export default function Component() {
+  return <h1>Should not convert this component</h1>;
+}
+"
+`;
+
 exports[`templateAppDir should not transform any page outside app dir pageNoExt: /about/us/page | normalizedResourcePath: /components/about/us/page.js | appFolder: app 1`] = `
 "import useTranslation from \\"next-translate/useTranslation\\";
 

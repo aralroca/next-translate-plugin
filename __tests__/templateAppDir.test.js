@@ -211,6 +211,27 @@ const tests = [
   },
   {
     describe:
+      'should not transform a client component if there are no consuming translations',
+    code: `
+      // Some comment before
+
+      /* 
+        Another comment before
+      */
+      "use client"
+
+      export default function Component() {
+        return  <h1>Should not convert this component</h1>
+      }
+    `,
+    cases: [
+      { isClientComponent: true, ...insideAppDir('/component') },
+      { isClientComponent: true, ...outsideAppDir('/component') },
+      { isClientComponent: true, ...insideAppDir('/about/us/component') },
+    ],
+  },
+  {
+    describe:
       "should load using an useEffect the translations in a client page ('use client` with simple quotes)",
     code: `
       'use client';

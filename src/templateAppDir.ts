@@ -42,9 +42,13 @@ export default function templateAppDir(
     `__Next_Translate__Page__${hash}__`
   )
 
+  // Client/Server pages without dfault export should not be wrapped
   if (isPage && !pageVariableName) return code
 
-  // Client server components
+  // Client pages/components without next-translate should not be wrapped
+  if (isClientComponent && !code.includes('next-translate')) return code
+
+  // Client pages/components
   if (isClientComponent) {
     return templateClientComponent({
       pagePkg,
@@ -56,7 +60,7 @@ export default function templateAppDir(
     });
   }
 
-  // RSC Pages
+  // Server pages (RSC)
   return templateServerPage({
     pagePkg,
     hash,
