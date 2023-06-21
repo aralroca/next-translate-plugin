@@ -96,7 +96,7 @@ function templateServerPage({
   export default async function __Next_Translate_new__${hash}__(props) {
     const config = { 
       ...${INTERNAL_CONFIG_KEY},
-      locale: props.searchParams?.lang ?? props.params?.lang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
+      locale: props.params?.lang ?? props.searchParams?.lang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'server ${routeType}',
       pathname: '${pathname}',
       ${addLoadLocalesFrom()}
@@ -150,8 +150,8 @@ function wrapClientComponent({ name = '', pathname = '', isPage = false, pageVar
   return `function ${name}(props) {
     const searchParams = __useSearchParams()
     const params = __useParams()
-    const lang = searchParams.get('lang') ?? params.lang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale
-    const config = { 
+    const lang = params.lang ?? searchParams.get('lang') ?? ${INTERNAL_CONFIG_KEY}.defaultLocale
+    const config = {
       ...${INTERNAL_CONFIG_KEY},
       locale: lang,
       loaderName: 'client ${routeType}',
