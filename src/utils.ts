@@ -13,7 +13,7 @@ export const clientLine = ['"use client"', "'use client'"]
 export const defaultLoader =
   '(l, n) => import(`@next-translate-root/locales/${l}/${n}`).then(m => m.default)'
 
-export function getDefaultAppJs() {
+export function getDefaultAppJs(existLocalesFolder: boolean) {
   return `
     import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
     import appWithI18n from 'next-translate/appWithI18n'
@@ -26,13 +26,14 @@ export function getDefaultAppJs() {
       ...${INTERNAL_CONFIG_KEY},
       skipInitialProps: true,
       isLoader: true,
-      ${addLoadLocalesFrom()}
+      ${addLoadLocalesFrom(existLocalesFolder)}
     })
   `
 }
 
-export function addLoadLocalesFrom() {
-  return `loadLocaleFrom: typeof ${INTERNAL_CONFIG_KEY}.loadLocaleFrom === 'function' ? ${INTERNAL_CONFIG_KEY}.loadLocaleFrom : ${defaultLoader},`
+export function addLoadLocalesFrom(existLocalesFolder: boolean) {
+  const defaultFn = existLocalesFolder ? defaultLoader : `() => Promise.resolve({})`
+  return `loadLocaleFrom: ${INTERNAL_CONFIG_KEY}.loadLocaleFrom || (${defaultFn}),`
 }
 
 /**
@@ -413,10 +414,14 @@ export function isNotExportModifier(modifier: ts.Modifier) {
 }
 
 function isPascalCase(str: string) {
-  return str.length > 1 && str[0] === str[0].toUpperCase() && str[1] === str[1].toLowerCase()
+  return (
+    str.length > 1 &&
+    str[0] === str[0].toUpperCase() &&
+    str[1] === str[1].toLowerCase()
+  )
 }
 
-type InterceptedExport = { exportName: string, defaultLocalName: string }
+type InterceptedExport = { exportName: string; defaultLocalName: string }
 
 /**
  * Removes the export modifiers from all the named exports that are React components and
@@ -434,8 +439,12 @@ export function interceptNamedExportsFromReactComponents(
   const interceptedExports: InterceptedExport[] = []
 
   sourceFile.statements
-    .filter(node => node.modifiers?.some(modifier => modifier?.kind === ts.SyntaxKind.ExportKeyword))
-    .forEach(node => {
+    .filter((node) =>
+      node.modifiers?.some(
+        (modifier) => modifier?.kind === ts.SyntaxKind.ExportKeyword
+      )
+    )
+    .forEach((node) => {
       let exportName = ''
 
       if (ts.isFunctionDeclaration(node) || ts.isClassDeclaration(node)) {
@@ -626,7 +635,11 @@ export function removeCommentsFromCode(code: string) {
   return code.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '')
 }
 
-export function calculatePageDir(name: 'pages' | 'app', pagesInDir: string | undefined, dir: string) {
+export function calculatePageDir(
+  name: 'pages' | 'app',
+  pagesInDir: string | undefined,
+  dir: string
+) {
   if (pagesInDir) return pagesInDir.replace(new RegExp('(app|pages)$'), name)
 
   const dirs = [
@@ -648,4 +661,37 @@ export function calculatePageDir(name: 'pages' | 'app', pagesInDir: string | und
 
 export function existPages(dir: string, pages: string | undefined) {
   return pages && fs.existsSync(path.join(dir, pages))
+}
+
+/**
+ * Checks if the project has a folder with locales/{lang}/{namespace}.json
+ * @param dir: string - Path to the root of the target project
+ * @returns boolean - Whether the project has a folder with locales/{lang}/{namespace}.json
+ */
+export function existLocalesFolderWithNamespaces(dir: string) {
+  const existLocalesFolder = fs.existsSync(path.join(dir, 'locales'))
+
+  if (!existLocalesFolder) return false
+
+  const langFolder = fs.readdirSync(path.join(dir, 'locales')).find((file) => {
+    const currentLangFolder = path.join(dir, 'locales', file)
+    return (
+      fs.existsSync(currentLangFolder) &&
+      fs.lstatSync(currentLangFolder).isDirectory()
+    )
+  })
+
+  if (!langFolder) return false
+
+  const existNamespaceFile = fs
+    .readdirSync(path.join(dir, 'locales', langFolder))
+    .some((file) => {
+      const namespaceFile = path.join(dir, 'locales', langFolder, file)
+      return (
+        fs.existsSync(namespaceFile) &&
+        !fs.lstatSync(namespaceFile).isDirectory()
+      )
+    })
+
+  return existNamespaceFile
 }

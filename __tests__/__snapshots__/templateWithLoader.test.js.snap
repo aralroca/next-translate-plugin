@@ -18,12 +18,11 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         pathname: \\"/blog/[post]/[...catchall]\\",
         loaderName: \\"getServerSideProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -50,12 +49,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -93,12 +91,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -132,12 +129,11 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         pathname: \\"/blog/[post]/[...catchall]\\",
         loaderName: \\"getServerSideProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -171,12 +167,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -214,12 +209,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -248,12 +242,11 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         pathname: \\"/blog/[post]/[...catchall]\\",
         loaderName: \\"getServerSideProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -282,12 +275,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -324,12 +316,11 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getServerSideProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -359,12 +350,11 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         pathname: \\"/blog/[post]/[...catchall]\\",
         loaderName: \\"getServerSideProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -394,12 +384,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -433,12 +422,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -472,12 +460,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -513,12 +500,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -554,12 +540,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -595,12 +580,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -640,12 +624,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -680,12 +663,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -721,12 +703,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -756,12 +737,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -796,12 +776,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -835,12 +814,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -874,12 +852,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -909,12 +886,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -944,12 +920,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -979,12 +954,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };
@@ -1021,12 +995,11 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          typeof __i18nConfig.loadLocaleFrom === \\"function\\"
-            ? __i18nConfig.loadLocaleFrom
-            : (l, n) =>
-                import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-                  (m) => m.default
-                ),
+          __i18nConfig.loadLocaleFrom ||
+          ((l, n) =>
+            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              (m) => m.default
+            )),
       })),
     },
   };

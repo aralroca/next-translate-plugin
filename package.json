@@ -80,7 +80,7 @@
     "supertest": "6.3.3"
   },
   "peerDependencies": {
-    "next-translate": ">= 2.3.0"
+    "next-translate": ">= 2.4.0"
   },
   "prettier": {
     "trailingComma": "es5",

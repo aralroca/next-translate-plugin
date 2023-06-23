@@ -1,9 +1,13 @@
-import { INTERNAL_CONFIG_KEY, interceptExport, addLoadLocalesFrom } from './utils'
+import {
+  INTERNAL_CONFIG_KEY,
+  interceptExport,
+  addLoadLocalesFrom,
+} from './utils'
 import { ParsedFilePkg } from './types'
 
 export default function templateWithHoc(
   pagePkg: ParsedFilePkg,
-  { skipInitialProps = false } = {}
+  { skipInitialProps = false, existLocalesFolder = true } = {}
 ) {
   // Random string based on current time
   const hash = Date.now().toString(16)
@@ -28,7 +32,7 @@ export default function templateWithHoc(
       ...${INTERNAL_CONFIG_KEY},
       isLoader: true,
       skipInitialProps: ${skipInitialProps},
-      ${addLoadLocalesFrom()}
+      ${addLoadLocalesFrom(existLocalesFolder)}
     });
   `
 }

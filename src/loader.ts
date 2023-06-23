@@ -29,6 +29,7 @@ export default function loader(
     hasGetInitialPropsOnAppJs,
     extensionsRgx,
     revalidate,
+    existLocalesFolder,
   } = this.getOptions()
   try {
     const codeWithoutComments = removeCommentsFromCode(rawCode).trim()
@@ -57,15 +58,18 @@ export default function loader(
 
     // In case that there aren't /_app.js we want to overwrite the default _app
     // to provide the I18Provider on top.
-    if (normalizedResourcePath.includes('node_modules/next/dist/pages/_app') && !hasAppJs) {
-      return getDefaultAppJs()
+    if (
+      normalizedResourcePath.includes('node_modules/next/dist/pages/_app') &&
+      !hasAppJs
+    ) {
+      return getDefaultAppJs(existLocalesFolder)
     }
 
     // Skip node_modules
     if (normalizedResourcePath.includes('node_modules/')) return rawCode
 
-    // Skip rest of files that are not inside /pages and is not detected as appDir. 
-    // In /pages dir we only need to transform pages and always are inside the /pages folder. 
+    // Skip rest of files that are not inside /pages and is not detected as appDir.
+    // In /pages dir we only need to transform pages and always are inside the /pages folder.
     // However, for /app dir we also need to transform the client components and these can be
     // outside the /app folder.
     if (
@@ -79,7 +83,7 @@ export default function loader(
     const pagePkg = parseFile(basePath, normalizedResourcePath)
 
     // Skip any transformation if the page is not in raw code
-    // Fixes issues with Nx: 
+    // Fixes issues with Nx:
     // - https://github.com/aralroca/next-translate/issues/677
     // - https://github.com/aralroca/next-translate-plugin/issues/28
     if (
@@ -98,6 +102,7 @@ export default function loader(
         appFolder,
         isClientComponent,
         code: rawCode,
+        existLocalesFolder,
       })
     }
 
@@ -106,7 +111,6 @@ export default function loader(
     // Skip any transformation if for some reason they forgot to write the
     // "export default" on the page
     if (!defaultExport) return rawCode
-
 
     // In case there is a getInitialProps in _app it means that we can
     // reuse the existing getInitialProps on the top to load the namespaces.
@@ -117,7 +121,7 @@ export default function loader(
     // This way, the only modified file has to be the _app.js.
     if (hasGetInitialPropsOnAppJs) {
       return pageNoExt === '/_app'
-        ? templateWithHoc(pagePkg)
+        ? templateWithHoc(pagePkg, { existLocalesFolder })
         : rawCode
     }
 
@@ -126,6 +130,7 @@ export default function loader(
     if (pageNoExt === '/_app') {
       return templateWithHoc(pagePkg, {
         skipInitialProps: true,
+        existLocalesFolder,
       })
     }
 
@@ -161,7 +166,7 @@ export default function loader(
       isGetStaticProps || isGetServerSideProps || isGetInitialProps
 
     if (isGetInitialProps || (!hasLoader && isWrapperWithExternalHOC)) {
-      return templateWithHoc(pagePkg)
+      return templateWithHoc(pagePkg, { existLocalesFolder })
     }
 
     const loader =
@@ -173,6 +178,7 @@ export default function loader(
       page: pageNoExt,
       loader,
       revalidate,
+      existLocalesFolder,
     })
   } catch (e) {
     console.error('next-translate-plugin ERROR', e)
