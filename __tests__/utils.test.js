@@ -1,8 +1,10 @@
-import { isPageToIgnore, calculatePageDir } from '../src/utils'
+import {
+  isPageToIgnore,
+  calculatePageDir,
+  existLocalesFolderWithNamespaces,
+} from '../src/utils'
 import fs from 'fs'
 import path from 'path'
-
-jest.spyOn(fs, 'existsSync')
 
 describe('utils', () => {
   describe('utils -> isPageToIgnore', () => {
@@ -76,14 +78,24 @@ describe('utils', () => {
   })
 
   describe('utils -> calculatePageDir', () => {
+    beforeEach(() => {
+      jest.spyOn(fs, 'existsSync')
+    })
+    afterAll(() => {
+      fs.existsSync.mockRestore()
+    })
     test('should detect src/pages', () => {
       const name = 'pages'
       const pagesInDir = undefined
       const dir = path.join('/home/user/project')
 
-      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/src/pages'))
+      fs.existsSync.mockImplementation(
+        (pathname) => pathname === path.join('/home/user/project/src/pages')
+      )
 
-      expect(calculatePageDir(name, pagesInDir, dir)).toBe(path.join('src/pages'))
+      expect(calculatePageDir(name, pagesInDir, dir)).toBe(
+        path.join('src/pages')
+      )
     })
 
     test('should detect src/app', () => {
@@ -91,7 +103,9 @@ describe('utils', () => {
       const pagesInDir = undefined
       const dir = path.join('/home/user/project')
 
-      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/src/app'))
+      fs.existsSync.mockImplementation(
+        (pathname) => pathname === path.join('/home/user/project/src/app')
+      )
 
       expect(calculatePageDir(name, pagesInDir, dir)).toBe(path.join('src/app'))
     })
@@ -100,20 +114,67 @@ describe('utils', () => {
       const name = 'app'
       const dir = path.join('/home/user/project')
 
-      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/somepath/app'))
+      fs.existsSync.mockImplementation(
+        (pathname) => pathname === path.join('/home/user/project/somepath/app')
+      )
 
-      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe(path.join('somepath/app'))
-      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe(path.join('somepath/app'))
+      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe(
+        path.join('somepath/app')
+      )
+      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe(
+        path.join('somepath/app')
+      )
     })
 
     test('should use the pagesInDir for pages folder', () => {
       const name = 'pages'
       const dir = path.join('/home/user/project')
 
-      fs.existsSync.mockImplementation((pathname) => pathname === path.join('/home/user/project/somepath/pages'))
+      fs.existsSync.mockImplementation(
+        (pathname) =>
+          pathname === path.join('/home/user/project/somepath/pages')
+      )
 
-      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe(path.join('somepath/pages'))
-      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe(path.join('somepath/pages'))
+      expect(calculatePageDir(name, path.join('somepath/pages'), dir)).toBe(
+        path.join('somepath/pages')
+      )
+      expect(calculatePageDir(name, path.join('somepath/app'), dir)).toBe(
+        path.join('somepath/pages')
+      )
+    })
+  })
+
+  describe('utils -> existLocalesFolderWithNamespaces', () => {
+    it('should return false if locales folder does not exist', () => {
+      expect(
+        existLocalesFolderWithNamespaces(
+          path.join(__dirname, '__fixtures__', 'no-locales')
+        )
+      ).toBe(false)
+    })
+
+    it('should return false if locales folder does not have any lang folder', () => {
+      expect(
+        existLocalesFolderWithNamespaces(
+          path.join(__dirname, '__fixtures__', 'no-lang')
+        )
+      ).toBe(false)
+    })
+
+    it('should return false if locales folder does not have any namespace file', () => {
+      expect(
+        existLocalesFolderWithNamespaces(
+          path.join(__dirname, '__fixtures__', 'no-namespace')
+        )
+      ).toBe(false)
+    })
+
+    it('should return true if locales folder has lang folder and namespace file', () => {
+      expect(
+        existLocalesFolderWithNamespaces(
+          path.join(__dirname, '__fixtures__', 'with-everything')
+        )
+      ).toBe(true)
     })
   })
 })

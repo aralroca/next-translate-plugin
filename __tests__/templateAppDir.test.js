@@ -186,7 +186,7 @@ const tests = [
   },
   {
     describe:
-      'should load using an useEffect the translations in a client page ("use client" with double quotes and comment before)',
+      'should load using an "use" client hook the translations in a client page ("use client" with double quotes and comment before)',
     code: `
       // Some comment before
 
@@ -232,7 +232,7 @@ const tests = [
   },
   {
     describe:
-      "should load using an useEffect the translations in a client page ('use client` with simple quotes)",
+      "should load using an 'use' client hook the translations in a client page ('use client' with simple quotes)",
     code: `
       'use client';
       import useTranslation from 'next-translate/useTranslation'
@@ -268,7 +268,7 @@ const tests = [
   },
   {
     describe:
-      'should hydrate (if is not done yet) the translations in a client component (already have the namespaces from the page)',
+      'should load using an "use" client hook the translations in client component (already have the namespaces from the page)',
     code: `
       "use client"
 
@@ -290,7 +290,7 @@ const tests = [
   },
   {
     describe:
-      'should hydrate (if is not done yet) the translations in a client component with named export (already have the namespaces from the page)',
+      'should load using an "use" client hook the translations in a client component with named export (already have the namespaces from the page)',
     code: `
       "use client"
 
@@ -310,6 +310,29 @@ const tests = [
       },
     ],
   },
+  {
+    describe:
+      'should use an empty loader fallback if doesnt have any namespaces inside locales/{lang}/${namespace}',
+    code: `
+      "use client"
+
+      import useTranslation from 'next-translate/useTranslation'
+
+      export function Component() {
+        const { t, lang } = useTranslation('common')
+        return  <h1>{t('title')}</h1>
+      }
+    `,
+    cases: [
+      { isClientComponent: true, existLocalesFolder: false, ...insideAppDir('/component') },
+      {
+        ...insideAppDir('/about/us/component'),
+        isClientComponent: true,
+        existLocalesFolder: false,
+      },
+    ],
+  },
+
 ]
 
 describe('templateAppDir', () => {

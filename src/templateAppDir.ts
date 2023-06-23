@@ -7,7 +7,14 @@ import {
   INTERNAL_CONFIG_KEY,
 } from './utils'
 
-const validPages = ['/page', '/layout', '/error', '/loading', '/not-found', '/global-error']
+const validPages = [
+  '/page',
+  '/layout',
+  '/error',
+  '/loading',
+  '/not-found',
+  '/global-error',
+]
 const validPagesRegex = new RegExp(`(${validPages.join('|')})$`)
 let lastPathname = ''
 
@@ -19,15 +26,20 @@ export default function templateAppDir(
     normalizedResourcePath = '',
     appFolder = '',
     isClientComponent = false,
+    existLocalesFolder = true,
   } = {}
 ) {
-  const routeType = validPages.find(pageName => pageNoExt.endsWith(pageName)) || 'component'
-  const isPage = routeType !== 'component' && normalizedResourcePath.includes(appFolder)
+  const routeType =
+    validPages.find((pageName) => pageNoExt.endsWith(pageName)) || 'component'
+  const isPage =
+    routeType !== 'component' && normalizedResourcePath.includes(appFolder)
 
   if (!isPage && !isClientComponent) return code
 
   const hash = Date.now().toString(16)
-  const pathname = isPage ? pageNoExt.replace(validPagesRegex, '/') : lastPathname
+  const pathname = isPage
+    ? pageNoExt.replace(validPagesRegex, '/')
+    : lastPathname
 
   // For client components we need to remember the pathname of the current page
   lastPathname = pathname
@@ -55,7 +67,8 @@ export default function templateAppDir(
       pathname,
       isPage,
       routeType,
-    });
+      existLocalesFolder,
+    })
   }
 
   // Server pages (RSC)
@@ -65,6 +78,7 @@ export default function templateAppDir(
     pageVariableName,
     pathname,
     routeType,
+    existLocalesFolder,
   })
 }
 
@@ -73,8 +87,9 @@ type Params = {
   hash: string
   pageVariableName: string
   pathname?: string
-  isPage?: boolean,
+  isPage?: boolean
   routeType: string
+  existLocalesFolder: boolean
 }
 
 function templateServerPage({
@@ -83,6 +98,7 @@ function templateServerPage({
   pageVariableName,
   pathname,
   routeType,
+  existLocalesFolder,
 }: Params) {
   const code = pagePkg.getCode()
 
@@ -99,7 +115,7 @@ function templateServerPage({
       locale: props.params?.lang ?? props.searchParams?.lang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'server ${routeType}',
       pathname: '${pathname}',
-      ${addLoadLocalesFrom()}
+      ${addLoadLocalesFrom(existLocalesFolder)}
     }
     const { __lang, __namespaces } = await __loadNamespaces(config)
 
@@ -116,14 +132,22 @@ function templateClientComponent({
   pageVariableName,
   pathname,
   isPage,
-  routeType
+  routeType,
+  existLocalesFolder,
 }: Params) {
   const topLine = clientLine[0]
-  const namedExportsModified = modifyNamedExportsComponents(pagePkg, hash)
+  const namedExportsModified = modifyNamedExportsComponents(pagePkg, { hash, existLocalesFolder })
   const exportDefault = pageVariableName
-    ? "export default " + wrapClientComponent({ name: `__Next_Translate_new__${hash}__`, pathname, isPage, pageVariableName, routeType })
+    ? 'export default ' +
+    wrapClientComponent({
+      name: `__Next_Translate_new__${hash}__`,
+      pathname,
+      isPage,
+      pageVariableName,
+      routeType,
+      existLocalesFolder,
+    })
     : ''
-
 
   let clientCode = pagePkg.getCode()
 
@@ -146,7 +170,14 @@ function templateClientComponent({
 `
 }
 
-function wrapClientComponent({ name = '', pathname = '', isPage = false, pageVariableName = '', routeType = 'component' }) {
+function wrapClientComponent({
+  name = '',
+  pathname = '',
+  isPage = false,
+  pageVariableName = '',
+  routeType = 'component',
+  existLocalesFolder = true,
+}) {
   return `function ${name}(props) {
     const searchParams = __useSearchParams()
     const params = __useParams()
@@ -157,7 +188,7 @@ function wrapClientComponent({ name = '', pathname = '', isPage = false, pageVar
       loaderName: 'client ${routeType}',
       pathname: '${pathname}',
       logBuild: ${isPage},
-      ${addLoadLocalesFrom()}
+      ${addLoadLocalesFrom(existLocalesFolder)}
     }
     const { __lang, __namespaces } = __use(__loadNamespaces(config));
 
@@ -167,11 +198,17 @@ function wrapClientComponent({ name = '', pathname = '', isPage = false, pageVar
   }`
 }
 
-function modifyNamedExportsComponents(pagePkg: ParsedFilePkg, hash: string) {
+function modifyNamedExportsComponents(pagePkg: ParsedFilePkg, { hash, existLocalesFolder }: { hash: string, existLocalesFolder: boolean }) {
   return interceptNamedExportsFromReactComponents(pagePkg, hash)
     .map(
       ({ exportName, defaultLocalName }) => `
-    ${wrapClientComponent({ name: defaultLocalName, pathname: lastPathname, isPage: false, pageVariableName: exportName })}
+    ${wrapClientComponent({
+        name: defaultLocalName,
+        pathname: lastPathname,
+        isPage: false,
+        pageVariableName: exportName,
+        existLocalesFolder
+      })}
     export { ${defaultLocalName} as ${exportName} }
   `
     )

@@ -1,4 +1,8 @@
-import { interceptExport, addLoadLocalesFrom, INTERNAL_CONFIG_KEY } from './utils'
+import {
+  interceptExport,
+  addLoadLocalesFrom,
+  INTERNAL_CONFIG_KEY,
+} from './utils'
 import { ParsedFilePkg } from './types'
 
 export default function templateWithLoader(
@@ -7,6 +11,7 @@ export default function templateWithLoader(
     page = '',
     loader = 'getStaticProps',
     revalidate = 0,
+    existLocalesFolder = true,
   } = {}
 ) {
   // Random string based on current time
@@ -39,7 +44,7 @@ export default function templateWithLoader(
             ...${INTERNAL_CONFIG_KEY},
             pathname: '${page}',
             loaderName: '${loader}',
-            ${addLoadLocalesFrom()}
+            ${addLoadLocalesFrom(existLocalesFolder)}
           }))
         }
       }

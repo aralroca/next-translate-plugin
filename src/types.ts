@@ -8,6 +8,7 @@ export interface LoaderOptions {
   hasGetInitialPropsOnAppJs: boolean
   extensionsRgx: RegExp
   revalidate: number
+  existLocalesFolder: boolean
 }
 
 export type Transformer = (

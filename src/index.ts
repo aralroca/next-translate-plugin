@@ -10,6 +10,7 @@ import {
   parseFile,
   calculatePageDir,
   existPages,
+  existLocalesFolderWithNamespaces,
 } from './utils'
 import { LoaderOptions } from './types'
 import type { I18nConfig, NextI18nConfig } from 'next-translate'
@@ -32,7 +33,8 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     localeDetection = nextConfigI18n.localeDetection,
     loader = true,
     pagesInDir,
-    ...restI18n
+    extensionsRgx = test,
+    revalidate = 0,
   } = require(path.join(basePath, 'i18n')) as I18nConfig
 
   let nextConfigWithI18n: NextConfig = {
@@ -47,6 +49,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
 
   const pagesFolder = calculatePageDir('pages', pagesInDir, basePath)
   const appFolder = calculatePageDir('app', pagesInDir, basePath)
+  const existLocalesFolder = existLocalesFolderWithNamespaces(basePath)
   const existPagesFolder = existPages(basePath, pagesFolder)
   let hasGetInitialPropsOnAppJs = false
   let hasAppJs = false
@@ -112,8 +115,9 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
             appFolder: path.join(appFolder, '/'),
             hasAppJs,
             hasGetInitialPropsOnAppJs,
-            extensionsRgx: restI18n.extensionsRgx || test,
-            revalidate: restI18n.revalidate || 0,
+            extensionsRgx,
+            revalidate,
+            existLocalesFolder,
           } as LoaderOptions,
         },
       })
