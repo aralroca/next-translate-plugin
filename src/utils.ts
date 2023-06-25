@@ -32,7 +32,9 @@ export function getDefaultAppJs(existLocalesFolder: boolean) {
 }
 
 export function addLoadLocalesFrom(existLocalesFolder: boolean) {
-  const defaultFn = existLocalesFolder ? defaultLoader : `() => Promise.resolve({})`
+  const defaultFn = existLocalesFolder
+    ? defaultLoader
+    : `() => Promise.resolve({})`
   return `loadLocaleFrom: ${INTERNAL_CONFIG_KEY}.loadLocaleFrom || (${defaultFn}),`
 }
 
@@ -411,58 +413,6 @@ export function isNotExportModifier(modifier: ts.Modifier) {
     ts.SyntaxKind.ExportKeyword,
   ]
   return !exportModifiers.includes(modifier.kind)
-}
-
-function isPascalCase(str: string) {
-  return (
-    str.length > 1 &&
-    str[0] === str[0].toUpperCase() &&
-    str[1] === str[1].toLowerCase()
-  )
-}
-
-type InterceptedExport = { exportName: string; defaultLocalName: string }
-
-/**
- * Removes the export modifiers from all the named exports that are React components and
- * makes them available locally by the given name
- *
- * @param filePkg - File package
- * @param hash - The hash to generate the name that will be applied if the entity *does not* have its own
- * @returns An array with the names of the intercepted exports + the name by which they can now be retrieved
- */
-export function interceptNamedExportsFromReactComponents(
-  filePkg: ParsedFilePkg,
-  hash: string
-): InterceptedExport[] {
-  const sourceFile = filePkg.sourceFile
-  const interceptedExports: InterceptedExport[] = []
-
-  sourceFile.statements
-    .filter((node) =>
-      node.modifiers?.some(
-        (modifier) => modifier?.kind === ts.SyntaxKind.ExportKeyword
-      )
-    )
-    .forEach((node) => {
-      let exportName = ''
-
-      if (ts.isFunctionDeclaration(node) || ts.isClassDeclaration(node)) {
-        exportName = node.name?.getText() ?? ''
-      } else if (ts.isVariableStatement(node)) {
-        const declaration = node.declarationList.declarations[0]
-        if (!ts.isArrowFunction(declaration.initializer as ts.Node)) return
-        exportName = declaration.name?.getText()
-      }
-
-      if (isPascalCase(exportName)) {
-        const defaultLocalName = `__Next_Translate_Component_${hash}_${interceptedExports.length}`
-        interceptExport(filePkg, exportName, defaultLocalName)
-        interceptedExports.push({ exportName, defaultLocalName })
-      }
-    })
-
-  return interceptedExports
 }
 
 /**
