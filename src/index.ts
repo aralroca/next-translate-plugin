@@ -111,8 +111,9 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
           loader: 'next-translate-plugin/loader',
           options: {
             basePath,
-            pagesFolder: path.join(pagesFolder, '/'),
-            appFolder: path.join(appFolder, '/'),
+            // Normalize slashes in a file path to be posix/unix-like forward slashes
+            pagesFolder: path.join(pagesFolder, '/').replace(/\\/g, '/'),
+            appFolder: path.join(appFolder, '/').replace(/\\/g, '/'),
             hasAppJs,
             hasGetInitialPropsOnAppJs,
             extensionsRgx,
