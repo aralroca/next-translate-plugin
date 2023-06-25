@@ -53,9 +53,6 @@ export default function loader(
       shouldUseTemplateAppDir ? appFolder : pagesFolder
     ) as string
 
-    // Normalize slashes in a file path to be posix/unix-like forward slashes
-    const normalizedPagesPath = pagesPath.replace(/\\/g, '/')
-
     // In case that there aren't /_app.js we want to overwrite the default _app
     // to provide the I18Provider on top.
     if (
@@ -74,11 +71,11 @@ export default function loader(
     // outside the /app folder.
     if (
       !shouldUseTemplateAppDir &&
-      !normalizedResourcePath.includes(normalizedPagesPath)
+      !normalizedResourcePath.includes(pagesPath)
     )
       return rawCode
 
-    const page = normalizedResourcePath.replace(normalizedPagesPath, '/')
+    const page = normalizedResourcePath.replace(pagesPath, '/')
     const pageNoExt = page.replace(extensionsRgx, '')
     const pagePkg = parseFile(basePath, normalizedResourcePath)
 
