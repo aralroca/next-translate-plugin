@@ -2,8 +2,8 @@
 
 exports[`templateAppDir should load translations in a error page pageNoExt: /about/us/error | normalizedResourcePath: app/about/us/error.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Error() {
@@ -20,26 +20,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Error {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Error {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a error page pageNoExt: /about/us/error | normalizedResourcePath: packages/app/about/us/error.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Error() {
@@ -56,26 +66,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Error {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Error {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a error page pageNoExt: /error | normalizedResourcePath: app/error.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Error() {
@@ -92,26 +112,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Error {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Error {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a error page pageNoExt: /error | normalizedResourcePath: packages/app/error.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Error() {
@@ -128,26 +158,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Error {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Error {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a global-error page pageNoExt: /about/us/global-error | normalizedResourcePath: app/about/us/global-error.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function GlobalError() {
@@ -164,26 +204,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <GlobalError {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <GlobalError {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a global-error page pageNoExt: /about/us/global-error | normalizedResourcePath: packages/app/about/us/global-error.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function GlobalError() {
@@ -200,26 +250,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <GlobalError {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <GlobalError {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a global-error page pageNoExt: /global-error | normalizedResourcePath: app/global-error.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function GlobalError() {
@@ -236,26 +296,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <GlobalError {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <GlobalError {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a global-error page pageNoExt: /global-error | normalizedResourcePath: packages/app/global-error.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function GlobalError() {
@@ -272,26 +342,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <GlobalError {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <GlobalError {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a layout pageNoExt: /about/us/layout | normalizedResourcePath: app/about/us/layout.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Layout() {
@@ -308,26 +388,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Layout {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Layout {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a layout pageNoExt: /about/us/layout | normalizedResourcePath: packages/app/about/us/layout.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Layout() {
@@ -344,26 +434,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Layout {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Layout {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a layout pageNoExt: /layout | normalizedResourcePath: app/layout.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Layout() {
@@ -380,26 +480,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Layout {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Layout {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a layout pageNoExt: /layout | normalizedResourcePath: packages/app/layout.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Layout() {
@@ -416,26 +526,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Layout {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Layout {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a loading page pageNoExt: /about/us/loading | normalizedResourcePath: app/about/us/loading.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Loading() {
@@ -452,26 +572,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Loading {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Loading {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a loading page pageNoExt: /about/us/loading | normalizedResourcePath: packages/app/about/us/loading.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Loading() {
@@ -488,26 +618,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Loading {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Loading {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a loading page pageNoExt: /loading | normalizedResourcePath: app/loading.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Loading() {
@@ -524,26 +664,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Loading {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Loading {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a loading page pageNoExt: /loading | normalizedResourcePath: packages/app/loading.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Loading() {
@@ -560,26 +710,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Loading {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Loading {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a not-found page pageNoExt: /about/us/not-found | normalizedResourcePath: app/about/us/not-found.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function NotFound() {
@@ -596,26 +756,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <NotFound {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <NotFound {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a not-found page pageNoExt: /about/us/not-found | normalizedResourcePath: packages/app/about/us/not-found.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function NotFound() {
@@ -632,26 +802,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <NotFound {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <NotFound {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a not-found page pageNoExt: /not-found | normalizedResourcePath: app/not-found.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function NotFound() {
@@ -668,26 +848,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <NotFound {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <NotFound {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a not-found page pageNoExt: /not-found | normalizedResourcePath: packages/app/not-found.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function NotFound() {
@@ -704,26 +894,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <NotFound {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <NotFound {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /about/us/page | normalizedResourcePath: app/about/us/page.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-dynamic\\";
@@ -741,26 +941,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /about/us/page | normalizedResourcePath: packages/app/about/us/page.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-dynamic\\";
@@ -778,26 +988,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-dynamic\\";
@@ -815,26 +1035,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /page | normalizedResourcePath: packages/app/page.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-dynamic\\";
@@ -852,26 +1082,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /about/us/page | normalizedResourcePath: app/about/us/page.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -889,26 +1129,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /about/us/page | normalizedResourcePath: packages/app/about/us/page.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -926,26 +1176,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -963,26 +1223,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /page | normalizedResourcePath: packages/app/page.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -1000,26 +1270,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /about/us/page | normalizedResourcePath: app/about/us/page.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Page() {
@@ -1036,26 +1316,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /about/us/page | normalizedResourcePath: packages/app/about/us/page.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Page() {
@@ -1072,26 +1362,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Page() {
@@ -1108,26 +1408,36 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
 
 exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /page | normalizedResourcePath: packages/app/page.js | appFolder: app/ 1`] = `
 "import __i18nConfig from \\"@next-translate-root/i18n\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Page() {
@@ -1144,18 +1454,28 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
       __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
     loadLocaleFrom:
       __i18nConfig.loadLocaleFrom ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
         )),
+  });
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
   };
-  const { __lang, __namespaces } = await __loadNamespaces(config);
 
-  __nt_store.set({ lang: __lang, namespaces: __namespaces, config });
-
-  return <Page {...props} />;
+  return (
+    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;
@@ -1174,104 +1494,38 @@ export function Component() {
 
 exports[`templateAppDir should load using an "use" client hook the translations in a client component with named export (already have the namespaces from the page) isClientComponent: true | pageNoExt: /component | normalizedResourcePath: app/component.js | appFolder: app 1`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
-import {
-  useSearchParams as __useSearchParams,
-  useParams as __useParams,
-} from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
-function Component() {
+
+export function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-function __Next_Translate_Component_88d9831a00_0(props) {
-  const searchParams = __useSearchParams();
-  const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
-  const config = {
-    ...__i18nConfig,
-    locale: lang,
-    loaderName: \\"client component\\",
-    pathname: \\"/about/us/\\",
-    logBuild: false,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
-  };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
-
-  __nt_store.set({ lang, namespaces: __namespaces, config });
-
-  return <Component {...props} />;
-}
-export { __Next_Translate_Component_88d9831a00_0 as Component };
 "
 `;
 
 exports[`templateAppDir should load using an "use" client hook the translations in a client component with named export (already have the namespaces from the page) pageNoExt: /about/us/component | normalizedResourcePath: app/about/us/component.js | appFolder: app | isClientComponent: true 1`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
-import {
-  useSearchParams as __useSearchParams,
-  useParams as __useParams,
-} from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
-function Component() {
+
+export function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-function __Next_Translate_Component_88d9831a00_0(props) {
-  const searchParams = __useSearchParams();
-  const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
-  const config = {
-    ...__i18nConfig,
-    locale: lang,
-    loaderName: \\"client component\\",
-    pathname: \\"/about/us/\\",
-    logBuild: false,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
-  };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
-
-  __nt_store.set({ lang, namespaces: __namespaces, config });
-
-  return <Component {...props} />;
-}
-export { __Next_Translate_Component_88d9831a00_0 as Component };
 "
 `;
 
 exports[`templateAppDir should load using an "use" client hook the translations in a client page ("use client" with double quotes and comment before) isClientComponent: true | pageNoExt: /about/us/page | normalizedResourcePath: app/about/us/page.js | appFolder: app 1`] = `
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
 import { use as __use } from \\"react\\";
+import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
 // Some comment before
 /*
@@ -1294,17 +1548,24 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/about/us/\\",
-    logBuild: true,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
   };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
 
-  __nt_store.set({ lang, namespaces: __namespaces, config });
+  const { __lang, __namespaces } = __use(
+    __loadNamespaces({
+      ...config,
+      loadLocaleFrom:
+        __i18nConfig.loadLocaleFrom ||
+        ((l, n) =>
+          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            (m) => m.default
+          )),
+    })
+  );
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
+  };
 
   return <Page {...props} />;
 }
@@ -1314,13 +1575,13 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 exports[`templateAppDir should load using an "use" client hook the translations in a client page ("use client" with double quotes and comment before) isClientComponent: true | pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
 import { use as __use } from \\"react\\";
+import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
 // Some comment before
 /*
@@ -1343,17 +1604,24 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/\\",
-    logBuild: true,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
   };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
 
-  __nt_store.set({ lang, namespaces: __namespaces, config });
+  const { __lang, __namespaces } = __use(
+    __loadNamespaces({
+      ...config,
+      loadLocaleFrom:
+        __i18nConfig.loadLocaleFrom ||
+        ((l, n) =>
+          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            (m) => m.default
+          )),
+    })
+  );
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
+  };
 
   return <Page {...props} />;
 }
@@ -1363,13 +1631,13 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 exports[`templateAppDir should load using an "use" client hook the translations in a client page ("use client" with double quotes and comment before) isClientComponent: true | pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
 import { use as __use } from \\"react\\";
+import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
 // Some comment before
 /*
@@ -1392,17 +1660,24 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/\\",
-    logBuild: true,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
   };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
 
-  __nt_store.set({ lang, namespaces: __namespaces, config });
+  const { __lang, __namespaces } = __use(
+    __loadNamespaces({
+      ...config,
+      loadLocaleFrom:
+        __i18nConfig.loadLocaleFrom ||
+        ((l, n) =>
+          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            (m) => m.default
+          )),
+    })
+  );
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
+  };
 
   return <Page {...props} />;
 }
@@ -1411,132 +1686,36 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 
 exports[`templateAppDir should load using an "use" client hook the translations in client component (already have the namespaces from the page) isClientComponent: true | pageNoExt: /component | normalizedResourcePath: app/component.js | appFolder: app 1`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
-import {
-  useSearchParams as __useSearchParams,
-  useParams as __useParams,
-} from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
-function Component() {
+
+export default function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
-}
-
-export default function __Next_Translate_new__88d9831a00__(props) {
-  const searchParams = __useSearchParams();
-  const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
-  const config = {
-    ...__i18nConfig,
-    locale: lang,
-    loaderName: \\"client component\\",
-    pathname: \\"/about/us/\\",
-    logBuild: false,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
-  };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
-
-  __nt_store.set({ lang, namespaces: __namespaces, config });
-
-  return <Component {...props} />;
 }
 "
 `;
 
 exports[`templateAppDir should load using an "use" client hook the translations in client component (already have the namespaces from the page) isClientComponent: true | pageNoExt: /component | normalizedResourcePath: app/component.js | appFolder: app 2`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
-import {
-  useSearchParams as __useSearchParams,
-  useParams as __useParams,
-} from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
-function Component() {
+
+export default function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
-}
-
-export default function __Next_Translate_new__88d9831a00__(props) {
-  const searchParams = __useSearchParams();
-  const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
-  const config = {
-    ...__i18nConfig,
-    locale: lang,
-    loaderName: \\"client component\\",
-    pathname: \\"/about/us/\\",
-    logBuild: false,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
-  };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
-
-  __nt_store.set({ lang, namespaces: __namespaces, config });
-
-  return <Component {...props} />;
 }
 "
 `;
 
 exports[`templateAppDir should load using an "use" client hook the translations in client component (already have the namespaces from the page) pageNoExt: /about/us/component | normalizedResourcePath: app/about/us/component.js | appFolder: app | isClientComponent: true 1`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
-import {
-  useSearchParams as __useSearchParams,
-  useParams as __useParams,
-} from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
-function Component() {
+
+export default function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
-}
-
-export default function __Next_Translate_new__88d9831a00__(props) {
-  const searchParams = __useSearchParams();
-  const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
-  const config = {
-    ...__i18nConfig,
-    locale: lang,
-    loaderName: \\"client component\\",
-    pathname: \\"/about/us/\\",
-    logBuild: false,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
-  };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
-
-  __nt_store.set({ lang, namespaces: __namespaces, config });
-
-  return <Component {...props} />;
 }
 "
 `;
@@ -1544,14 +1723,13 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 exports[`templateAppDir should load using an 'use' client hook the translations in a client page ('use client' with simple quotes) isClientComponent: true | pageNoExt: /about/us/page | normalizedResourcePath: app/about/us/page.js | appFolder: app 1`] = `
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
 import { use as __use } from \\"react\\";
-
+import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
 function Page() {
@@ -1569,17 +1747,24 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/about/us/\\",
-    logBuild: true,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
   };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
 
-  __nt_store.set({ lang, namespaces: __namespaces, config });
+  const { __lang, __namespaces } = __use(
+    __loadNamespaces({
+      ...config,
+      loadLocaleFrom:
+        __i18nConfig.loadLocaleFrom ||
+        ((l, n) =>
+          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            (m) => m.default
+          )),
+    })
+  );
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
+  };
 
   return <Page {...props} />;
 }
@@ -1589,14 +1774,13 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 exports[`templateAppDir should load using an 'use' client hook the translations in a client page ('use client' with simple quotes) isClientComponent: true | pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
 import { use as __use } from \\"react\\";
-
+import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
 function Page() {
@@ -1614,17 +1798,24 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/\\",
-    logBuild: true,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
   };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
 
-  __nt_store.set({ lang, namespaces: __namespaces, config });
+  const { __lang, __namespaces } = __use(
+    __loadNamespaces({
+      ...config,
+      loadLocaleFrom:
+        __i18nConfig.loadLocaleFrom ||
+        ((l, n) =>
+          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            (m) => m.default
+          )),
+    })
+  );
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
+  };
 
   return <Page {...props} />;
 }
@@ -1634,14 +1825,13 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 exports[`templateAppDir should load using an 'use' client hook the translations in a client page ('use client' with simple quotes) isClientComponent: true | pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
 "\\"use client\\";
 import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
 import { use as __use } from \\"react\\";
-
+import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
 function Page() {
@@ -1659,17 +1849,24 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/\\",
-    logBuild: true,
-    loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
-      ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-          (m) => m.default
-        )),
   };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
 
-  __nt_store.set({ lang, namespaces: __namespaces, config });
+  const { __lang, __namespaces } = __use(
+    __loadNamespaces({
+      ...config,
+      loadLocaleFrom:
+        __i18nConfig.loadLocaleFrom ||
+        ((l, n) =>
+          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            (m) => m.default
+          )),
+    })
+  );
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: __namespaces,
+    config,
+  };
 
   return <Page {...props} />;
 }
@@ -1760,80 +1957,24 @@ export default function Page() {
 
 exports[`templateAppDir should use an empty loader fallback if doesnt have any namespaces inside locales/{lang}/\${namespace} isClientComponent: true | existLocalesFolder: false | pageNoExt: /component | normalizedResourcePath: app/component.js | appFolder: app 1`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
-import {
-  useSearchParams as __useSearchParams,
-  useParams as __useParams,
-} from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
-function Component() {
+
+export function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-function __Next_Translate_Component_88d9831a00_0(props) {
-  const searchParams = __useSearchParams();
-  const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
-  const config = {
-    ...__i18nConfig,
-    locale: lang,
-    loaderName: \\"client component\\",
-    pathname: \\"/about/us/\\",
-    logBuild: false,
-    loadLocaleFrom: __i18nConfig.loadLocaleFrom || (() => Promise.resolve({})),
-  };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
-
-  __nt_store.set({ lang, namespaces: __namespaces, config });
-
-  return <Component {...props} />;
-}
-export { __Next_Translate_Component_88d9831a00_0 as Component };
 "
 `;
 
 exports[`templateAppDir should use an empty loader fallback if doesnt have any namespaces inside locales/{lang}/\${namespace} pageNoExt: /about/us/component | normalizedResourcePath: app/about/us/component.js | appFolder: app | isClientComponent: true | existLocalesFolder: false 1`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
-import __loadNamespaces from \\"next-translate/loadNamespaces\\";
-import __nt_store from \\"next-translate/_store\\";
-import {
-  useSearchParams as __useSearchParams,
-  useParams as __useParams,
-} from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
-function Component() {
+
+export function Component() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
 }
-
-function __Next_Translate_Component_88d9831a00_0(props) {
-  const searchParams = __useSearchParams();
-  const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
-  const config = {
-    ...__i18nConfig,
-    locale: lang,
-    loaderName: \\"client component\\",
-    pathname: \\"/about/us/\\",
-    logBuild: false,
-    loadLocaleFrom: __i18nConfig.loadLocaleFrom || (() => Promise.resolve({})),
-  };
-  const { __lang, __namespaces } = __use(__loadNamespaces(config));
-
-  __nt_store.set({ lang, namespaces: __namespaces, config });
-
-  return <Component {...props} />;
-}
-export { __Next_Translate_Component_88d9831a00_0 as Component };
 "
 `;

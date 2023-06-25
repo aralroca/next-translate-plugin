@@ -3860,12 +3860,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-translate@2.0.0-canary.1:
-  version "2.0.0-canary.1"
-  resolved "https://registry.yarnpkg.com/next-translate/-/next-translate-2.0.0-canary.1.tgz#180331855c4fa3b0c919402e163583983d8b7b00"
-  integrity sha512-RvnyyCTu6+5o31cT/y9ocM4oASgul3b5b9ZY9IrgxGCyeIcryu1LgHf6pAkbeUM3b4WoNTMD3wE6pAXYanlA4A==
-  dependencies:
-    typescript "4.5.2"
+next-translate@2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/next-translate/-/next-translate-2.4.0.tgz#4a1d8c4e25e34354c1935e2b28e445bb6d3babaf"
+  integrity sha512-uqJPrL47Z7E02CbN98m9X751e1Y/jVOp3xPQEUGLtSBVUBFVOmLgi04xfuEgIyGqpAGthByoWMZx8FCwEHrkLw==
 
 next@13.1.2:
   version "13.1.2"

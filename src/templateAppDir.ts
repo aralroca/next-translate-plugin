@@ -3,7 +3,6 @@ import {
   interceptExport,
   addLoadLocalesFrom,
   clientLine,
-  interceptNamedExportsFromReactComponents,
   INTERNAL_CONFIG_KEY,
 } from './utils'
 
@@ -16,7 +15,6 @@ const validPages = [
   '/global-error',
 ]
 const validPagesRegex = new RegExp(`(${validPages.join('|')})$`)
-let lastPathname = ''
 
 export default function templateAppDir(
   pagePkg: ParsedFilePkg,
@@ -34,15 +32,11 @@ export default function templateAppDir(
   const isPage =
     routeType !== 'component' && normalizedResourcePath.includes(appFolder)
 
-  if (!isPage && !isClientComponent) return code
+  // Ignore files that are not RSC or RCC valid pages
+  if (!isPage) return code
 
   const hash = Date.now().toString(16)
-  const pathname = isPage
-    ? pageNoExt.replace(validPagesRegex, '/')
-    : lastPathname
-
-  // For client components we need to remember the pathname of the current page
-  lastPathname = pathname
+  const pathname = pageNoExt.replace(validPagesRegex, '/')
 
   // Removes the export default from the page
   // and tells under what name we can get the old export
@@ -52,27 +46,23 @@ export default function templateAppDir(
     `__Next_Translate__Page__${hash}__`
   )
 
-  // Client/Server pages without dfault export should not be wrapped
+  // Client/Server pages without default export should not be transpiled
   if (isPage && !pageVariableName) return code
 
-  // Client pages/components without next-translate should not be wrapped
-  if (isClientComponent && !code.includes('next-translate')) return code
-
-  // Client pages/components
+  // Client pages (RCC)
   if (isClientComponent) {
-    return templateClientComponent({
+    return templateRCCPage({
       pagePkg,
       hash,
       pageVariableName,
       pathname,
-      isPage,
       routeType,
       existLocalesFolder,
     })
   }
 
   // Server pages (RSC)
-  return templateServerPage({
+  return templateRSCPage({
     pagePkg,
     hash,
     pageVariableName,
@@ -87,12 +77,11 @@ type Params = {
   hash: string
   pageVariableName: string
   pathname?: string
-  isPage?: boolean
   routeType: string
   existLocalesFolder: boolean
 }
 
-function templateServerPage({
+function templateRSCPage({
   pagePkg,
   hash,
   pageVariableName,
@@ -104,8 +93,8 @@ function templateServerPage({
 
   return `
   import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
+  import AppDirI18nProvider from 'next-translate/AppDirI18nProvider'
   import __loadNamespaces from 'next-translate/loadNamespaces'
-  import __nt_store from 'next-translate/_store'
 
   ${code}
 
@@ -114,41 +103,28 @@ function templateServerPage({
       ...${INTERNAL_CONFIG_KEY},
       locale: props.params?.lang ?? props.searchParams?.lang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'server ${routeType}',
-      pathname: '${pathname}',
-      ${addLoadLocalesFrom(existLocalesFolder)}
+      pathname: '${pathname}'
     }
-    const { __lang, __namespaces } = await __loadNamespaces(config)
 
-    __nt_store.set({ lang: __lang, namespaces: __namespaces, config })
+    const { __lang, __namespaces } = await __loadNamespaces({ ...config, ${addLoadLocalesFrom(
+      existLocalesFolder
+    )} });
+    globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, config }
 
-    return <${pageVariableName} {...props} />
+    return <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}><${pageVariableName} {...props} /></AppDirI18nProvider>
   }
 `
 }
 
-function templateClientComponent({
+function templateRCCPage({
   pagePkg,
   hash,
   pageVariableName,
   pathname,
-  isPage,
   routeType,
   existLocalesFolder,
 }: Params) {
   const topLine = clientLine[0]
-  const namedExportsModified = modifyNamedExportsComponents(pagePkg, { hash, existLocalesFolder })
-  const exportDefault = pageVariableName
-    ? 'export default ' +
-    wrapClientComponent({
-      name: `__Next_Translate_new__${hash}__`,
-      pathname,
-      isPage,
-      pageVariableName,
-      routeType,
-      existLocalesFolder,
-    })
-    : ''
-
   let clientCode = pagePkg.getCode()
 
   // Clear current "use client" top line
@@ -158,27 +134,14 @@ function templateClientComponent({
 
   return `${topLine}
   import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
-  import __loadNamespaces from 'next-translate/loadNamespaces'
-  import __nt_store from 'next-translate/_store'
+  import AppDirI18nProvider from 'next-translate/AppDirI18nProvider'
   import { useSearchParams as __useSearchParams, useParams as __useParams } from 'next/navigation'
-  import { use as __use } from 'react';
+  import { use as __use } from 'react'
+  import __loadNamespaces from 'next-translate/loadNamespaces'
 
   ${clientCode}
 
-  ${exportDefault}
-  ${namedExportsModified}
-`
-}
-
-function wrapClientComponent({
-  name = '',
-  pathname = '',
-  isPage = false,
-  pageVariableName = '',
-  routeType = 'component',
-  existLocalesFolder = true,
-}) {
-  return `function ${name}(props) {
+  export default function __Next_Translate_new__${hash}__(props) {
     const searchParams = __useSearchParams()
     const params = __useParams()
     const lang = params.lang ?? searchParams.get('lang') ?? ${INTERNAL_CONFIG_KEY}.defaultLocale
@@ -187,31 +150,14 @@ function wrapClientComponent({
       locale: lang,
       loaderName: 'client ${routeType}',
       pathname: '${pathname}',
-      logBuild: ${isPage},
-      ${addLoadLocalesFrom(existLocalesFolder)}
     }
-    const { __lang, __namespaces } = __use(__loadNamespaces(config));
 
-    __nt_store.set({ lang, namespaces: __namespaces, config })
+    const { __lang, __namespaces } = __use(__loadNamespaces({ ...config, ${addLoadLocalesFrom(
+      existLocalesFolder
+    )} }));
+    globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, config }
 
     return <${pageVariableName} {...props} />
-  }`
-}
-
-function modifyNamedExportsComponents(pagePkg: ParsedFilePkg, { hash, existLocalesFolder }: { hash: string, existLocalesFolder: boolean }) {
-  return interceptNamedExportsFromReactComponents(pagePkg, hash)
-    .map(
-      ({ exportName, defaultLocalName }) => `
-    ${wrapClientComponent({
-        name: defaultLocalName,
-        pathname: lastPathname,
-        isPage: false,
-        pageVariableName: exportName,
-        existLocalesFolder
-      })}
-    export { ${defaultLocalName} as ${exportName} }
-  `
-    )
-    .join('')
-    .trim()
+  }
+`
 }

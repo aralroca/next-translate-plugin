@@ -1,6 +1,6 @@
 {
   "name": "next-translate-plugin",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Tiny and powerful i18n plugin to translate your Next.js pages.",
   "license": "MIT",
   "keywords": [
@@ -72,7 +72,7 @@
     "husky": "7.0.4",
     "jest": "27.3.1",
     "next": "13.1.2",
-    "next-translate": "2.0.0-canary.1",
+    "next-translate": "2.4.0",
     "prettier": "2.8.3",
     "pretty-quick": "3.1.3",
     "react": "18.2.0",
@@ -80,7 +80,7 @@
     "supertest": "6.3.3"
   },
   "peerDependencies": {
-    "next-translate": ">= 2.4.0"
+    "next-translate": ">= 2.4.1"
   },
   "prettier": {
     "trailingComma": "es5",
