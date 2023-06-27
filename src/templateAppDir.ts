@@ -100,15 +100,15 @@ function templateRSCPage({
 
   export default async function __Next_Translate_new__${hash}__(props) {
     const config = { 
-      ...${INTERNAL_CONFIG_KEY},
+      ...JSON.parse(JSON.stringify(${INTERNAL_CONFIG_KEY})),
       locale: props.params?.lang ?? props.searchParams?.lang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'server ${routeType}',
       pathname: '${pathname}'
     }
 
     const { __lang, __namespaces } = await __loadNamespaces({ ...config, ${addLoadLocalesFrom(
-      existLocalesFolder
-    )} });
+    existLocalesFolder
+  )} });
     globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, config }
 
     return <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}><${pageVariableName} {...props} /></AppDirI18nProvider>
@@ -146,15 +146,15 @@ function templateRCCPage({
     const params = __useParams()
     const lang = params.lang ?? searchParams.get('lang') ?? ${INTERNAL_CONFIG_KEY}.defaultLocale
     const config = {
-      ...${INTERNAL_CONFIG_KEY},
+      ...JSON.parse(JSON.stringify(${INTERNAL_CONFIG_KEY})),
       locale: lang,
       loaderName: 'client ${routeType}',
       pathname: '${pathname}',
     }
 
     const { __lang, __namespaces } = __use(__loadNamespaces({ ...config, ${addLoadLocalesFrom(
-      existLocalesFolder
-    )} }));
+    existLocalesFolder
+  )} }));
     globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, config }
 
     return <${pageVariableName} {...props} />
