@@ -13,7 +13,7 @@ function Error() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -38,7 +38,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Error {...props} />
     </AppDirI18nProvider>
   );
@@ -59,7 +63,7 @@ function Error() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -84,7 +88,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Error {...props} />
     </AppDirI18nProvider>
   );
@@ -105,7 +113,7 @@ function Error() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -130,7 +138,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Error {...props} />
     </AppDirI18nProvider>
   );
@@ -151,7 +163,7 @@ function Error() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -176,7 +188,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Error {...props} />
     </AppDirI18nProvider>
   );
@@ -197,7 +213,7 @@ function GlobalError() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -222,7 +238,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <GlobalError {...props} />
     </AppDirI18nProvider>
   );
@@ -243,7 +263,7 @@ function GlobalError() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -268,7 +288,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <GlobalError {...props} />
     </AppDirI18nProvider>
   );
@@ -289,7 +313,7 @@ function GlobalError() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -314,7 +338,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <GlobalError {...props} />
     </AppDirI18nProvider>
   );
@@ -335,7 +363,7 @@ function GlobalError() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -360,7 +388,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <GlobalError {...props} />
     </AppDirI18nProvider>
   );
@@ -381,7 +413,7 @@ function Layout() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -406,7 +438,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Layout {...props} />
     </AppDirI18nProvider>
   );
@@ -427,7 +463,7 @@ function Layout() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -452,7 +488,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Layout {...props} />
     </AppDirI18nProvider>
   );
@@ -473,7 +513,7 @@ function Layout() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -498,7 +538,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Layout {...props} />
     </AppDirI18nProvider>
   );
@@ -519,7 +563,7 @@ function Layout() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -544,7 +588,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Layout {...props} />
     </AppDirI18nProvider>
   );
@@ -565,7 +613,7 @@ function Loading() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -590,7 +638,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Loading {...props} />
     </AppDirI18nProvider>
   );
@@ -611,7 +663,7 @@ function Loading() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -636,7 +688,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Loading {...props} />
     </AppDirI18nProvider>
   );
@@ -657,7 +713,7 @@ function Loading() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -682,7 +738,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Loading {...props} />
     </AppDirI18nProvider>
   );
@@ -703,7 +763,7 @@ function Loading() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -728,7 +788,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Loading {...props} />
     </AppDirI18nProvider>
   );
@@ -749,7 +813,7 @@ function NotFound() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -774,7 +838,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <NotFound {...props} />
     </AppDirI18nProvider>
   );
@@ -795,7 +863,7 @@ function NotFound() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -820,7 +888,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <NotFound {...props} />
     </AppDirI18nProvider>
   );
@@ -841,7 +913,7 @@ function NotFound() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -866,7 +938,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <NotFound {...props} />
     </AppDirI18nProvider>
   );
@@ -887,7 +963,7 @@ function NotFound() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -912,7 +988,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <NotFound {...props} />
     </AppDirI18nProvider>
   );
@@ -934,7 +1014,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -959,7 +1039,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -981,7 +1065,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1006,7 +1090,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1028,7 +1116,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1053,7 +1141,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1075,7 +1167,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1100,7 +1192,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1122,7 +1218,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1147,7 +1243,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1169,7 +1269,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1194,7 +1294,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1216,7 +1320,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1241,7 +1345,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1263,7 +1371,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1288,7 +1396,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1309,7 +1421,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1334,7 +1446,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1355,7 +1471,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1380,7 +1496,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1401,7 +1521,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1426,7 +1546,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1447,7 +1571,7 @@ function Page() {
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale:
       props.params?.lang ??
       props.searchParams?.lang ??
@@ -1472,7 +1596,11 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   };
 
   return (
-    <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={config}>
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={__namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
       <Page {...props} />
     </AppDirI18nProvider>
   );
@@ -1544,7 +1672,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const lang =
     params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/about/us/\\",
@@ -1600,7 +1728,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const lang =
     params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/\\",
@@ -1656,7 +1784,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const lang =
     params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/\\",
@@ -1743,7 +1871,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const lang =
     params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/about/us/\\",
@@ -1794,7 +1922,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const lang =
     params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/\\",
@@ -1845,7 +1973,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const lang =
     params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
   const config = {
-    ...JSON.parse(JSON.stringify(__i18nConfig)),
+    ...__i18nConfig,
     locale: lang,
     loaderName: \\"client /page\\",
     pathname: \\"/\\",
