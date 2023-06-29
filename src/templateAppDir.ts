@@ -99,16 +99,25 @@ function templateRSCPage({
   ${code}
 
   export default async function __Next_Translate_new__${hash}__(props) {
+    const detectedLang = props.params?.lang ?? props.searchParams?.lang
+
+    ${routeType !== '/page'
+      // Related with https://github.com/aralroca/next-translate/issues/1090
+      // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
+      ? `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
+      : ''
+    }
+  
     const config = { 
       ...${INTERNAL_CONFIG_KEY},
-      locale: props.params?.lang ?? props.searchParams?.lang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
+      locale: detectedLang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'server ${routeType}',
       pathname: '${pathname}'
     }
 
     const { __lang, __namespaces } = await __loadNamespaces({ ...config, ${addLoadLocalesFrom(
-    existLocalesFolder
-  )} });
+      existLocalesFolder
+    )} });
     globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, config }
 
     return <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={JSON.parse(JSON.stringify(config))}><${pageVariableName} {...props} /></AppDirI18nProvider>
@@ -144,7 +153,16 @@ function templateRCCPage({
   export default function __Next_Translate_new__${hash}__(props) {
     const searchParams = __useSearchParams()
     const params = __useParams()
-    const lang = params.lang ?? searchParams.get('lang') ?? ${INTERNAL_CONFIG_KEY}.defaultLocale
+    const detectedLang = params.lang ?? searchParams.get('lang')
+
+    ${routeType !== '/page'
+      // Related with https://github.com/aralroca/next-translate/issues/1090
+      // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
+      ? `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
+      : ''
+    }
+
+    const lang = detectedLang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale
     const config = {
       ...${INTERNAL_CONFIG_KEY},
       locale: lang,
@@ -153,8 +171,8 @@ function templateRCCPage({
     }
 
     const { __lang, __namespaces } = __use(__loadNamespaces({ ...config, ${addLoadLocalesFrom(
-    existLocalesFolder
-  )} }));
+      existLocalesFolder
+    )} }));
     globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, config }
 
     return <${pageVariableName} {...props} />

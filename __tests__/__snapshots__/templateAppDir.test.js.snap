@@ -12,12 +12,14 @@ function Error() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Error {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
     pathname: \\"/about/us/\\",
   };
@@ -62,12 +64,14 @@ function Error() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Error {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
     pathname: \\"/about/us/\\",
   };
@@ -112,12 +116,14 @@ function Error() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Error {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
     pathname: \\"/\\",
   };
@@ -162,12 +168,14 @@ function Error() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Error {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
     pathname: \\"/\\",
   };
@@ -212,12 +220,14 @@ function GlobalError() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <GlobalError {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
     pathname: \\"/about/us/\\",
   };
@@ -262,12 +272,14 @@ function GlobalError() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <GlobalError {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
     pathname: \\"/about/us/\\",
   };
@@ -312,12 +324,14 @@ function GlobalError() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <GlobalError {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
     pathname: \\"/\\",
   };
@@ -362,12 +376,14 @@ function GlobalError() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <GlobalError {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
     pathname: \\"/\\",
   };
@@ -412,12 +428,14 @@ function Layout() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Layout {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
     pathname: \\"/about/us/\\",
   };
@@ -462,12 +480,14 @@ function Layout() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Layout {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
     pathname: \\"/about/us/\\",
   };
@@ -512,12 +532,14 @@ function Layout() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Layout {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
     pathname: \\"/\\",
   };
@@ -562,12 +584,14 @@ function Layout() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Layout {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
     pathname: \\"/\\",
   };
@@ -612,12 +636,14 @@ function Loading() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Loading {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
     pathname: \\"/about/us/\\",
   };
@@ -662,12 +688,14 @@ function Loading() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Loading {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
     pathname: \\"/about/us/\\",
   };
@@ -712,12 +740,14 @@ function Loading() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Loading {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
     pathname: \\"/\\",
   };
@@ -762,12 +792,14 @@ function Loading() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <Loading {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
     pathname: \\"/\\",
   };
@@ -812,12 +844,14 @@ function NotFound() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <NotFound {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
     pathname: \\"/about/us/\\",
   };
@@ -862,12 +896,14 @@ function NotFound() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <NotFound {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
     pathname: \\"/about/us/\\",
   };
@@ -912,12 +948,14 @@ function NotFound() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <NotFound {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
     pathname: \\"/\\",
   };
@@ -962,12 +1000,14 @@ function NotFound() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
+  if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
+    return <NotFound {...props} />;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
     pathname: \\"/\\",
   };
@@ -1013,12 +1053,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
   };
@@ -1064,12 +1103,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
   };
@@ -1115,12 +1153,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
   };
@@ -1166,12 +1203,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
   };
@@ -1217,12 +1253,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
   };
@@ -1268,12 +1303,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
   };
@@ -1319,12 +1353,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
   };
@@ -1370,12 +1403,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
   };
@@ -1420,12 +1452,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
   };
@@ -1470,12 +1501,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/about/us/\\",
   };
@@ -1520,12 +1550,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
   };
@@ -1570,12 +1599,11 @@ function Page() {
 }
 
 export default async function __Next_Translate_new__88d9831a00__(props) {
+  const detectedLang = props.params?.lang ?? props.searchParams?.lang;
+
   const config = {
     ...__i18nConfig,
-    locale:
-      props.params?.lang ??
-      props.searchParams?.lang ??
-      __i18nConfig.defaultLocale,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
     pathname: \\"/\\",
   };
@@ -1669,8 +1697,9 @@ function Page() {
 export default function __Next_Translate_new__88d9831a00__(props) {
   const searchParams = __useSearchParams();
   const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
+  const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
+
+  const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
     locale: lang,
@@ -1725,8 +1754,9 @@ function Page() {
 export default function __Next_Translate_new__88d9831a00__(props) {
   const searchParams = __useSearchParams();
   const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
+  const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
+
+  const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
     locale: lang,
@@ -1781,8 +1811,9 @@ function Page() {
 export default function __Next_Translate_new__88d9831a00__(props) {
   const searchParams = __useSearchParams();
   const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
+  const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
+
+  const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
     locale: lang,
@@ -1868,8 +1899,9 @@ function Page() {
 export default function __Next_Translate_new__88d9831a00__(props) {
   const searchParams = __useSearchParams();
   const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
+  const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
+
+  const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
     locale: lang,
@@ -1919,8 +1951,9 @@ function Page() {
 export default function __Next_Translate_new__88d9831a00__(props) {
   const searchParams = __useSearchParams();
   const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
+  const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
+
+  const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
     locale: lang,
@@ -1970,8 +2003,9 @@ function Page() {
 export default function __Next_Translate_new__88d9831a00__(props) {
   const searchParams = __useSearchParams();
   const params = __useParams();
-  const lang =
-    params.lang ?? searchParams.get(\\"lang\\") ?? __i18nConfig.defaultLocale;
+  const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
+
+  const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
     locale: lang,
