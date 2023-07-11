@@ -14,6 +14,8 @@ function Error() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Error {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Error {...props} />;
 
@@ -33,16 +35,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Error {...props} />
@@ -66,6 +68,8 @@ function Error() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Error {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Error {...props} />;
 
@@ -85,16 +89,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Error {...props} />
@@ -118,6 +122,8 @@ function Error() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Error {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Error {...props} />;
 
@@ -137,16 +143,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Error {...props} />
@@ -170,6 +176,8 @@ function Error() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Error {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Error {...props} />;
 
@@ -189,16 +197,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Error {...props} />
@@ -222,6 +230,8 @@ function GlobalError() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <GlobalError {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <GlobalError {...props} />;
 
@@ -241,16 +251,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <GlobalError {...props} />
@@ -274,6 +284,8 @@ function GlobalError() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <GlobalError {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <GlobalError {...props} />;
 
@@ -293,16 +305,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <GlobalError {...props} />
@@ -326,6 +338,8 @@ function GlobalError() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <GlobalError {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <GlobalError {...props} />;
 
@@ -345,16 +359,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <GlobalError {...props} />
@@ -378,6 +392,8 @@ function GlobalError() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <GlobalError {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <GlobalError {...props} />;
 
@@ -397,16 +413,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <GlobalError {...props} />
@@ -430,6 +446,8 @@ function Layout() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Layout {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Layout {...props} />;
 
@@ -449,16 +467,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Layout {...props} />
@@ -482,6 +500,8 @@ function Layout() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Layout {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Layout {...props} />;
 
@@ -501,16 +521,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Layout {...props} />
@@ -534,6 +554,8 @@ function Layout() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Layout {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Layout {...props} />;
 
@@ -553,16 +575,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Layout {...props} />
@@ -586,6 +608,8 @@ function Layout() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Layout {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Layout {...props} />;
 
@@ -605,16 +629,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Layout {...props} />
@@ -638,6 +662,8 @@ function Loading() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Loading {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Loading {...props} />;
 
@@ -657,16 +683,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Loading {...props} />
@@ -690,6 +716,8 @@ function Loading() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Loading {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Loading {...props} />;
 
@@ -709,16 +737,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Loading {...props} />
@@ -742,6 +770,8 @@ function Loading() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Loading {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Loading {...props} />;
 
@@ -761,16 +791,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Loading {...props} />
@@ -794,6 +824,8 @@ function Loading() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Loading {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Loading {...props} />;
 
@@ -813,16 +845,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Loading {...props} />
@@ -846,6 +878,8 @@ function NotFound() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <NotFound {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <NotFound {...props} />;
 
@@ -865,16 +899,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <NotFound {...props} />
@@ -898,6 +932,8 @@ function NotFound() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <NotFound {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <NotFound {...props} />;
 
@@ -917,16 +953,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <NotFound {...props} />
@@ -950,6 +986,8 @@ function NotFound() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <NotFound {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <NotFound {...props} />;
 
@@ -969,16 +1007,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <NotFound {...props} />
@@ -1002,6 +1040,8 @@ function NotFound() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <NotFound {...props} />;
+
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <NotFound {...props} />;
 
@@ -1021,16 +1061,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <NotFound {...props} />
@@ -1055,6 +1095,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1071,16 +1113,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1105,6 +1147,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1121,16 +1165,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1155,6 +1199,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1171,16 +1217,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1205,6 +1251,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1221,16 +1269,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1255,6 +1303,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1271,16 +1321,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1305,6 +1355,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1321,16 +1373,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1355,6 +1407,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1371,16 +1425,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1405,6 +1459,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1421,16 +1477,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1454,6 +1510,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1470,16 +1528,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1503,6 +1561,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1519,16 +1579,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1552,6 +1612,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1568,16 +1630,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1601,6 +1663,8 @@ function Page() {
 export default async function __Next_Translate_new__88d9831a00__(props) {
   const detectedLang = props.params?.lang ?? props.searchParams?.lang;
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
@@ -1617,16 +1681,16 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
           (m) => m.default
         )),
   });
-  globalThis.__NEXT_TRANSLATE__ = {
-    lang: __lang,
-    namespaces: __namespaces,
-    config,
-  };
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
   return (
     <AppDirI18nProvider
       lang={__lang}
-      namespaces={__namespaces}
+      namespaces={namespaces}
       config={JSON.parse(JSON.stringify(config))}
     >
       <Page {...props} />
@@ -1699,6 +1763,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const params = __useParams();
   const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
@@ -1718,9 +1784,11 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           )),
     })
   );
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
-    namespaces: __namespaces,
+    namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
 
@@ -1756,6 +1824,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const params = __useParams();
   const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
@@ -1775,9 +1845,11 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           )),
     })
   );
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
-    namespaces: __namespaces,
+    namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
 
@@ -1813,6 +1885,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const params = __useParams();
   const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
@@ -1832,9 +1906,11 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           )),
     })
   );
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
-    namespaces: __namespaces,
+    namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
 
@@ -1901,6 +1977,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const params = __useParams();
   const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
@@ -1920,9 +1998,11 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           )),
     })
   );
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
-    namespaces: __namespaces,
+    namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
 
@@ -1953,6 +2033,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const params = __useParams();
   const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
@@ -1972,9 +2054,11 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           )),
     })
   );
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
-    namespaces: __namespaces,
+    namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
 
@@ -2005,6 +2089,8 @@ export default function __Next_Translate_new__88d9831a00__(props) {
   const params = __useParams();
   const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
 
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
   const lang = detectedLang ?? __i18nConfig.defaultLocale;
   const config = {
     ...__i18nConfig,
@@ -2024,9 +2110,11 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           )),
     })
   );
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
-    namespaces: __namespaces,
+    namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
 
