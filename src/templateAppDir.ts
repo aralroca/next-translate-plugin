@@ -101,6 +101,8 @@ function templateRSCPage({
   export default async function __Next_Translate_new__${hash}__(props) {
     const detectedLang = props.params?.lang ?? props.searchParams?.lang
 
+    if (detectedLang === 'favicon.ico') return <${pageVariableName} {...props} />
+
     ${routeType !== '/page'
       // Related with https://github.com/aralroca/next-translate/issues/1090
       // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
@@ -118,9 +120,13 @@ function templateRSCPage({
     const { __lang, __namespaces } = await __loadNamespaces({ ...config, ${addLoadLocalesFrom(
       existLocalesFolder
     )} });
-    globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, config }
+  
+    const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {}
+    const namespaces = { ...oldNamespaces, ...__namespaces }
 
-    return <AppDirI18nProvider lang={__lang} namespaces={__namespaces} config={JSON.parse(JSON.stringify(config))}><${pageVariableName} {...props} /></AppDirI18nProvider>
+    globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config }
+
+    return <AppDirI18nProvider lang={__lang} namespaces={namespaces} config={JSON.parse(JSON.stringify(config))}><${pageVariableName} {...props} /></AppDirI18nProvider>
   }
 `
 }
@@ -155,6 +161,8 @@ function templateRCCPage({
     const params = __useParams()
     const detectedLang = params.lang ?? searchParams.get('lang')
 
+    if (detectedLang === 'favicon.ico') return <${pageVariableName} {...props} />
+
     ${routeType !== '/page'
       // Related with https://github.com/aralroca/next-translate/issues/1090
       // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
@@ -173,7 +181,9 @@ function templateRCCPage({
     const { __lang, __namespaces } = __use(__loadNamespaces({ ...config, ${addLoadLocalesFrom(
       existLocalesFolder
     )} }));
-    globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: __namespaces, config }
+
+    const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {}
+    globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: { ...oldNamespaces, ...__namespaces }, config }
 
     return <${pageVariableName} {...props} />
   }
