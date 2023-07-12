@@ -645,3 +645,13 @@ export function existLocalesFolderWithNamespaces(dir: string) {
 
   return existNamespaceFile
 }
+
+export function isInsideAppDir(path: string, appFolder: string, pagesFolder: string) {
+  const appIndex = path.indexOf(appFolder)
+  const pagesIndex = path.indexOf(pagesFolder)
+
+  if (appIndex === -1) return false
+  if (appIndex > -1 && pagesIndex === -1) return true
+
+  return appIndex < pagesIndex
+}

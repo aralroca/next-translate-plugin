@@ -2,6 +2,7 @@ import {
   isPageToIgnore,
   calculatePageDir,
   existLocalesFolderWithNamespaces,
+  isInsideAppDir,
 } from '../src/utils'
 import fs from 'fs'
 import path from 'path'
@@ -175,6 +176,22 @@ describe('utils', () => {
           path.join(__dirname, '__fixtures__', 'with-everything')
         )
       ).toBe(true)
+    })
+  })
+
+  describe('isInsideAppDir', () => {
+    it('should return true if the file is inside the app folder', () => {
+      const path = '/app/pages/index.tsx'
+      const appFolder = 'app/'
+      const pagesFolder = 'pages/'
+      expect(isInsideAppDir(path, appFolder, pagesFolder)).toBe(true)
+    })
+
+    it('should return false if the file is inside the pages folder', () => {
+      const path = 'pages/app/index.tsx'
+      const appFolder = 'app/'
+      const pagesFolder = 'pages/'
+      expect(isInsideAppDir(path, appFolder, pagesFolder)).toBe(false)
     })
   })
 })
