@@ -15,6 +15,7 @@ import {
   hasHOC,
   removeCommentsFromCode,
   clientLine,
+  isInsideAppDir,
 } from './utils'
 
 export default function loader(
@@ -47,7 +48,7 @@ export default function loader(
 
     const shouldUseTemplateAppDir =
       isClientComponent ||
-      normalizedResourcePath.includes(appFolder.replace(/\\/g, '/'))
+      isInsideAppDir(normalizedResourcePath, appFolder, pagesFolder)
 
     const pagesPath = (
       shouldUseTemplateAppDir ? appFolder : pagesFolder

@@ -63,6 +63,30 @@ describe('loader', () => {
     expect(mockTemplateAppDir).toBeCalled()
   })
 
+  it('should return templateWithLoader with pages/app', () => {
+    const code = `
+      export default function Page() {
+        return <h1>Page</h1>
+      }
+
+      export const getStaticProps = () => ({ props: {} })
+    `
+    loader.call({ ...config, resourcePath: 'pages/app/some-page.ts' }, code)
+    expect(mockTemplateWithLoader).toBeCalled()
+  })
+
+  it('should return templateWithLoader with pages/**/app', () => {
+    const code = `
+      export default function Page() {
+        return <h1>Page</h1>
+      }
+
+      export const getStaticProps = () => ({ props: {} })
+    `
+    loader.call({ ...config, resourcePath: 'pages/some/page/app/some-page.ts' }, code)
+    expect(mockTemplateWithLoader).toBeCalled()
+  })
+
   it('should return templateWithHoc', () => {
     mockHasStaticName.mockReturnValueOnce(true)
     const code = `
