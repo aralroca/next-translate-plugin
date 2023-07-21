@@ -147,6 +147,9 @@ export function parseCode(format: string, code: string): ParsedFilePkg {
  * @returns Entity for more detailed analysis by the compiler
  */
 export function getSymbol(filePkg: ParsedFilePkg, node: ts.Node) {
+  if ((node as any).symbol) {
+    return (node as any).symbol
+  }
   const location = ts.isVariableDeclaration(node) ? node.name : node
   return filePkg.checker.getSymbolAtLocation(location)
 }
@@ -646,7 +649,11 @@ export function existLocalesFolderWithNamespaces(dir: string) {
   return existNamespaceFile
 }
 
-export function isInsideAppDir(path: string, appFolder: string, pagesFolder: string) {
+export function isInsideAppDir(
+  path: string,
+  appFolder: string,
+  pagesFolder: string
+) {
   const appIndex = path.indexOf(appFolder)
   const pagesIndex = path.indexOf(pagesFolder)
 
