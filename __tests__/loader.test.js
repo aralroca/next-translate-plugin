@@ -83,7 +83,10 @@ describe('loader', () => {
 
       export const getStaticProps = () => ({ props: {} })
     `
-    loader.call({ ...config, resourcePath: 'pages/some/page/app/some-page.ts' }, code)
+    loader.call(
+      { ...config, resourcePath: 'pages/some/page/app/some-page.ts' },
+      code
+    )
     expect(mockTemplateWithLoader).toBeCalled()
   })
 
@@ -101,6 +104,27 @@ describe('loader', () => {
     loader.call({ ...config, resourcePath: 'pages/some-page.ts' }, code)
     expect(mockTemplateWithHoc).toBeCalled()
   })
+
+  it.each([
+    ['hasGetInitialProps=true', true],
+    ['hasGetInitialProps=false', false],
+  ])(
+    'should return templateWithHoc for _app with extension when: %s',
+    (_, hasGetInitialProps) => {
+      const code = `
+      export default function App() {
+        return <h1>App</h1>
+      }
+
+      App.getInitialProps = () => ({ props: {} })
+    `
+      loader.call(
+        { ...config, hasGetInitialProps, resourcePath: 'pages/_app.page.tsx' },
+        code
+      )
+      expect(mockTemplateWithHoc).toBeCalled()
+    }
+  )
 
   it('should return templateWithLoader', () => {
     const code = `
