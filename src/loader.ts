@@ -18,6 +18,8 @@ import {
   isInsideAppDir,
 } from './utils'
 
+const REGEX_STARTS_WITH_APP = /\/+_app.*/
+
 export default function loader(
   this: webpack.LoaderContext<LoaderOptions>,
   rawCode: string
@@ -118,14 +120,14 @@ export default function loader(
     //
     // This way, the only modified file has to be the _app.js.
     if (hasGetInitialPropsOnAppJs) {
-      return pageNoExt === '/_app'
+      return REGEX_STARTS_WITH_APP.test(pageNoExt)
         ? templateWithHoc(pagePkg, { existLocalesFolder })
         : rawCode
     }
 
     // In case the _app does not have getInitialProps, we can add only the
     // I18nProvider to ensure that translations work inside _app.js
-    if (pageNoExt === '/_app') {
+    if (REGEX_STARTS_WITH_APP.test(pageNoExt)) {
       return templateWithHoc(pagePkg, {
         skipInitialProps: true,
         existLocalesFolder,
