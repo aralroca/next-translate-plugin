@@ -1744,7 +1744,7 @@ import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
+import { use as __use, Suspense as __Suspense } from \\"react\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
 // Some comment before
@@ -1773,25 +1773,33 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     pathname: \\"/about/us/\\",
   };
 
-  const { __lang, __namespaces } = __use(
-    __loadNamespaces({
-      ...config,
-      loadLocaleFrom:
-        __i18nConfig.loadLocaleFrom ||
-        ((l, n) =>
-          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-            (m) => m.default
-          )),
-    })
+  return (
+    <__Suspense fallback={null}>
+      <__Next_Translate__child__88d9831a00__
+        {...props}
+        config={config}
+        promise={__loadNamespaces({
+          ...config,
+          loadLocaleFrom:
+            __i18nConfig.loadLocaleFrom ||
+            ((l, n) =>
+              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+                (m) => m.default
+              )),
+        })}
+      />
+    </__Suspense>
   );
+}
 
+function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
+  const { __lang, __namespaces } = __use(promise);
   const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
     namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
-
   return <Page {...props} />;
 }
 "
@@ -1805,7 +1813,7 @@ import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
+import { use as __use, Suspense as __Suspense } from \\"react\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
 // Some comment before
@@ -1834,25 +1842,33 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     pathname: \\"/\\",
   };
 
-  const { __lang, __namespaces } = __use(
-    __loadNamespaces({
-      ...config,
-      loadLocaleFrom:
-        __i18nConfig.loadLocaleFrom ||
-        ((l, n) =>
-          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-            (m) => m.default
-          )),
-    })
+  return (
+    <__Suspense fallback={null}>
+      <__Next_Translate__child__88d9831a00__
+        {...props}
+        config={config}
+        promise={__loadNamespaces({
+          ...config,
+          loadLocaleFrom:
+            __i18nConfig.loadLocaleFrom ||
+            ((l, n) =>
+              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+                (m) => m.default
+              )),
+        })}
+      />
+    </__Suspense>
   );
+}
 
+function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
+  const { __lang, __namespaces } = __use(promise);
   const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
     namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
-
   return <Page {...props} />;
 }
 "
@@ -1866,7 +1882,7 @@ import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
+import { use as __use, Suspense as __Suspense } from \\"react\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
 // Some comment before
@@ -1895,25 +1911,33 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     pathname: \\"/\\",
   };
 
-  const { __lang, __namespaces } = __use(
-    __loadNamespaces({
-      ...config,
-      loadLocaleFrom:
-        __i18nConfig.loadLocaleFrom ||
-        ((l, n) =>
-          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-            (m) => m.default
-          )),
-    })
+  return (
+    <__Suspense fallback={null}>
+      <__Next_Translate__child__88d9831a00__
+        {...props}
+        config={config}
+        promise={__loadNamespaces({
+          ...config,
+          loadLocaleFrom:
+            __i18nConfig.loadLocaleFrom ||
+            ((l, n) =>
+              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+                (m) => m.default
+              )),
+        })}
+      />
+    </__Suspense>
   );
+}
 
+function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
+  const { __lang, __namespaces } = __use(promise);
   const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
     namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
-
   return <Page {...props} />;
 }
 "
@@ -1963,7 +1987,7 @@ import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
+import { use as __use, Suspense as __Suspense } from \\"react\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -1987,25 +2011,33 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     pathname: \\"/about/us/\\",
   };
 
-  const { __lang, __namespaces } = __use(
-    __loadNamespaces({
-      ...config,
-      loadLocaleFrom:
-        __i18nConfig.loadLocaleFrom ||
-        ((l, n) =>
-          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-            (m) => m.default
-          )),
-    })
+  return (
+    <__Suspense fallback={null}>
+      <__Next_Translate__child__88d9831a00__
+        {...props}
+        config={config}
+        promise={__loadNamespaces({
+          ...config,
+          loadLocaleFrom:
+            __i18nConfig.loadLocaleFrom ||
+            ((l, n) =>
+              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+                (m) => m.default
+              )),
+        })}
+      />
+    </__Suspense>
   );
+}
 
+function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
+  const { __lang, __namespaces } = __use(promise);
   const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
     namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
-
   return <Page {...props} />;
 }
 "
@@ -2019,7 +2051,7 @@ import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
+import { use as __use, Suspense as __Suspense } from \\"react\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -2043,25 +2075,33 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     pathname: \\"/\\",
   };
 
-  const { __lang, __namespaces } = __use(
-    __loadNamespaces({
-      ...config,
-      loadLocaleFrom:
-        __i18nConfig.loadLocaleFrom ||
-        ((l, n) =>
-          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-            (m) => m.default
-          )),
-    })
+  return (
+    <__Suspense fallback={null}>
+      <__Next_Translate__child__88d9831a00__
+        {...props}
+        config={config}
+        promise={__loadNamespaces({
+          ...config,
+          loadLocaleFrom:
+            __i18nConfig.loadLocaleFrom ||
+            ((l, n) =>
+              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+                (m) => m.default
+              )),
+        })}
+      />
+    </__Suspense>
   );
+}
 
+function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
+  const { __lang, __namespaces } = __use(promise);
   const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
     namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
-
   return <Page {...props} />;
 }
 "
@@ -2075,7 +2115,7 @@ import {
   useSearchParams as __useSearchParams,
   useParams as __useParams,
 } from \\"next/navigation\\";
-import { use as __use } from \\"react\\";
+import { use as __use, Suspense as __Suspense } from \\"react\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -2099,25 +2139,33 @@ export default function __Next_Translate_new__88d9831a00__(props) {
     pathname: \\"/\\",
   };
 
-  const { __lang, __namespaces } = __use(
-    __loadNamespaces({
-      ...config,
-      loadLocaleFrom:
-        __i18nConfig.loadLocaleFrom ||
-        ((l, n) =>
-          import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
-            (m) => m.default
-          )),
-    })
+  return (
+    <__Suspense fallback={null}>
+      <__Next_Translate__child__88d9831a00__
+        {...props}
+        config={config}
+        promise={__loadNamespaces({
+          ...config,
+          loadLocaleFrom:
+            __i18nConfig.loadLocaleFrom ||
+            ((l, n) =>
+              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+                (m) => m.default
+              )),
+        })}
+      />
+    </__Suspense>
   );
+}
 
+function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
+  const { __lang, __namespaces } = __use(promise);
   const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
   globalThis.__NEXT_TRANSLATE__ = {
     lang: __lang,
     namespaces: { ...oldNamespaces, ...__namespaces },
     config,
   };
-
   return <Page {...props} />;
 }
 "

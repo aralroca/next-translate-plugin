@@ -151,7 +151,7 @@ function templateRCCPage({
   import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
   import AppDirI18nProvider from 'next-translate/AppDirI18nProvider'
   import { useSearchParams as __useSearchParams, useParams as __useParams } from 'next/navigation'
-  import { use as __use } from 'react'
+  import { use as __use, Suspense as __Suspense } from 'react'
   import __loadNamespaces from 'next-translate/loadNamespaces'
 
   ${clientCode}
@@ -178,14 +178,22 @@ function templateRCCPage({
       pathname: '${pathname}',
     }
 
-    const { __lang, __namespaces } = __use(__loadNamespaces({ ...config, ${addLoadLocalesFrom(
-      existLocalesFolder
-    )} }));
+    return (
+      <__Suspense fallback={null}>
+        <__Next_Translate__child__${hash}__ 
+          {...props} 
+          config={config} 
+          promise={__loadNamespaces({ ...config, ${addLoadLocalesFrom(existLocalesFolder)} })}
+         />
+      </__Suspense>
+    )
+  }
 
-    const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {}
-    globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: { ...oldNamespaces, ...__namespaces }, config }
-
-    return <${pageVariableName} {...props} />
+  function __Next_Translate__child__${hash}__({ promise, config, ...props }) {
+    const { __lang, __namespaces } = __use(promise);
+    const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+    globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces: { ...oldNamespaces, ...__namespaces }, config };
+    return <${pageVariableName} {...props} />;
   }
 `
 }
