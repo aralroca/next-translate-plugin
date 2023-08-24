@@ -1,4 +1,5 @@
 import type ts from 'typescript'
+import type { NextConfig } from 'next'
 
 export interface LoaderOptions {
   basePath: string
@@ -23,4 +24,10 @@ export interface ParsedFilePkg {
   fileSymbol?: ts.Symbol
   transform: (transformer: Transformer) => void
   getCode: () => string
+}
+
+export interface NextConfigWithNextTranslate extends NextConfig {
+  nextTranslate?: {
+    basePath?: string
+  }
 }

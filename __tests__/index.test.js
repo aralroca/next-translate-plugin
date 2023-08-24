@@ -1,6 +1,5 @@
 import nextTranslate from '../src/index'
 import fs from 'fs'
-import path from 'path'
 
 jest.spyOn(fs, 'readdirSync')
 
@@ -28,6 +27,34 @@ describe('nextTranslate', () => {
       fs.readdirSync.mockImplementationOnce(() => [])
 
       const config = nextTranslate({})
+
+      expect(config.webpack({})).toEqual(
+        expect.objectContaining({
+          module: {
+            rules: expect.arrayContaining([
+              expect.objectContaining({
+                use: expect.objectContaining({
+                  loader: 'next-translate-plugin/loader',
+                  options: expect.objectContaining({
+                    appFolder: 'src/app/',
+                    pagesFolder: 'src/pages/',
+                  }),
+                }),
+              }),
+            ]),
+          },
+        })
+      )
+    })
+
+    test('should be able to set the base dir in the next config', () => {
+      fs.readdirSync.mockImplementationOnce(() => [])
+
+      const config = nextTranslate({
+        nextTranslate: {
+          basePath: process.cwd(),
+        },
+      })
 
       expect(config.webpack({})).toEqual(
         expect.objectContaining({
