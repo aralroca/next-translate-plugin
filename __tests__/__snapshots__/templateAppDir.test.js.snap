@@ -29,7 +29,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -83,7 +83,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -137,7 +137,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -191,7 +191,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -245,7 +245,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -299,7 +299,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -353,7 +353,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -407,7 +407,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -461,7 +461,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -515,7 +515,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -569,7 +569,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -623,7 +623,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -677,7 +677,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -731,7 +731,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -785,7 +785,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -839,7 +839,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -893,7 +893,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -947,7 +947,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1001,7 +1001,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1055,7 +1055,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1107,7 +1107,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1159,7 +1159,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1211,7 +1211,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1263,7 +1263,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1315,7 +1315,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1367,7 +1367,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1419,7 +1419,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1471,7 +1471,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1522,7 +1522,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1573,7 +1573,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1624,7 +1624,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1675,7 +1675,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   const { __lang, __namespaces } = await __loadNamespaces({
     ...config,
     loadLocaleFrom:
-      __i18nConfig.loadLocaleFrom ||
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
         import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
           (m) => m.default
@@ -1781,7 +1781,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
         promise={__loadNamespaces({
           ...config,
           loadLocaleFrom:
-            __i18nConfig.loadLocaleFrom ||
+            (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
               import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
                 (m) => m.default
@@ -1850,7 +1850,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
         promise={__loadNamespaces({
           ...config,
           loadLocaleFrom:
-            __i18nConfig.loadLocaleFrom ||
+            (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
               import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
                 (m) => m.default
@@ -1919,7 +1919,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
         promise={__loadNamespaces({
           ...config,
           loadLocaleFrom:
-            __i18nConfig.loadLocaleFrom ||
+            (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
               import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
                 (m) => m.default
@@ -2019,7 +2019,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
         promise={__loadNamespaces({
           ...config,
           loadLocaleFrom:
-            __i18nConfig.loadLocaleFrom ||
+            (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
               import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
                 (m) => m.default
@@ -2083,7 +2083,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
         promise={__loadNamespaces({
           ...config,
           loadLocaleFrom:
-            __i18nConfig.loadLocaleFrom ||
+            (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
               import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
                 (m) => m.default
@@ -2147,7 +2147,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
         promise={__loadNamespaces({
           ...config,
           loadLocaleFrom:
-            __i18nConfig.loadLocaleFrom ||
+            (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
               import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
                 (m) => m.default

@@ -15,27 +15,28 @@ export const defaultLoader =
 
 export function getDefaultAppJs(existLocalesFolder: boolean) {
   return `
-    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
-    import appWithI18n from 'next-translate/appWithI18n'
-  
-    function MyApp({ Component, pageProps }) {
-      return <Component {...pageProps} />
-    }
-  
-    export default appWithI18n(MyApp, {
-      ...${INTERNAL_CONFIG_KEY},
-      skipInitialProps: true,
-      isLoader: true,
-      ${addLoadLocalesFrom(existLocalesFolder)}
-    })
-  `
+      import * as React from 'react'
+      import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
+      import appWithI18n from 'next-translate/appWithI18n'
+    
+      function MyApp({ Component, pageProps }) {
+        return <Component {...pageProps} />
+      }
+    
+      export default appWithI18n(MyApp, {
+        ...${INTERNAL_CONFIG_KEY},
+        skipInitialProps: true,
+        isLoader: true,
+        ${addLoadLocalesFrom(existLocalesFolder)}
+      })
+    `
 }
 
 export function addLoadLocalesFrom(existLocalesFolder: boolean) {
   const defaultFn = existLocalesFolder
     ? defaultLoader
     : `() => Promise.resolve({})`
-  return `loadLocaleFrom: ${INTERNAL_CONFIG_KEY}.loadLocaleFrom || (${defaultFn}),`
+  return `loadLocaleFrom: ${INTERNAL_CONFIG_KEY} && ${INTERNAL_CONFIG_KEY}.loadLocaleFrom || (${defaultFn}),`
 }
 
 /**

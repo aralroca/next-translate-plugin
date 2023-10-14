@@ -5,6 +5,8 @@ import templateWithHoc from './templateWithHoc'
 import templateWithLoader from './templateWithLoader'
 import templateAppDir from './templateAppDir'
 import type { LoaderOptions } from './types'
+import ts from 'typescript'
+
 import {
   parseFile,
   getDefaultAppJs,
@@ -62,7 +64,22 @@ export default function loader(
       !hasAppJs &&
       normalizedResourcePath.includes('node_modules/next/dist/pages/_app')
     ) {
-      return getDefaultAppJs(existLocalesFolder)
+      const transpileTsx = (tsCode: string) => {
+        const result = ts.transpileModule(tsCode, {
+          compilerOptions: {
+            module: ts.ModuleKind.CommonJS,
+            outDir: './lib/cjs',
+            declaration: false,
+            declarationDir: undefined,
+            jsx: ts.JsxEmit.React,
+          },
+        })
+
+        return result.outputText
+      }
+
+      const jsCode = transpileTsx(getDefaultAppJs(existLocalesFolder))
+      return jsCode
     }
 
     // Skip node_modules
@@ -72,10 +89,7 @@ export default function loader(
     // In /pages dir we only need to transform pages and always are inside the /pages folder.
     // However, for /app dir we also need to transform the client components and these can be
     // outside the /app folder.
-    if (
-      !shouldUseTemplateAppDir &&
-      !normalizedResourcePath.includes(pagesPath)
-    )
+    if (!shouldUseTemplateAppDir && !normalizedResourcePath.includes(pagesPath))
       return rawCode
 
     const page = normalizedResourcePath.replace(pagesPath, '/')
