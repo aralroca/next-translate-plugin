@@ -18,7 +18,7 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         pathname: \\"/blog/[post]/[...catchall]\\",
         loaderName: \\"getServerSideProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -49,7 +49,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -91,7 +91,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -129,7 +129,7 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         pathname: \\"/blog/[post]/[...catchall]\\",
         loaderName: \\"getServerSideProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -167,7 +167,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -209,7 +209,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -242,7 +242,7 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         pathname: \\"/blog/[post]/[...catchall]\\",
         loaderName: \\"getServerSideProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -275,7 +275,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -316,7 +316,7 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getServerSideProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -350,7 +350,7 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         pathname: \\"/blog/[post]/[...catchall]\\",
         loaderName: \\"getServerSideProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -384,7 +384,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -422,7 +422,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -460,7 +460,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -500,7 +500,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -540,7 +540,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -580,7 +580,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -624,7 +624,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -663,7 +663,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -703,7 +703,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -737,7 +737,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -776,7 +776,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -814,7 +814,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -852,7 +852,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -886,7 +886,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -920,7 +920,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -954,7 +954,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
@@ -995,7 +995,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         pathname: \\"/index\\",
         loaderName: \\"getStaticProps\\",
         loadLocaleFrom:
-          __i18nConfig.loadLocaleFrom ||
+          (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
             import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
               (m) => m.default
