@@ -84,7 +84,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
 
   return {
     // new next with app folder cannot have i18n config in next.config.js
-    ...(existPagesFolder ? nextConfigWithI18n : {}),
+    ...(existPagesFolder ? nextConfigWithI18n : nextConfig),
     webpack(conf: webpack.Configuration, options) {
       const config: webpack.Configuration =
         typeof nextConfig.webpack === 'function'
