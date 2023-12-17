@@ -53,7 +53,7 @@
     "postinstall": "node ./postinstall-message.js"
   },
   "dependencies": {
-    "typescript": "4.5.2"
+    "typescript": "5.3.3"
   },
   "devDependencies": {
     "@babel/cli": "7.20.7",
