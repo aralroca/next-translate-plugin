@@ -116,9 +116,19 @@ export function getFilePkg(program: ts.Program, filename: string) {
  * @returns File package for further manipulations
  */
 export function parseFile(basePath: string, filename: string): ParsedFilePkg {
+  /**
+   * Parameter `filename` is the filepath relative to `basePath`, but the Program
+   * created by `ts.createProgram` will be relative to `process.cwd()`.
+   *
+   * We have to modify `filename` and make sure it is relative to `
+   * process.cwd`, otherwise `program.getSourceFile` in `getFilePkg` will return undefined
+   */
+  const cwd = process.cwd()
+  const filenameRelativeCWD = path.relative(cwd, path.join(basePath, filename))
+
   const options = getTsCompilerOptions(basePath, true)
-  const program = ts.createProgram([filename], options)
-  return getFilePkg(program, filename)
+  const program = ts.createProgram([filenameRelativeCWD], options)
+  return getFilePkg(program, filenameRelativeCWD)
 }
 
 /**
