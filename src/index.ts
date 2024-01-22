@@ -37,16 +37,6 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     revalidate = 0,
   } = require(path.join(basePath, 'i18n')) as I18nConfig
 
-  let nextConfigWithI18n: NextConfig = {
-    ...nextConfig,
-    i18n: {
-      locales,
-      defaultLocale,
-      domains,
-      localeDetection,
-    },
-  }
-
   const pagesFolder = calculatePageDir('pages', pagesInDir, basePath)
   const appFolder = calculatePageDir('app', pagesInDir, basePath)
   const existLocalesFolder = existLocalesFolderWithNamespaces(basePath)
@@ -56,7 +46,7 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
 
   // Pages folder not found, so we're not using the loader
   if (!existPagesFolder && !existPages(basePath, appFolder)) {
-    return nextConfigWithI18n
+    return nextConfig
   }
 
   if (existPagesFolder) {
@@ -80,6 +70,16 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
         hasGetInitialPropsOnAppJs = isGetInitialProps || hasHOC(appPkg)
       }
     }
+  }
+
+  let nextConfigWithI18n: NextConfig = hasAppJs ? nextConfig : {
+    ...nextConfig,
+    i18n: {
+      locales,
+      defaultLocale,
+      domains,
+      localeDetection,
+    },
   }
 
   return {
