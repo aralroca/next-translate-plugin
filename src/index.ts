@@ -12,13 +12,15 @@ import {
   existPages,
   existLocalesFolderWithNamespaces,
 } from './utils'
-import { LoaderOptions } from './types'
+import { LoaderOptions, NextConfigWithNextTranslate } from './types'
 import type { I18nConfig, NextI18nConfig } from 'next-translate'
 
 const test = /\.(tsx|ts|js|mjs|jsx)$/
 
-function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
-  let basePath = pkgDir()
+function nextTranslate(config: NextConfigWithNextTranslate = {}): NextConfig {
+  const { nextTranslate = {}, ...nextConfig } = config
+
+  let basePath = nextTranslate.basePath ?? pkgDir()
 
   // NEXT_TRANSLATE_PATH env is supported both relative and absolute path
   basePath = path.resolve(
