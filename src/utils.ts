@@ -116,9 +116,19 @@ export function getFilePkg(program: ts.Program, filename: string) {
  * @returns File package for further manipulations
  */
 export function parseFile(basePath: string, filename: string): ParsedFilePkg {
+  /**
+   * Parameter `filename` is the filepath relative to `basePath`, but the Program
+   * created by `ts.createProgram` will be relative to `process.cwd()`.
+   *
+   * We have to modify `filename` and make sure it is relative to `
+   * process.cwd`, otherwise `program.getSourceFile` in `getFilePkg` will return undefined
+   */
+  const cwd = process.cwd()
+  const filenameRelativeCWD = path.relative(cwd, path.join(basePath, filename))
+
   const options = getTsCompilerOptions(basePath, true)
-  const program = ts.createProgram([filename], options)
-  return getFilePkg(program, filename)
+  const program = ts.createProgram([filenameRelativeCWD], options)
+  return getFilePkg(program, filenameRelativeCWD)
 }
 
 /**
@@ -411,7 +421,7 @@ export function hasHOC(filePkg: ParsedFilePkg) {
   return false
 }
 
-export function isNotExportModifier(modifier: ts.Modifier) {
+export function isNotExportModifier(modifier: ts.ModifierLike) {
   const exportModifiers: ts.SyntaxKind[] = [
     ts.SyntaxKind.DefaultKeyword,
     ts.SyntaxKind.ExportKeyword,
@@ -454,7 +464,6 @@ export function interceptExport(
         // Turning the class export into a regular declaration
         return ts.factory.updateClassDeclaration(
           node,
-          node.decorators,
           node.modifiers?.filter(isNotExportModifier),
           node.name ?? ts.factory.createIdentifier(defaultLocalName),
           node.typeParameters,
@@ -470,7 +479,6 @@ export function interceptExport(
         // Turning the function export into a regular declaration
         return ts.factory.updateFunctionDeclaration(
           node,
-          node.decorators,
           node.modifiers?.filter(isNotExportModifier),
           node.asteriskToken,
           node.name ?? ts.factory.createIdentifier(defaultLocalName),
@@ -514,7 +522,6 @@ export function interceptExport(
           finalLocalName = defaultLocalName
           extraImport = ts.factory.createImportDeclaration(
             undefined,
-            undefined,
             ts.factory.createImportClause(
               node.isTypeOnly,
               undefined,
@@ -537,7 +544,6 @@ export function interceptExport(
         // Remove target export specifier
         return ts.factory.updateExportDeclaration(
           node,
-          node.decorators,
           node.modifiers,
           node.isTypeOnly,
           ts.factory.updateNamedExports(node.exportClause, filteredSpecifiers),
@@ -570,7 +576,8 @@ export function interceptExport(
 
       return ts.visitEachChild(node, visitor, context)
     }
-    return ts.visitNode(sourceFile, visitor)
+
+    return ts.visitEachChild(sourceFile, visitor, context)
   })
 
   if (extraImport) {
