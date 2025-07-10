@@ -100,7 +100,7 @@ function templateRSCPage({
 
   export default async function __Next_Translate_new__${hash}__(props) {
     const params = await props.params
-    const searchParams = props.searchParams instanceof Promise ? await props.searchParams : props.searchParams
+    const searchParams = await props.searchParams
     const detectedLang = params?.lang ?? searchParams?.lang
 
     if (detectedLang === 'favicon.ico') return <${pageVariableName} {...props} />
