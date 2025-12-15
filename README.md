@@ -6,11 +6,7 @@
     <b>Next-translate-plugin</b>
 </h2>
 <p align="center">
-    <b>Webpack plugin</b>
-</p>
-
-<p align="center">
-    (Maybe TurboPack in the future)
+    <b>Webpack/Turbopack plugin</b>
 </p>
 
 <p align="center">

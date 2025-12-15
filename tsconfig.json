@@ -12,7 +12,8 @@
     "declaration": true,
     "lib": [
       "esnext",
-      "dom"
+      "dom",
+      "dom.iterable"
     ],
     "forceConsistentCasingInFileNames": true,
     "outDir": "./lib/esm",

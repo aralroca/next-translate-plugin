@@ -7,7 +7,11 @@ import { ParsedFilePkg } from './types'
 
 export default function templateWithHoc(
   pagePkg: ParsedFilePkg,
-  { skipInitialProps = false, existLocalesFolder = true } = {}
+  {
+    skipInitialProps = false,
+    existLocalesFolder = true,
+    configFileName = 'i18n.json',
+  } = {}
 ) {
   // Random string based on current time
   const hash = Date.now().toString(16)
@@ -25,7 +29,7 @@ export default function templateWithHoc(
   if (!hasDefaultExport) return pagePkg.getCode()
 
   return `
-    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
+    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
     import __appWithI18n from 'next-translate/appWithI18n'
     ${pagePkg.getCode()}
     export default __appWithI18n(${pageVariableName}, {

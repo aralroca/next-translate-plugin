@@ -2,19 +2,19 @@ import templateAppDir from '../src/templateAppDir'
 import { parseCode } from '../src/utils'
 import { clean } from './templateWith.utils'
 
-const insideAppDir = pageNoExt => ({
+const insideAppDir = (pageNoExt) => ({
   pageNoExt,
   normalizedResourcePath: `app${pageNoExt}.js`,
   appFolder: 'app',
 })
 
-const outsideAppDir = pageNoExt => ({
+const outsideAppDir = (pageNoExt) => ({
   pageNoExt,
   normalizedResourcePath: `/components${pageNoExt}.js`,
   appFolder: 'app',
 })
 
-const monorepoAppDir = pageNoExt => ({
+const monorepoAppDir = (pageNoExt) => ({
   pageNoExt,
   normalizedResourcePath: `packages/app${pageNoExt}.js`,
   appFolder: 'app/',
@@ -31,10 +31,7 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [
-      outsideAppDir('/page'),
-      outsideAppDir('/about/us/page')
-    ],
+    cases: [outsideAppDir('/page'), outsideAppDir('/about/us/page')],
   },
   {
     describe:
@@ -55,8 +52,7 @@ const tests = [
     ],
   },
   {
-    describe:
-      'should load translations in a layout',
+    describe: 'should load translations in a layout',
     code: `
       import useTranslation from 'next-translate/useTranslation'
 
@@ -73,8 +69,7 @@ const tests = [
     ],
   },
   {
-    describe:
-      'should load translations in a not-found page',
+    describe: 'should load translations in a not-found page',
     code: `
       import useTranslation from 'next-translate/useTranslation'
 
@@ -91,8 +86,7 @@ const tests = [
     ],
   },
   {
-    describe:
-      'should load translations in a loading page',
+    describe: 'should load translations in a loading page',
     code: `
       import useTranslation from 'next-translate/useTranslation'
 
@@ -109,8 +103,7 @@ const tests = [
     ],
   },
   {
-    describe:
-      'should load translations in a error page',
+    describe: 'should load translations in a error page',
     code: `
       import useTranslation from 'next-translate/useTranslation'
 
@@ -127,8 +120,7 @@ const tests = [
     ],
   },
   {
-    describe:
-      'should load translations in a global-error page',
+    describe: 'should load translations in a global-error page',
     code: `
       import useTranslation from 'next-translate/useTranslation'
 
@@ -261,10 +253,7 @@ const tests = [
         return  <h1>{t('title')}</h1>
       }
     `,
-    cases: [
-      insideAppDir('/component'),
-      insideAppDir('/about/us/component'),
-    ],
+    cases: [insideAppDir('/component'), insideAppDir('/about/us/component')],
   },
   {
     describe:
@@ -324,7 +313,11 @@ const tests = [
       }
     `,
     cases: [
-      { isClientComponent: true, existLocalesFolder: false, ...insideAppDir('/component') },
+      {
+        isClientComponent: true,
+        existLocalesFolder: false,
+        ...insideAppDir('/component'),
+      },
       {
         ...insideAppDir('/about/us/component'),
         isClientComponent: true,
@@ -332,7 +325,6 @@ const tests = [
       },
     ],
   },
-
 ]
 
 describe('templateAppDir', () => {

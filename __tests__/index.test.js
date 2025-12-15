@@ -1,8 +1,8 @@
 import nextTranslate from '../src/index'
 import fs from 'fs'
-import path from 'path'
 
 jest.spyOn(fs, 'readdirSync')
+jest.spyOn(fs, 'existsSync')
 
 jest.mock('../src/utils', () => ({
   ...jest.requireActual('../src/utils'),
@@ -25,7 +25,8 @@ jest.mock(
 describe('nextTranslate', () => {
   describe('nextTranslate -> pagesInDir', () => {
     test('should detect correctly the appFolder and pagesFolder depending on the pagesInDir', () => {
-      fs.readdirSync.mockImplementationOnce(() => [])
+      fs.readdirSync.mockImplementation(() => [])
+      fs.existsSync.mockImplementation(() => true)
 
       const config = nextTranslate({})
 
@@ -39,11 +40,49 @@ describe('nextTranslate', () => {
                   options: expect.objectContaining({
                     appFolder: 'src/app/',
                     pagesFolder: 'src/pages/',
+                    configFileName: 'i18n.json',
                   }),
                 }),
               }),
             ]),
           },
+        })
+      )
+    })
+  })
+  describe('nextTranslate -> turbopack', () => {
+    test('should detect correctly the appFolder and pagesFolder depending on the pagesInDir', () => {
+      fs.readdirSync.mockImplementation(() => [])
+      fs.existsSync.mockImplementation(() => true)
+
+      const config = nextTranslate({}, { turbopack: true })
+
+      expect(config.turbopack).toEqual(
+        expect.objectContaining({
+          resolveAlias: expect.objectContaining({
+            '@next-translate-root/*': './*',
+          }),
+          rules: expect.objectContaining({
+            '*': expect.objectContaining({
+              condition: expect.objectContaining({
+                all: expect.arrayContaining([
+                  expect.objectContaining({
+                    path: /\.(tsx|ts|js|mjs|jsx)$/,
+                  }),
+                ]),
+              }),
+              loaders: expect.arrayContaining([
+                expect.objectContaining({
+                  loader: 'next-translate-plugin/loader',
+                  options: expect.objectContaining({
+                    appFolder: 'src/app/',
+                    pagesFolder: 'src/pages/',
+                    configFileName: 'i18n.json',
+                  }),
+                }),
+              ]),
+            }),
+          }),
         })
       )
     })

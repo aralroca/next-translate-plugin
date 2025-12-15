@@ -18,6 +18,7 @@ import {
   removeCommentsFromCode,
   clientLine,
   isInsideAppDir,
+  stringToRegex,
 } from './utils'
 
 const REGEX_STARTS_WITH_APP = /\/+_app.*/
@@ -35,6 +36,7 @@ export default function loader(
     extensionsRgx,
     revalidate,
     existLocalesFolder,
+    configFileName,
   } = this.getOptions()
   try {
     const codeWithoutComments = removeCommentsFromCode(rawCode).trim()
@@ -78,7 +80,9 @@ export default function loader(
         return result.outputText
       }
 
-      const jsCode = transpileTsx(getDefaultAppJs(existLocalesFolder))
+      const jsCode = transpileTsx(
+        getDefaultAppJs(existLocalesFolder, configFileName)
+      )
       return jsCode
     }
 
@@ -93,7 +97,7 @@ export default function loader(
       return rawCode
 
     const page = normalizedResourcePath.replace(pagesPath, '/')
-    const pageNoExt = page.replace(extensionsRgx, '')
+    const pageNoExt = page.replace(stringToRegex(extensionsRgx), '')
     const pagePkg = parseFile(basePath, normalizedResourcePath)
 
     // Skip any transformation if the page is not in raw code
@@ -117,6 +121,7 @@ export default function loader(
         isClientComponent,
         code: rawCode,
         existLocalesFolder,
+        configFileName,
       })
     }
 
@@ -135,7 +140,7 @@ export default function loader(
     // This way, the only modified file has to be the _app.js.
     if (hasGetInitialPropsOnAppJs) {
       return REGEX_STARTS_WITH_APP.test(pageNoExt)
-        ? templateWithHoc(pagePkg, { existLocalesFolder })
+        ? templateWithHoc(pagePkg, { existLocalesFolder, configFileName })
         : rawCode
     }
 
@@ -145,6 +150,7 @@ export default function loader(
       return templateWithHoc(pagePkg, {
         skipInitialProps: true,
         existLocalesFolder,
+        configFileName,
       })
     }
 
@@ -180,7 +186,7 @@ export default function loader(
       isGetStaticProps || isGetServerSideProps || isGetInitialProps
 
     if (isGetInitialProps || (!hasLoader && isWrapperWithExternalHOC)) {
-      return templateWithHoc(pagePkg, { existLocalesFolder })
+      return templateWithHoc(pagePkg, { existLocalesFolder, configFileName })
     }
 
     const loader =
@@ -193,6 +199,7 @@ export default function loader(
       loader,
       revalidate,
       existLocalesFolder,
+      configFileName,
     })
   } catch (e) {
     console.error('next-translate-plugin ERROR', e)

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`templateAppDir should load translations in a error page pageNoExt: /about/us/error | normalizedResourcePath: app/about/us/error.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -57,7 +57,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a error page pageNoExt: /about/us/error | normalizedResourcePath: packages/app/about/us/error.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -113,7 +113,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a error page pageNoExt: /error | normalizedResourcePath: app/error.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -169,7 +169,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a error page pageNoExt: /error | normalizedResourcePath: packages/app/error.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -225,7 +225,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a global-error page pageNoExt: /about/us/global-error | normalizedResourcePath: app/about/us/global-error.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -281,7 +281,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a global-error page pageNoExt: /about/us/global-error | normalizedResourcePath: packages/app/about/us/global-error.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -337,7 +337,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a global-error page pageNoExt: /global-error | normalizedResourcePath: app/global-error.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -393,7 +393,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a global-error page pageNoExt: /global-error | normalizedResourcePath: packages/app/global-error.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -449,7 +449,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a layout pageNoExt: /about/us/layout | normalizedResourcePath: app/about/us/layout.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -505,7 +505,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a layout pageNoExt: /about/us/layout | normalizedResourcePath: packages/app/about/us/layout.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -561,7 +561,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a layout pageNoExt: /layout | normalizedResourcePath: app/layout.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -617,7 +617,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a layout pageNoExt: /layout | normalizedResourcePath: packages/app/layout.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -673,7 +673,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a loading page pageNoExt: /about/us/loading | normalizedResourcePath: app/about/us/loading.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -729,7 +729,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a loading page pageNoExt: /about/us/loading | normalizedResourcePath: packages/app/about/us/loading.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -785,7 +785,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a loading page pageNoExt: /loading | normalizedResourcePath: app/loading.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -841,7 +841,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a loading page pageNoExt: /loading | normalizedResourcePath: packages/app/loading.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -897,7 +897,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a not-found page pageNoExt: /about/us/not-found | normalizedResourcePath: app/about/us/not-found.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -953,7 +953,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a not-found page pageNoExt: /about/us/not-found | normalizedResourcePath: packages/app/about/us/not-found.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1009,7 +1009,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a not-found page pageNoExt: /not-found | normalizedResourcePath: app/not-found.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1065,7 +1065,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a not-found page pageNoExt: /not-found | normalizedResourcePath: packages/app/not-found.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1121,7 +1121,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /about/us/page | normalizedResourcePath: app/about/us/page.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1175,7 +1175,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /about/us/page | normalizedResourcePath: packages/app/about/us/page.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1229,7 +1229,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1283,7 +1283,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-dynamic pageNoExt: /page | normalizedResourcePath: packages/app/page.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1337,7 +1337,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /about/us/page | normalizedResourcePath: app/about/us/page.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1391,7 +1391,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /about/us/page | normalizedResourcePath: packages/app/about/us/page.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1445,7 +1445,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1499,7 +1499,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page with dynamic export force-static pageNoExt: /page | normalizedResourcePath: packages/app/page.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1553,7 +1553,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /about/us/page | normalizedResourcePath: app/about/us/page.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1606,7 +1606,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /about/us/page | normalizedResourcePath: packages/app/about/us/page.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1659,7 +1659,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1712,7 +1712,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 `;
 
 exports[`templateAppDir should load translations in a server page without dynamic export pageNoExt: /page | normalizedResourcePath: packages/app/page.js | appFolder: app/ 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n\\";
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
 
@@ -1802,7 +1802,7 @@ export function Component() {
 
 exports[`templateAppDir should load using an "use" client hook the translations in a client page ("use client" with double quotes and comment before) isClientComponent: true | pageNoExt: /about/us/page | normalizedResourcePath: app/about/us/page.js | appFolder: app 1`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
+import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
@@ -1871,7 +1871,7 @@ function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
 
 exports[`templateAppDir should load using an "use" client hook the translations in a client page ("use client" with double quotes and comment before) isClientComponent: true | pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
+import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
@@ -1940,7 +1940,7 @@ function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
 
 exports[`templateAppDir should load using an "use" client hook the translations in a client page ("use client" with double quotes and comment before) isClientComponent: true | pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
+import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
@@ -2045,7 +2045,7 @@ export default function Component() {
 
 exports[`templateAppDir should load using an 'use' client hook the translations in a client page ('use client' with simple quotes) isClientComponent: true | pageNoExt: /about/us/page | normalizedResourcePath: app/about/us/page.js | appFolder: app 1`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
+import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
@@ -2109,7 +2109,7 @@ function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
 
 exports[`templateAppDir should load using an 'use' client hook the translations in a client page ('use client' with simple quotes) isClientComponent: true | pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 1`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
+import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,
@@ -2173,7 +2173,7 @@ function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
 
 exports[`templateAppDir should load using an 'use' client hook the translations in a client page ('use client' with simple quotes) isClientComponent: true | pageNoExt: /page | normalizedResourcePath: app/page.js | appFolder: app 2`] = `
 "\\"use client\\";
-import __i18nConfig from \\"@next-translate-root/i18n\\";
+import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import {
   useSearchParams as __useSearchParams,

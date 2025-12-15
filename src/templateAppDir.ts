@@ -25,6 +25,7 @@ export default function templateAppDir(
     appFolder = '',
     isClientComponent = false,
     existLocalesFolder = true,
+    configFileName = 'i18n.json',
   } = {}
 ) {
   const routeType =
@@ -58,6 +59,7 @@ export default function templateAppDir(
       pathname,
       routeType,
       existLocalesFolder,
+      configFileName,
     })
   }
 
@@ -69,6 +71,7 @@ export default function templateAppDir(
     pathname,
     routeType,
     existLocalesFolder,
+    configFileName,
   })
 }
 
@@ -79,6 +82,7 @@ type Params = {
   pathname?: string
   routeType: string
   existLocalesFolder: boolean
+  configFileName: string
 }
 
 function templateRSCPage({
@@ -88,11 +92,12 @@ function templateRSCPage({
   pathname,
   routeType,
   existLocalesFolder,
+  configFileName,
 }: Params) {
   const code = pagePkg.getCode()
 
   return `
-  import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
+  import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
   import AppDirI18nProvider from 'next-translate/AppDirI18nProvider'
   import __loadNamespaces from 'next-translate/loadNamespaces'
 
@@ -105,11 +110,12 @@ function templateRSCPage({
 
     if (detectedLang === 'favicon.ico') return <${pageVariableName} {...props} />
 
-    ${routeType !== '/page'
-      // Related with https://github.com/aralroca/next-translate/issues/1090
-      // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
-      ? `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
-      : ''
+    ${
+      routeType !== '/page'
+        ? // Related with https://github.com/aralroca/next-translate/issues/1090
+          // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
+          `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
+        : ''
     }
   
     const config = { 
@@ -140,6 +146,7 @@ function templateRCCPage({
   pathname,
   routeType,
   existLocalesFolder,
+  configFileName,
 }: Params) {
   const topLine = clientLine[0]
   let clientCode = pagePkg.getCode()
@@ -150,7 +157,7 @@ function templateRCCPage({
   })
 
   return `${topLine}
-  import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
+  import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
   import AppDirI18nProvider from 'next-translate/AppDirI18nProvider'
   import { useSearchParams as __useSearchParams, useParams as __useParams } from 'next/navigation'
   import { use as __use, Suspense as __Suspense } from 'react'
@@ -165,11 +172,12 @@ function templateRCCPage({
 
     if (detectedLang === 'favicon.ico') return <${pageVariableName} {...props} />
 
-    ${routeType !== '/page'
-      // Related with https://github.com/aralroca/next-translate/issues/1090
-      // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
-      ? `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
-      : ''
+    ${
+      routeType !== '/page'
+        ? // Related with https://github.com/aralroca/next-translate/issues/1090
+          // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
+          `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
+        : ''
     }
 
     const lang = detectedLang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale
@@ -185,7 +193,9 @@ function templateRCCPage({
         <__Next_Translate__child__${hash}__ 
           {...props} 
           config={config} 
-          promise={__loadNamespaces({ ...config, ${addLoadLocalesFrom(existLocalesFolder)} })}
+          promise={__loadNamespaces({ ...config, ${addLoadLocalesFrom(
+            existLocalesFolder
+          )} })}
          />
       </__Suspense>
     )
