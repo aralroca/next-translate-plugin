@@ -1,14 +1,19 @@
 import type ts from 'typescript'
 
+export interface NextTranslatePluginOptions {
+  turbopack?: boolean
+}
+
 export interface LoaderOptions {
   basePath: string
   pagesFolder: string
   appFolder: string
   hasAppJs: boolean
   hasGetInitialPropsOnAppJs: boolean
-  extensionsRgx: RegExp
+  extensionsRgx: RegExp | string
   revalidate: number
   existLocalesFolder: boolean
+  configFileName: string
 }
 
 export type Transformer = (

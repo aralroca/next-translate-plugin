@@ -13,10 +13,13 @@ export const clientLine = ['"use client"', "'use client'"]
 export const defaultLoader =
   '(l, n) => import(`@next-translate-root/locales/${l}/${n}`).then(m => m.default)'
 
-export function getDefaultAppJs(existLocalesFolder: boolean) {
+export function getDefaultAppJs(
+  existLocalesFolder: boolean,
+  configFileName: string
+) {
   return `
       import * as React from 'react'
-      import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
+      import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
       import appWithI18n from 'next-translate/appWithI18n'
     
       function MyApp({ Component, pageProps }) {
@@ -669,4 +672,31 @@ export function isInsideAppDir(
   if (appIndex > -1 && pagesIndex === -1) return true
 
   return appIndex < pagesIndex
+}
+
+const CONFIG_FILE_NAMES = ['i18n.json', 'i18n.js', 'i18n.mjs', 'i18n.cjs']
+
+export function getConfigFileName(basePath: string) {
+  return CONFIG_FILE_NAMES.find((fileName) =>
+    fs.existsSync(path.join(basePath, fileName))
+  )
+}
+
+const REGEX_PREFIX = '__REGEX__'
+
+export function regexToString(regex: RegExp | string) {
+  if (typeof regex === 'string') {
+    return regex
+  }
+  return `${REGEX_PREFIX}${regex.source}`
+}
+
+export function stringToRegex(str: string | RegExp) {
+  if (typeof str !== 'string') {
+    return str
+  }
+  if (!str.startsWith(REGEX_PREFIX)) {
+    return str
+  }
+  return new RegExp(str.replace(REGEX_PREFIX, ''))
 }

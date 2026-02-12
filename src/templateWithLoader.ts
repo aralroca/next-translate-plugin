@@ -12,6 +12,7 @@ export default function templateWithLoader(
     loader = 'getStaticProps',
     revalidate = 0,
     existLocalesFolder = true,
+    configFileName = 'i18n.json',
   } = {}
 ) {
   // Random string based on current time
@@ -29,7 +30,7 @@ export default function templateWithLoader(
   const hasLoader = Boolean(oldLoaderName)
 
   return `
-    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/i18n'
+    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
     import __loadNamespaces from 'next-translate/loadNamespaces'
     ${pagePkg.getCode()}
     async function ${newLoaderName}(ctx) {

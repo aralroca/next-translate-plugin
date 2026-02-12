@@ -4,6 +4,7 @@ import type webpack from 'webpack'
 import type { NextConfig } from 'next'
 
 import {
+  getConfigFileName,
   getDefaultExport,
   hasHOC,
   hasStaticName,
@@ -11,13 +12,17 @@ import {
   calculatePageDir,
   existPages,
   existLocalesFolderWithNamespaces,
+  regexToString,
 } from './utils'
-import { LoaderOptions } from './types'
+import { LoaderOptions, NextTranslatePluginOptions } from './types'
 import type { I18nConfig, NextI18nConfig } from 'next-translate'
 
 const test = /\.(tsx|ts|js|mjs|jsx)$/
 
-function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
+function nextTranslate(
+  nextConfig: NextConfig = {},
+  { turbopack = false }: NextTranslatePluginOptions = {}
+): NextConfig {
   let basePath = pkgDir()
 
   // NEXT_TRANSLATE_PATH env is supported both relative and absolute path
@@ -41,6 +46,12 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
   const appFolder = calculatePageDir('app', pagesInDir, basePath)
   const existLocalesFolder = existLocalesFolderWithNamespaces(basePath)
   const existPagesFolder = existPages(basePath, pagesFolder)
+  const configFileName = getConfigFileName(basePath)
+  if (!configFileName) {
+    throw new Error(
+      `Config file (i18n.json, i18n.js, i18n.mjs, i18n.cjs) not found`
+    )
+  }
   let hasGetInitialPropsOnAppJs = false
   let hasAppJs = false
 
@@ -72,59 +83,101 @@ function nextTranslate(nextConfig: NextConfig = {}): NextConfig {
     }
   }
 
-  let nextConfigWithI18n: NextConfig = hasAppJs ? nextConfig : {
-    ...nextConfig,
-    i18n: {
-      locales,
-      defaultLocale,
-      domains,
-      localeDetection,
+  let nextConfigWithI18n: NextConfig = hasAppJs
+    ? nextConfig
+    : {
+        ...nextConfig,
+        i18n: {
+          locales,
+          defaultLocale,
+          domains,
+          localeDetection,
+        },
+      }
+
+  const webpackConfig: NextConfig['webpack'] = (
+    conf: webpack.Configuration,
+    options
+  ) => {
+    const config: webpack.Configuration =
+      typeof nextConfig.webpack === 'function'
+        ? nextConfig.webpack(conf, options)
+        : conf
+
+    // Creating some "slots" if they don't exist
+    if (!config.resolve) config.resolve = {}
+    if (!config.module) config.module = {}
+    if (!config.module.rules) config.module.rules = []
+
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      '@next-translate-root': path.resolve(basePath),
+    }
+
+    // we give the opportunity for people to use next-translate without altering
+    // any document, allowing them to manually add the necessary helpers on each
+    // page to load the namespaces.
+    if (!loader) return config
+
+    config.module.rules.push({
+      test,
+      use: {
+        loader: 'next-translate-plugin/loader',
+        options: {
+          basePath,
+          // Normalize slashes in a file path to be posix/unix-like forward slashes
+          pagesFolder: path.join(pagesFolder, '/').replace(/\\/g, '/'),
+          appFolder: path.join(appFolder, '/').replace(/\\/g, '/'),
+          hasAppJs,
+          hasGetInitialPropsOnAppJs,
+          extensionsRgx,
+          revalidate,
+          existLocalesFolder,
+          configFileName,
+        } as LoaderOptions,
+      },
+    })
+
+    return config
+  }
+
+  const turbopackConfig: NextConfig['turbopack'] = {
+    ...(nextConfig.turbopack || {}),
+    rules: {
+      ...(nextConfig.turbopack?.rules || {}),
+      '*': {
+        condition: {
+          all: [{ path: test }],
+        },
+        loaders: [
+          {
+            loader: 'next-translate-plugin/loader',
+            options: {
+              basePath: basePath,
+              pagesFolder: path.join(pagesFolder, '/').replace(/\\/g, '/'),
+              appFolder: path.join(appFolder, '/').replace(/\\/g, '/'),
+              hasAppJs: hasAppJs,
+              hasGetInitialPropsOnAppJs: hasGetInitialPropsOnAppJs,
+              extensionsRgx: regexToString(extensionsRgx),
+              revalidate: revalidate,
+              existLocalesFolder: existLocalesFolder,
+              configFileName,
+            },
+          },
+        ],
+      },
+    },
+    resolveAlias: {
+      ...(nextConfig.turbopack?.resolveAlias || {}),
+      '@next-translate-root/*': `./*`,
     },
   }
 
   return {
     ...nextConfigWithI18n,
-    webpack(conf: webpack.Configuration, options) {
-      const config: webpack.Configuration =
-        typeof nextConfig.webpack === 'function'
-          ? nextConfig.webpack(conf, options)
-          : conf
-
-      // Creating some "slots" if they don't exist
-      if (!config.resolve) config.resolve = {}
-      if (!config.module) config.module = {}
-      if (!config.module.rules) config.module.rules = []
-
-      config.resolve.alias = {
-        ...(config.resolve.alias || {}),
-        '@next-translate-root': path.resolve(basePath),
-      }
-
-      // we give the opportunity for people to use next-translate without altering
-      // any document, allowing them to manually add the necessary helpers on each
-      // page to load the namespaces.
-      if (!loader) return config
-
-      config.module.rules.push({
-        test,
-        use: {
-          loader: 'next-translate-plugin/loader',
-          options: {
-            basePath,
-            // Normalize slashes in a file path to be posix/unix-like forward slashes
-            pagesFolder: path.join(pagesFolder, '/').replace(/\\/g, '/'),
-            appFolder: path.join(appFolder, '/').replace(/\\/g, '/'),
-            hasAppJs,
-            hasGetInitialPropsOnAppJs,
-            extensionsRgx,
-            revalidate,
-            existLocalesFolder,
-          } as LoaderOptions,
-        },
-      })
-
-      return config
-    },
+    ...(turbopack
+      ? { turbopack: turbopackConfig }
+      : { webpack: webpackConfig }),
   }
 }
 
