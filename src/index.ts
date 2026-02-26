@@ -169,7 +169,8 @@ function nextTranslate(
     },
     resolveAlias: {
       ...(nextConfig.turbopack?.resolveAlias || {}),
-      '@next-translate-root/*': `./*`,
+      '@next-translate-root': basePath,
+      '@next-translate-root/*': `${basePath}/*`,
     },
   }
 
@@ -182,10 +183,20 @@ function nextTranslate(
 }
 
 function pkgDir() {
+  const cwd = process.cwd()
+  if (
+    fs.existsSync(path.join(cwd, 'i18n.js')) ||
+    fs.existsSync(path.join(cwd, 'i18n.json')) ||
+    fs.existsSync(path.join(cwd, 'i18n.mjs')) ||
+    fs.existsSync(path.join(cwd, 'i18n.cjs'))
+  ) {
+    return cwd
+  }
+
   try {
-    return (require('pkg-dir').sync() as string) || process.cwd()
+    return (require('pkg-dir').sync() as string) || cwd
   } catch (e) {
-    return process.cwd()
+    return cwd
   }
 }
 
