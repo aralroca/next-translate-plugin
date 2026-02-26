@@ -83,17 +83,18 @@ function nextTranslate(
     }
   }
 
-  let nextConfigWithI18n: NextConfig = hasAppJs
-    ? nextConfig
-    : {
-        ...nextConfig,
-        i18n: {
-          locales,
-          defaultLocale,
-          domains,
-          localeDetection,
-        },
-      }
+  const nextConfigWithI18n: NextConfig =
+    hasAppJs || !existPagesFolder
+      ? nextConfig
+      : {
+          ...nextConfig,
+          i18n: {
+            locales,
+            defaultLocale,
+            domains,
+            localeDetection,
+          },
+        }
 
   const webpackConfig: NextConfig['webpack'] = (
     conf: webpack.Configuration,
@@ -169,23 +170,42 @@ function nextTranslate(
     },
     resolveAlias: {
       ...(nextConfig.turbopack?.resolveAlias || {}),
-      '@next-translate-root/*': `./*`,
+      '@next-translate-root': '.',
+      '@next-translate-root/*': './*',
+      'next-translate': './node_modules/next-translate',
+      'next-translate/*': './node_modules/next-translate/*',
     },
   }
 
-  return {
+  const finalConfig: NextConfig = {
     ...nextConfigWithI18n,
     ...(turbopack
       ? { turbopack: turbopackConfig }
       : { webpack: webpackConfig }),
   }
+
+  if (turbopack && finalConfig.webpack) {
+    delete finalConfig.webpack
+  }
+
+  return finalConfig
 }
 
 function pkgDir() {
+  const cwd = process.cwd()
+  if (
+    fs.existsSync(path.join(cwd, 'i18n.js')) ||
+    fs.existsSync(path.join(cwd, 'i18n.json')) ||
+    fs.existsSync(path.join(cwd, 'i18n.mjs')) ||
+    fs.existsSync(path.join(cwd, 'i18n.cjs'))
+  ) {
+    return cwd
+  }
+
   try {
-    return (require('pkg-dir').sync() as string) || process.cwd()
+    return (require('pkg-dir').sync() as string) || cwd
   } catch (e) {
-    return process.cwd()
+    return cwd
   }
 }
 
