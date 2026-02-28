@@ -1,5 +1,6 @@
 import { parseCode, hasExportName } from '../src/utils'
 
+// Related with https://github.com/aralroca/next-translate-plugin/issues/91
 describe('repro issue', () => {
   it('should detect re-exported getStaticProps', () => {
     const code = `
