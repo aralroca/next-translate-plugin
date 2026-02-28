@@ -298,7 +298,27 @@ export function getDefaultExport(filePkg: ParsedFilePkg, resolveExport = true) {
 }
 
 export function hasExportName(filePkg: ParsedFilePkg, name: string) {
-  return Boolean(getNamedExport(filePkg, name, false))
+  if (Boolean(getNamedExport(filePkg, name, false))) return true
+
+  // Fallback for re-exports (export * from '...')
+  // When noResolve is true, the checker may not be able to resolve these
+  const isDataFetchingMethod = [
+    'getStaticProps',
+    'getStaticPaths',
+    'getServerSideProps',
+    'getInitialProps',
+  ].includes(name)
+
+  if (!isDataFetchingMethod) return false
+
+  return filePkg.sourceFile.statements.some((node) => {
+    return (
+      ts.isExportDeclaration(node) &&
+      !node.isTypeOnly &&
+      !node.exportClause &&
+      node.moduleSpecifier !== undefined
+    )
+  })
 }
 
 export function getStaticName(
