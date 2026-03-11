@@ -164,6 +164,7 @@ function nextTranslate(
 
   const turbopackConfig: NextConfig['turbopack'] = {
     ...(nextConfig.turbopack || {}),
+    root: turbopackRoot,
     rules: {
       ...(nextConfig.turbopack?.rules || {}),
       ...(loader
