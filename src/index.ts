@@ -150,7 +150,7 @@ function nextTranslate(
   try {
     let current = basePath
     const rootDir = path.parse(basePath).root
-    const rootMarkers = ['yarn.lock', 'package-lock.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'lerna.json', 'nx.json', '.git', '.next']
+    const rootMarkers = ['yarn.lock', 'package-lock.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'bun.lockb', 'lerna.json', 'nx.json', '.git', '.next']
     while (current !== rootDir) {
       const parent = path.dirname(current)
       if (rootMarkers.some(marker => fs.existsSync(path.join(parent, marker)))) {
