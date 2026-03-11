@@ -10,6 +10,10 @@ $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
 export default () => <div>Hello world</div>;
 
 async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
+
   return {
     props: {
       ...(await __loadNamespaces({
@@ -20,7 +24,7 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -41,6 +45,10 @@ $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
 export default () => <div>Hello world</div>;
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
+
   return {
     props: {
       ...(await __loadNamespaces({
@@ -51,7 +59,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -80,6 +88,9 @@ function getStaticProps() {
 }
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     ...res,
@@ -93,7 +104,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -121,6 +132,10 @@ const myPage = Page;
 export default myPage;
 
 async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
+
   return {
     props: {
       ...(await __loadNamespaces({
@@ -131,7 +146,7 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -159,6 +174,10 @@ const myPage = Page;
 export default myPage;
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
+
   return {
     props: {
       ...(await __loadNamespaces({
@@ -169,7 +188,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -198,6 +217,9 @@ function getStaticProps() {
 }
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     ...res,
@@ -211,7 +233,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -234,6 +256,10 @@ export default function Page() {
 }
 
 async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
+
   return {
     props: {
       ...(await __loadNamespaces({
@@ -244,7 +270,7 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -267,6 +293,10 @@ export default function Page() {
 }
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
+
   return {
     props: {
       ...(await __loadNamespaces({
@@ -277,7 +307,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -305,6 +335,9 @@ export {};
 export default Page;
 
 async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getServerSideProps(ctx);
   return {
     ...res,
@@ -318,7 +351,7 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -342,6 +375,10 @@ function Page() {
 export default Page;
 
 async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
+
   return {
     props: {
       ...(await __loadNamespaces({
@@ -352,7 +389,7 @@ async function __Next_Translate__getServerSideProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -376,6 +413,10 @@ function Page() {
 export default Page;
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
+
   return {
     props: {
       ...(await __loadNamespaces({
@@ -386,7 +427,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -411,6 +452,9 @@ const getStaticProps = () => ({ props: {} });
 export {};
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     ...res,
@@ -424,7 +468,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -449,6 +493,9 @@ const getStaticProps = wrapper.getStaticProps(() => ({ props: {} }));
 export {};
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     ...res,
@@ -462,7 +509,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -489,6 +536,9 @@ export default function Page() {
 export { config, getStaticPaths };
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     ...res,
@@ -502,7 +552,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -529,6 +579,9 @@ export default function Page() {
 export { config, getStaticPaths };
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     ...res,
@@ -542,7 +595,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -569,6 +622,9 @@ export default function Page() {
 export { config, getStaticPaths };
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     ...res,
@@ -582,7 +638,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -613,6 +669,9 @@ export default function Page() {
 export { config, getStaticPaths };
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     ...res,
@@ -626,7 +685,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -651,6 +710,9 @@ const getStaticProps = (ctx) => ({});
 export default Page;
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     revalidate: 55,
@@ -665,7 +727,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -691,6 +753,9 @@ function getStaticProps() {
 }
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     revalidate: 88,
@@ -705,7 +770,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -729,6 +794,10 @@ export default function Page() {
 const getStaticProps = () => ({ props: {} });
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
+
   return {
     props: {
       ...(await __loadNamespaces({
@@ -739,7 +808,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -765,6 +834,9 @@ export {} from \\"somewhere\\";
 export default Page;
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await __Next_Translate_old_getStaticProps__88d9831a00__(ctx);
   return {
     ...res,
@@ -778,7 +850,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -803,6 +875,9 @@ const getStaticProps = (ctx) => ({});
 export default Page;
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     ...res,
@@ -816,7 +891,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -841,6 +916,9 @@ const getStaticProps = (ctx) => ({});
 export default Page;
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     ...res,
@@ -854,7 +932,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -875,6 +953,9 @@ $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
 export { anotherThing };
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await test(ctx);
   return {
     ...res,
@@ -888,7 +969,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -909,6 +990,9 @@ $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
 export {};
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await test(ctx);
   return {
     ...res,
@@ -922,7 +1006,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -943,6 +1027,9 @@ $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
 export { something, getStaticPropsB };
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await AgetStaticProps(ctx);
   return {
     ...res,
@@ -956,7 +1043,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),
@@ -983,6 +1070,9 @@ const getStaticProps: GetStaticProps = () => {
 };
 
 async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
+  if (typeof global !== \\"undefined\\") {
+    global.i18nConfig = __i18nConfig;
+  }
   const res = await getStaticProps(ctx);
   return {
     revalidate: 77,
@@ -997,7 +1087,7 @@ async function __Next_Translate__getStaticProps__88d9831a00__(ctx) {
         loadLocaleFrom:
           (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
           ((l, n) =>
-            import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+            import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
               (m) => m.default
             )),
       })),

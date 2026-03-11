@@ -1,0 +1,7 @@
+{
+  "name": "transtext",
+  "private": true,
+  "main": "../lib/cjs/TransText.js",
+  "module": "../lib/esm/TransText.js",
+  "types": "../TransText.d.ts"
+}

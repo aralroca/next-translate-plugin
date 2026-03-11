@@ -1,0 +1,7 @@
+{
+  "name": "createtranslation",
+  "private": true,
+  "main": "../lib/cjs/createTranslation.js",
+  "module": "../lib/esm/createTranslation.js",
+  "types": "../createTranslation.d.ts"
+}

@@ -40,7 +40,10 @@ function nextTranslate(
     pagesInDir,
     extensionsRgx = test,
     revalidate = 0,
+    loadLocaleFrom,
   } = require(path.join(basePath, 'i18n')) as I18nConfig
+
+  const hasLoadLocaleFrom = typeof loadLocaleFrom === 'function'
 
   const pagesFolder = calculatePageDir('pages', pagesInDir, basePath)
   const appFolder = calculatePageDir('app', pagesInDir, basePath)
@@ -67,7 +70,7 @@ function nextTranslate(
       .find((page) => page.startsWith('_app.'))
 
     if (app) {
-      const appPkg = parseFile(basePath, path.join(pagesPath, app))
+      const appPkg = parseFile(basePath, path.relative(basePath, path.join(pagesPath, app)))
       const defaultExport = getDefaultExport(appPkg)
 
       hasAppJs = true
@@ -83,18 +86,17 @@ function nextTranslate(
     }
   }
 
-  const nextConfigWithI18n: NextConfig =
-    hasAppJs || !existPagesFolder
-      ? nextConfig
-      : {
-          ...nextConfig,
-          i18n: {
-            locales,
-            defaultLocale,
-            domains,
-            localeDetection,
-          },
-        }
+  const nextConfigWithI18n: NextConfig = !existPagesFolder
+    ? nextConfig
+    : {
+        ...nextConfig,
+        i18n: {
+          locales,
+          defaultLocale,
+          domains,
+          localeDetection,
+        },
+      }
 
   const webpackConfig: NextConfig['webpack'] = (
     conf: webpack.Configuration,
@@ -135,6 +137,8 @@ function nextTranslate(
           revalidate,
           existLocalesFolder,
           configFileName,
+          relativeLocalesPath: '',
+          hasLoadLocaleFrom,
         } as LoaderOptions,
       },
     })
@@ -142,38 +146,63 @@ function nextTranslate(
     return config
   }
 
+  let turbopackRoot = basePath
+  try {
+    let current = basePath
+    const rootDir = path.parse(basePath).root
+    while (current !== rootDir) {
+      const parent = path.dirname(current)
+      if (fs.existsSync(path.join(parent, 'yarn.lock')) || fs.existsSync(path.join(parent, 'package-lock.json'))) {
+        turbopackRoot = parent
+        // Keep going up if there are more lockfiles (monorepo root)
+      } else if (turbopackRoot !== basePath) {
+        // We found a root earlier, and this parent doesn't have a lockfile,
+        // so we might have reached the top of the monorepo.
+        break
+      }
+      current = parent
+    }
+  } catch (e) {}
+
   const turbopackConfig: NextConfig['turbopack'] = {
     ...(nextConfig.turbopack || {}),
+    root: turbopackRoot,
     rules: {
       ...(nextConfig.turbopack?.rules || {}),
-      '*': {
-        condition: {
-          all: [{ path: test }],
-        },
-        loaders: [
-          {
-            loader: 'next-translate-plugin/loader',
-            options: {
-              basePath: basePath,
-              pagesFolder: path.join(pagesFolder, '/').replace(/\\/g, '/'),
-              appFolder: path.join(appFolder, '/').replace(/\\/g, '/'),
-              hasAppJs: hasAppJs,
-              hasGetInitialPropsOnAppJs: hasGetInitialPropsOnAppJs,
-              extensionsRgx: regexToString(extensionsRgx),
-              revalidate: revalidate,
-              existLocalesFolder: existLocalesFolder,
-              configFileName,
+      ...(loader
+        ? {
+            '*': {
+              condition: {
+                all: [{ path: test }],
+              },
+              loaders: [
+                {
+                  loader: 'next-translate-plugin/loader',
+                  options: {
+                    basePath: basePath,
+                    pagesFolder: path.join(pagesFolder, '/').replace(/\\/g, '/'),
+                    appFolder: path.join(appFolder, '/').replace(/\\/g, '/'),
+                    hasAppJs: hasAppJs,
+                    hasGetInitialPropsOnAppJs: hasGetInitialPropsOnAppJs,
+                    extensionsRgx: regexToString(extensionsRgx),
+                    revalidate: revalidate,
+                    existLocalesFolder: existLocalesFolder,
+                    configFileName,
+                    relativeLocalesPath: '',
+                    hasLoadLocaleFrom,
+                  },
+                },
+              ],
             },
-          },
-        ],
-      },
+          }
+        : {}),
     },
     resolveAlias: {
       ...(nextConfig.turbopack?.resolveAlias || {}),
-      '@next-translate-root': '.',
-      '@next-translate-root/*': './*',
-      'next-translate': './node_modules/next-translate',
-      'next-translate/*': './node_modules/next-translate/*',
+      '@next-translate-root': path.join('.', path.relative(turbopackRoot, basePath)).replace(/\\/g, '/') || './',
+      '@next-translate-root/*': path.join('.', path.relative(turbopackRoot, basePath), '*').replace(/\\/g, '/') || './*',
+      'next-translate': path.join('.', path.relative(turbopackRoot, path.join(basePath, 'node_modules/next-translate'))).replace(/\\/g, '/') || './node_modules/next-translate',
+      'next-translate/*': path.join('.', path.relative(turbopackRoot, path.join(basePath, 'node_modules/next-translate/*'))).replace(/\\/g, '/') || './node_modules/next-translate/*',
     },
   }
 

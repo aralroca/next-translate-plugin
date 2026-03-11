@@ -11,11 +11,13 @@ export const INTERNAL_CONFIG_KEY = '__i18nConfig'
 export const clientLine = ['"use client"', "'use client'"]
 
 export const defaultLoader =
-  '(l, n) => import(`@next-translate-root/locales/${l}/${n}`).then(m => m.default)'
+  '(l, n) => import(`@next-translate-root/locales/${l}/${n}.json`).then(m => m.default)'
 
 export function getDefaultAppJs(
   existLocalesFolder: boolean,
-  configFileName: string
+  configFileName: string,
+  relativeLocalesPath?: string,
+  hasLoadLocaleFrom?: boolean
 ) {
   return `
       import * as React from 'react'
@@ -30,14 +32,20 @@ export function getDefaultAppJs(
         ...${INTERNAL_CONFIG_KEY},
         skipInitialProps: true,
         isLoader: true,
-        ${addLoadLocalesFrom(existLocalesFolder)}
+        ${addLoadLocalesFrom(existLocalesFolder, relativeLocalesPath, hasLoadLocaleFrom)}
       })
     `
 }
 
-export function addLoadLocalesFrom(existLocalesFolder: boolean) {
-  const defaultFn = existLocalesFolder
-    ? defaultLoader
+export function addLoadLocalesFrom(
+  existLocalesFolder: boolean,
+  relativeLocalesPath?: string,
+  hasLoadLocaleFrom?: boolean
+) {
+  const defaultFn = (existLocalesFolder && !hasLoadLocaleFrom)
+    ? `(l, n) => import('${
+        relativeLocalesPath || '@next-translate-root/locales'
+      }/' + l + '/' + n).then(m => m.default)`
     : `() => Promise.resolve({})`
   return `loadLocaleFrom: ${INTERNAL_CONFIG_KEY} && ${INTERNAL_CONFIG_KEY}.loadLocaleFrom || (${defaultFn}),`
 }

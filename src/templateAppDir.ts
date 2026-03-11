@@ -26,6 +26,8 @@ export default function templateAppDir(
     isClientComponent = false,
     existLocalesFolder = true,
     configFileName = 'i18n.json',
+    relativeLocalesPath = '',
+    hasLoadLocaleFrom = false,
   } = {}
 ) {
   const routeType =
@@ -60,6 +62,8 @@ export default function templateAppDir(
       routeType,
       existLocalesFolder,
       configFileName,
+      relativeLocalesPath,
+      hasLoadLocaleFrom,
     })
   }
 
@@ -72,6 +76,8 @@ export default function templateAppDir(
     routeType,
     existLocalesFolder,
     configFileName,
+    relativeLocalesPath,
+    hasLoadLocaleFrom,
   })
 }
 
@@ -83,6 +89,8 @@ type Params = {
   routeType: string
   existLocalesFolder: boolean
   configFileName: string
+  relativeLocalesPath: string
+  hasLoadLocaleFrom: boolean
 }
 
 function templateRSCPage({
@@ -93,6 +101,8 @@ function templateRSCPage({
   routeType,
   existLocalesFolder,
   configFileName,
+  relativeLocalesPath,
+  hasLoadLocaleFrom,
 }: Params) {
   const code = pagePkg.getCode()
 
@@ -126,7 +136,9 @@ function templateRSCPage({
     }
 
     const { __lang, __namespaces } = await __loadNamespaces({ ...config, ${addLoadLocalesFrom(
-      existLocalesFolder
+      existLocalesFolder,
+      relativeLocalesPath,
+      hasLoadLocaleFrom
     )} });
   
     const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {}
@@ -147,6 +159,8 @@ function templateRCCPage({
   routeType,
   existLocalesFolder,
   configFileName,
+  relativeLocalesPath,
+  hasLoadLocaleFrom,
 }: Params) {
   const topLine = clientLine[0]
   let clientCode = pagePkg.getCode()
@@ -194,7 +208,9 @@ function templateRCCPage({
           {...props} 
           config={config} 
           promise={__loadNamespaces({ ...config, ${addLoadLocalesFrom(
-            existLocalesFolder
+            existLocalesFolder,
+            relativeLocalesPath,
+            hasLoadLocaleFrom
           )} })}
          />
       </__Suspense>

@@ -1,0 +1,7 @@
+{
+  "name": "i18nprovider",
+  "private": true,
+  "main": "../lib/cjs/I18nProvider.js",
+  "module": "../lib/esm/I18nProvider.js",
+  "types": "../I18nProvider.d.ts"
+}

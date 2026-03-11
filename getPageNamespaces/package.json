@@ -1,0 +1,7 @@
+{
+  "name": "getpagenamespaces",
+  "private": true,
+  "main": "../lib/cjs/getPageNamespaces.js",
+  "module": "../lib/esm/getPageNamespaces.js",
+  "types": "../getPageNamespaces.d.ts"
+}

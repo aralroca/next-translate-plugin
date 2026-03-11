@@ -1,0 +1,7 @@
+{
+  "name": "withtranslation",
+  "private": true,
+  "main": "../lib/cjs/withTranslation.js",
+  "module": "../lib/esm/withTranslation.js",
+  "types": "../withTranslation.d.ts"
+}

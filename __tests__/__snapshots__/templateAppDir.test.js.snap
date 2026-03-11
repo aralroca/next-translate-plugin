@@ -33,7 +33,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -89,7 +89,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -145,7 +145,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -201,7 +201,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -257,7 +257,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -313,7 +313,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -369,7 +369,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -425,7 +425,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -481,7 +481,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -537,7 +537,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -593,7 +593,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -649,7 +649,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -705,7 +705,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -761,7 +761,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -817,7 +817,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -873,7 +873,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -929,7 +929,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -985,7 +985,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1041,7 +1041,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1097,7 +1097,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1151,7 +1151,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1205,7 +1205,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1259,7 +1259,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1313,7 +1313,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1367,7 +1367,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1421,7 +1421,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1475,7 +1475,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1529,7 +1529,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1582,7 +1582,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1635,7 +1635,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1688,7 +1688,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1741,7 +1741,7 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
     loadLocaleFrom:
       (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
       ((l, n) =>
-        import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
           (m) => m.default
         )),
   });
@@ -1847,7 +1847,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           loadLocaleFrom:
             (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
-              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
                 (m) => m.default
               )),
         })}
@@ -1916,7 +1916,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           loadLocaleFrom:
             (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
-              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
                 (m) => m.default
               )),
         })}
@@ -1985,7 +1985,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           loadLocaleFrom:
             (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
-              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
                 (m) => m.default
               )),
         })}
@@ -2085,7 +2085,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           loadLocaleFrom:
             (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
-              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
                 (m) => m.default
               )),
         })}
@@ -2149,7 +2149,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           loadLocaleFrom:
             (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
-              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
                 (m) => m.default
               )),
         })}
@@ -2213,7 +2213,7 @@ export default function __Next_Translate_new__88d9831a00__(props) {
           loadLocaleFrom:
             (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
             ((l, n) =>
-              import(\`@next-translate-root/locales/\${l}/\${n}\`).then(
+              import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
                 (m) => m.default
               )),
         })}

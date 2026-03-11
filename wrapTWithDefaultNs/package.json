@@ -1,0 +1,7 @@
+{
+  "name": "wraptwithdefaultns",
+  "private": true,
+  "main": "../lib/cjs/wrapTWithDefaultNs.js",
+  "module": "../lib/esm/wrapTWithDefaultNs.js",
+  "types": "../wrapTWithDefaultNs.d.ts"
+}

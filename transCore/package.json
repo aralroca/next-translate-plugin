@@ -1,0 +1,7 @@
+{
+  "name": "transcore",
+  "private": true,
+  "main": "../lib/cjs/transCore.js",
+  "module": "../lib/esm/transCore.js",
+  "types": "../transCore.d.ts"
+}

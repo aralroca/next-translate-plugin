@@ -28,21 +28,37 @@ export default function loader(
   rawCode: string
 ) {
   const {
-    basePath,
-    pagesFolder,
-    appFolder,
-    hasAppJs,
-    hasGetInitialPropsOnAppJs,
-    extensionsRgx,
-    revalidate,
-    existLocalesFolder,
-    configFileName,
-  } = this.getOptions()
+    basePath = '',
+    pagesFolder = 'pages',
+    appFolder = 'app',
+    hasAppJs = false,
+    hasGetInitialPropsOnAppJs = false,
+    extensionsRgx = /\.(tsx|ts|js|mjs|jsx)$/,
+    revalidate = 0,
+    existLocalesFolder = true,
+    configFileName = 'i18n.js',
+    hasLoadLocaleFrom = false,
+  } = this.getOptions() || {}
+
   try {
     const codeWithoutComments = removeCommentsFromCode(rawCode).trim()
     const normalizedResourcePath = path
       .join(path.relative(basePath, this.resourcePath))
       .replace(/\\/g, '/')
+
+    const configPath = path
+      .relative(path.dirname(this.resourcePath), path.join(basePath, configFileName))
+      .replace(/\\/g, '/')
+    const relativeConfigPath = configPath.startsWith('.')
+      ? configPath
+      : './' + configPath
+
+    const localesPath = path
+      .relative(path.dirname(this.resourcePath), path.join(basePath, 'locales'))
+      .replace(/\\/g, '/')
+    const relativeLocalesPath = localesPath.startsWith('.')
+      ? localesPath
+      : './' + localesPath
 
     const isNextInternal = normalizedResourcePath.includes(
       'node_modules/next/dist/'
@@ -81,7 +97,7 @@ export default function loader(
       }
 
       const jsCode = transpileTsx(
-        getDefaultAppJs(existLocalesFolder, configFileName)
+        getDefaultAppJs(existLocalesFolder, relativeConfigPath, relativeLocalesPath, hasLoadLocaleFrom)
       )
       return jsCode
     }
@@ -121,7 +137,9 @@ export default function loader(
         isClientComponent,
         code: rawCode,
         existLocalesFolder,
-        configFileName,
+        configFileName: relativeConfigPath,
+        relativeLocalesPath,
+        hasLoadLocaleFrom,
       })
     }
 
@@ -140,9 +158,10 @@ export default function loader(
     // This way, the only modified file has to be the _app.js.
     if (hasGetInitialPropsOnAppJs) {
       return REGEX_STARTS_WITH_APP.test(pageNoExt)
-        ? templateWithHoc(pagePkg, { existLocalesFolder, configFileName })
+        ? templateWithHoc(pagePkg, { existLocalesFolder, configFileName: relativeConfigPath, relativeLocalesPath, hasLoadLocaleFrom })
         : rawCode
     }
+
 
     // In case the _app does not have getInitialProps, we can add only the
     // I18nProvider to ensure that translations work inside _app.js
@@ -150,7 +169,9 @@ export default function loader(
       return templateWithHoc(pagePkg, {
         skipInitialProps: true,
         existLocalesFolder,
-        configFileName,
+        configFileName: relativeConfigPath,
+        relativeLocalesPath,
+        hasLoadLocaleFrom,
       })
     }
 
@@ -186,7 +207,7 @@ export default function loader(
       isGetStaticProps || isGetServerSideProps || isGetInitialProps
 
     if (isGetInitialProps || (!hasLoader && isWrapperWithExternalHOC)) {
-      return templateWithHoc(pagePkg, { existLocalesFolder, configFileName })
+      return templateWithHoc(pagePkg, { existLocalesFolder, configFileName: relativeConfigPath, relativeLocalesPath, hasLoadLocaleFrom })
     }
 
     const loader =
@@ -199,7 +220,9 @@ export default function loader(
       loader,
       revalidate,
       existLocalesFolder,
-      configFileName,
+      configFileName: relativeConfigPath,
+      relativeLocalesPath,
+      hasLoadLocaleFrom,
     })
   } catch (e) {
     console.error('next-translate-plugin ERROR', e)

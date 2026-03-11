@@ -11,6 +11,8 @@ export default function templateWithHoc(
     skipInitialProps = false,
     existLocalesFolder = true,
     configFileName = 'i18n.json',
+    relativeLocalesPath = '',
+    hasLoadLocaleFrom = false,
   } = {}
 ) {
   // Random string based on current time
@@ -36,7 +38,7 @@ export default function templateWithHoc(
       ...${INTERNAL_CONFIG_KEY},
       isLoader: true,
       skipInitialProps: ${skipInitialProps},
-      ${addLoadLocalesFrom(existLocalesFolder)}
+      ${addLoadLocalesFrom(existLocalesFolder, relativeLocalesPath, hasLoadLocaleFrom)}
     });
   `
 }

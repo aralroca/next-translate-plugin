@@ -13,6 +13,8 @@ export default function templateWithLoader(
     revalidate = 0,
     existLocalesFolder = true,
     configFileName = 'i18n.json',
+    relativeLocalesPath = '',
+    hasLoadLocaleFrom = false,
   } = {}
 ) {
   // Random string based on current time
@@ -34,6 +36,9 @@ export default function templateWithLoader(
     import __loadNamespaces from 'next-translate/loadNamespaces'
     ${pagePkg.getCode()}
     async function ${newLoaderName}(ctx) {
+      if (typeof global !== 'undefined') {
+        global.i18nConfig = ${INTERNAL_CONFIG_KEY}
+      }
       ${hasLoader ? `const res = await ${oldLoaderName}(ctx)` : ''}
       return {
         ${hasLoader && revalidate > 0 ? `revalidate: ${revalidate},` : ''}
@@ -45,7 +50,7 @@ export default function templateWithLoader(
             ...${INTERNAL_CONFIG_KEY},
             pathname: '${page}',
             loaderName: '${loader}',
-            ${addLoadLocalesFrom(existLocalesFolder)}
+            ${addLoadLocalesFrom(existLocalesFolder, relativeLocalesPath, hasLoadLocaleFrom)}
           }))
         }
       }

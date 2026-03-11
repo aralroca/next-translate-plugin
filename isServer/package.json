@@ -1,0 +1,7 @@
+{
+  "name": "isserver",
+  "private": true,
+  "main": "../lib/cjs/isServer.js",
+  "module": "../lib/esm/isServer.js",
+  "types": "../isServer.d.ts"
+}
