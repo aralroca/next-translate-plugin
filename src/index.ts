@@ -150,14 +150,12 @@ function nextTranslate(
   try {
     let current = basePath
     const rootDir = path.parse(basePath).root
+    const rootMarkers = ['yarn.lock', 'package-lock.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'lerna.json', 'nx.json', '.git', '.next']
     while (current !== rootDir) {
       const parent = path.dirname(current)
-      if (fs.existsSync(path.join(parent, 'yarn.lock')) || fs.existsSync(path.join(parent, 'package-lock.json'))) {
+      if (rootMarkers.some(marker => fs.existsSync(path.join(parent, marker)))) {
         turbopackRoot = parent
-        // Keep going up if there are more lockfiles (monorepo root)
       } else if (turbopackRoot !== basePath) {
-        // We found a root earlier, and this parent doesn't have a lockfile,
-        // so we might have reached the top of the monorepo.
         break
       }
       current = parent
@@ -166,7 +164,6 @@ function nextTranslate(
 
   const turbopackConfig: NextConfig['turbopack'] = {
     ...(nextConfig.turbopack || {}),
-    root: turbopackRoot,
     rules: {
       ...(nextConfig.turbopack?.rules || {}),
       ...(loader
@@ -199,10 +196,10 @@ function nextTranslate(
     },
     resolveAlias: {
       ...(nextConfig.turbopack?.resolveAlias || {}),
-      '@next-translate-root': path.join('.', path.relative(turbopackRoot, basePath)).replace(/\\/g, '/') || './',
-      '@next-translate-root/*': path.join('.', path.relative(turbopackRoot, basePath), '*').replace(/\\/g, '/') || './*',
-      'next-translate': path.join('.', path.relative(turbopackRoot, path.join(basePath, 'node_modules/next-translate'))).replace(/\\/g, '/') || './node_modules/next-translate',
-      'next-translate/*': path.join('.', path.relative(turbopackRoot, path.join(basePath, 'node_modules/next-translate/*'))).replace(/\\/g, '/') || './node_modules/next-translate/*',
+      '@next-translate-root': './',
+      '@next-translate-root/*': './*',
+      'next-translate': './' + (path.relative(basePath, path.dirname(require.resolve('next-translate/package.json'))).replace(/\\/g, '/') || 'node_modules/next-translate'),
+      'next-translate/*': './' + (path.join(path.relative(basePath, path.dirname(require.resolve('next-translate/package.json'))), '*').replace(/\\/g, '/') || 'node_modules/next-translate/*'),
     },
   }
 
