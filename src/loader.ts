@@ -97,7 +97,7 @@ export default function loader(
       }
 
       const jsCode = transpileTsx(
-        getDefaultAppJs(existLocalesFolder, relativeConfigPath, relativeLocalesPath, hasLoadLocaleFrom)
+        getDefaultAppJs(existLocalesFolder, configFileName, relativeLocalesPath, hasLoadLocaleFrom)
       )
       return jsCode
     }
@@ -137,7 +137,7 @@ export default function loader(
         isClientComponent,
         code: rawCode,
         existLocalesFolder,
-        configFileName: relativeConfigPath,
+        configFileName,
         relativeLocalesPath,
         hasLoadLocaleFrom,
       })
@@ -158,7 +158,7 @@ export default function loader(
     // This way, the only modified file has to be the _app.js.
     if (hasGetInitialPropsOnAppJs) {
       return REGEX_STARTS_WITH_APP.test(pageNoExt)
-        ? templateWithHoc(pagePkg, { existLocalesFolder, configFileName: relativeConfigPath, relativeLocalesPath, hasLoadLocaleFrom })
+        ? templateWithHoc(pagePkg, { existLocalesFolder, configFileName, relativeLocalesPath, hasLoadLocaleFrom })
         : rawCode
     }
 
@@ -169,7 +169,7 @@ export default function loader(
       return templateWithHoc(pagePkg, {
         skipInitialProps: true,
         existLocalesFolder,
-        configFileName: relativeConfigPath,
+        configFileName,
         relativeLocalesPath,
         hasLoadLocaleFrom,
       })
@@ -207,7 +207,7 @@ export default function loader(
       isGetStaticProps || isGetServerSideProps || isGetInitialProps
 
     if (isGetInitialProps || (!hasLoader && isWrapperWithExternalHOC)) {
-      return templateWithHoc(pagePkg, { existLocalesFolder, configFileName: relativeConfigPath, relativeLocalesPath, hasLoadLocaleFrom })
+      return templateWithHoc(pagePkg, { existLocalesFolder, configFileName, relativeLocalesPath, hasLoadLocaleFrom })
     }
 
     const loader =
@@ -220,7 +220,7 @@ export default function loader(
       loader,
       revalidate,
       existLocalesFolder,
-      configFileName: relativeConfigPath,
+      configFileName,
       relativeLocalesPath,
       hasLoadLocaleFrom,
     })
