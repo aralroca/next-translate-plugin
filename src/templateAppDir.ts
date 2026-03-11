@@ -107,7 +107,7 @@ function templateRSCPage({
   const code = pagePkg.getCode()
 
   return `
-  import ${INTERNAL_CONFIG_KEY} from '${configFileName}'
+  import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
   import AppDirI18nProvider from 'next-translate/AppDirI18nProvider'
   import __loadNamespaces from 'next-translate/loadNamespaces'
 
@@ -171,7 +171,7 @@ function templateRCCPage({
   })
 
   return `${topLine}
-  import ${INTERNAL_CONFIG_KEY} from '${configFileName}'
+  import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
   import AppDirI18nProvider from 'next-translate/AppDirI18nProvider'
   import { useSearchParams as __useSearchParams, useParams as __useParams } from 'next/navigation'
   import { use as __use, Suspense as __Suspense } from 'react'

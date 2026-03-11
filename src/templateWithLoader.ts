@@ -32,7 +32,7 @@ export default function templateWithLoader(
   const hasLoader = Boolean(oldLoaderName)
 
   return `
-    import ${INTERNAL_CONFIG_KEY} from '${configFileName}'
+    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
     import __loadNamespaces from 'next-translate/loadNamespaces'
     ${pagePkg.getCode()}
     async function ${newLoaderName}(ctx) {

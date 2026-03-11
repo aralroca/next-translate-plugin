@@ -21,7 +21,7 @@ export function getDefaultAppJs(
 ) {
   return `
       import * as React from 'react'
-      import ${INTERNAL_CONFIG_KEY} from '${configFileName}'
+      import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
       import appWithI18n from 'next-translate/appWithI18n'
     
       function MyApp({ Component, pageProps }) {
@@ -42,11 +42,10 @@ export function addLoadLocalesFrom(
   relativeLocalesPath?: string,
   hasLoadLocaleFrom?: boolean
 ) {
-  console.log(`[addLoadLocalesFrom] hasLoadLocaleFrom: ${hasLoadLocaleFrom}`)
   const defaultFn = (existLocalesFolder && !hasLoadLocaleFrom)
     ? `(l, n) => import('${
         relativeLocalesPath || '@next-translate-root/locales'
-      }/' + l + '/' + n + '.json').then(m => m.default)`
+      }/' + l + '/' + n).then(m => m.default)`
     : `() => Promise.resolve({})`
   return `loadLocaleFrom: ${INTERNAL_CONFIG_KEY} && ${INTERNAL_CONFIG_KEY}.loadLocaleFrom || (${defaultFn}),`
 }

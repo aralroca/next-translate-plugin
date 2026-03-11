@@ -44,14 +44,12 @@ function nextTranslate(
   } = require(path.join(basePath, 'i18n')) as I18nConfig
 
   const hasLoadLocaleFrom = typeof loadLocaleFrom === 'function'
-  console.log(`[next-translate-plugin] hasLoadLocaleFrom: ${hasLoadLocaleFrom}`)
 
   const pagesFolder = calculatePageDir('pages', pagesInDir, basePath)
   const appFolder = calculatePageDir('app', pagesInDir, basePath)
   const existLocalesFolder = existLocalesFolderWithNamespaces(basePath)
   const existPagesFolder = existPages(basePath, pagesFolder)
   const configFileName = getConfigFileName(basePath)
-  console.log(`[next-translate-plugin] Found config file: ${configFileName} at ${basePath}`)
   if (!configFileName) {
     throw new Error(
       `Config file (i18n.json, i18n.js, i18n.mjs, i18n.cjs) not found`

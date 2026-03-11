@@ -40,7 +40,6 @@ export default function loader(
     hasLoadLocaleFrom = false,
   } = this.getOptions() || {}
 
-  console.log(`[next-translate-plugin-loader] processing: ${this.resourcePath}, hasLoadLocaleFrom: ${hasLoadLocaleFrom}`)
   try {
     const codeWithoutComments = removeCommentsFromCode(rawCode).trim()
     const normalizedResourcePath = path

@@ -61,6 +61,9 @@ describe('nextTranslate', () => {
         expect.objectContaining({
           resolveAlias: expect.objectContaining({
             '@next-translate-root': expect.any(String),
+            '@next-translate-root/*': expect.any(String),
+            'next-translate': expect.any(String),
+            'next-translate/*': expect.any(String),
           }),
           rules: expect.objectContaining({
             '*': expect.objectContaining({
