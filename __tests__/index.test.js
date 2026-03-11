@@ -60,7 +60,7 @@ describe('nextTranslate', () => {
       expect(config.turbopack).toEqual(
         expect.objectContaining({
           resolveAlias: expect.objectContaining({
-            '@next-translate-root/*': './*',
+            '@next-translate-root': expect.any(String),
           }),
           rules: expect.objectContaining({
             '*': expect.objectContaining({

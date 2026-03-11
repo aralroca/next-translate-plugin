@@ -5,17 +5,17 @@ export interface NextTranslatePluginOptions {
 }
 
 export interface LoaderOptions {
-  basePath: string
-  pagesFolder: string
-  appFolder: string
-  hasAppJs: boolean
-  hasGetInitialPropsOnAppJs: boolean
-  extensionsRgx: RegExp | string
-  revalidate: number
-  existLocalesFolder: boolean
-  configFileName: string
-  relativeLocalesPath: string
-  hasLoadLocaleFrom: boolean
+  basePath?: string
+  pagesFolder?: string
+  appFolder?: string
+  hasAppJs?: boolean
+  hasGetInitialPropsOnAppJs?: boolean
+  extensionsRgx?: RegExp | string
+  revalidate?: number
+  existLocalesFolder?: boolean
+  configFileName?: string
+  relativeLocalesPath?: string
+  hasLoadLocaleFrom?: boolean
 }
 
 export type Transformer = (

@@ -28,17 +28,17 @@ export default function loader(
   rawCode: string
 ) {
   const {
-    basePath,
-    pagesFolder,
-    appFolder,
-    hasAppJs,
-    hasGetInitialPropsOnAppJs,
-    extensionsRgx,
-    revalidate,
-    existLocalesFolder,
-    configFileName,
-    hasLoadLocaleFrom,
-  } = this.getOptions()
+    basePath = '',
+    pagesFolder = 'pages',
+    appFolder = 'app',
+    hasAppJs = false,
+    hasGetInitialPropsOnAppJs = false,
+    extensionsRgx = /\.(tsx|ts|js|mjs|jsx)$/,
+    revalidate = 0,
+    existLocalesFolder = true,
+    configFileName = 'i18n.js',
+    hasLoadLocaleFrom = false,
+  } = this.getOptions() || {}
 
   console.log(`[next-translate-plugin-loader] processing: ${this.resourcePath}, hasLoadLocaleFrom: ${hasLoadLocaleFrom}`)
   try {

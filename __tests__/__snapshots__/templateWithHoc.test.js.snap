@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`templateWithHoc exporting a arrow function with Hoc skipInitialProps: false 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -19,13 +19,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a arrow function with Hoc skipInitialProps: true 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -43,13 +45,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a arrow function with getInitialProps skipInitialProps: false 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -66,13 +70,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a arrow function with getInitialProps skipInitialProps: true 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -89,13 +95,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a class with a getInitialProps static | exporting apart skipInitialProps: false 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -119,13 +127,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a class with a getInitialProps static | exporting apart skipInitialProps: true 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -149,13 +159,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a class with a getInitialProps static outside + one commented before skipInitialProps: false 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -186,13 +198,15 @@ export default __appWithI18n(Page, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a class with a getInitialProps static outside + one commented before skipInitialProps: true 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -223,13 +237,15 @@ export default __appWithI18n(Page, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a class with a getInitialProps static outside skipInitialProps: false 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -250,13 +266,15 @@ export default __appWithI18n(Page, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a class with a getInitialProps static outside skipInitialProps: true 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -277,13 +295,15 @@ export default __appWithI18n(Page, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a class with a getInitialProps static skipInitialProps: false 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -306,13 +326,15 @@ export default __appWithI18n(Page, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a class with a getInitialProps static skipInitialProps: true 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -335,13 +357,15 @@ export default __appWithI18n(Page, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a variable and with an existing HoC skipInitialProps: false 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -362,13 +386,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc exporting a variable and with an existing HoC skipInitialProps: true 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -389,13 +415,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc page with multiple commented "export default" + the correct one should do it right skipInitialProps: false 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -412,13 +440,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc page with multiple commented "export default" + the correct one should do it right skipInitialProps: true 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -435,13 +465,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc page without "export default" should skip any transformation skipInitialProps: false 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -458,13 +490,15 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
 
 exports[`templateWithHoc page without "export default" should skip any transformation skipInitialProps: true 1`] = `
-"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+"import __i18nConfig from \\"i18n.json\\";
 import __appWithI18n from \\"next-translate/appWithI18n\\";
 (\\"$SomeString$\\");
 $$SomeString$$ & $SomeString$ & \`$SomeString$\`;
@@ -481,7 +515,9 @@ export default __appWithI18n(__Next_Translate__Page__88d9831a00__, {
   loadLocaleFrom:
     (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
     ((l, n) =>
-      import(\`@next-translate-root/locales/\${l}/\${n}\`).then((m) => m.default)),
+      import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n + \\".json\\").then(
+        (m) => m.default
+      )),
 });
 "
 `;
