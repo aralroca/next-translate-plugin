@@ -1,0 +1,7 @@
+{
+  "name": "appwithi18n",
+  "private": true,
+  "main": "../lib/cjs/appWithI18n.js",
+  "module": "../lib/esm/appWithI18n.js",
+  "types": "../appWithI18n.d.ts"
+}

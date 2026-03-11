@@ -11,6 +11,8 @@ export default function templateWithHoc(
     skipInitialProps = false,
     existLocalesFolder = true,
     configFileName = 'i18n.json',
+    relativeLocalesPath = '',
+    hasLoadLocaleFrom = false,
   } = {}
 ) {
   // Random string based on current time
@@ -29,14 +31,14 @@ export default function templateWithHoc(
   if (!hasDefaultExport) return pagePkg.getCode()
 
   return `
-    import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
+    import ${INTERNAL_CONFIG_KEY} from '${configFileName}'
     import __appWithI18n from 'next-translate/appWithI18n'
     ${pagePkg.getCode()}
     export default __appWithI18n(${pageVariableName}, {
       ...${INTERNAL_CONFIG_KEY},
       isLoader: true,
       skipInitialProps: ${skipInitialProps},
-      ${addLoadLocalesFrom(existLocalesFolder)}
+      ${addLoadLocalesFrom(existLocalesFolder, relativeLocalesPath, hasLoadLocaleFrom)}
     });
   `
 }

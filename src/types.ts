@@ -14,6 +14,8 @@ export interface LoaderOptions {
   revalidate: number
   existLocalesFolder: boolean
   configFileName: string
+  relativeLocalesPath: string
+  hasLoadLocaleFrom: boolean
 }
 
 export type Transformer = (

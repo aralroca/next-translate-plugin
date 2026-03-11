@@ -1,0 +1,7 @@
+{
+  "name": "usetranslation",
+  "private": true,
+  "main": "../lib/cjs/useTranslation.js",
+  "module": "../lib/esm/useTranslation.js",
+  "types": "../useTranslation.d.ts"
+}

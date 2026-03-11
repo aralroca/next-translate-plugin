@@ -1,0 +1,7 @@
+{
+  "name": "formatelements",
+  "private": true,
+  "main": "../lib/cjs/formatElements.js",
+  "module": "../lib/esm/formatElements.js",
+  "types": "../formatElements.d.ts"
+}

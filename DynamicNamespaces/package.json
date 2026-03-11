@@ -1,0 +1,7 @@
+{
+  "name": "dynamicnamespaces",
+  "private": true,
+  "main": "../lib/cjs/DynamicNamespaces.js",
+  "module": "../lib/esm/DynamicNamespaces.js",
+  "types": "../DynamicNamespaces.d.ts"
+}

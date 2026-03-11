@@ -8,7 +8,8 @@ function createPackageFromFile(file, prefix, subfolder) {
 
   if (!supportedExt.has(ext)) return
 
-  fs.mkdirSync(`${subfolder}${name}`)
+  const outDir = path.join(__dirname, subfolder, name)
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true })
 
   const packageJSON = JSON.stringify(
     {
@@ -22,7 +23,7 @@ function createPackageFromFile(file, prefix, subfolder) {
     2
   )
 
-  fs.writeFileSync(`${subfolder}${name}/package.json`, packageJSON)
+  fs.writeFileSync(path.join(outDir, 'package.json'), packageJSON)
 }
 
 function createPackagesFromFolder(folder, prefix, subfolder = '') {

@@ -1,0 +1,7 @@
+{
+  "name": "setlanguage",
+  "private": true,
+  "main": "../lib/cjs/setLanguage.js",
+  "module": "../lib/esm/setLanguage.js",
+  "types": "../setLanguage.d.ts"
+}

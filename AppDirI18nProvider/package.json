@@ -1,0 +1,7 @@
+{
+  "name": "appdiri18nprovider",
+  "private": true,
+  "main": "../lib/cjs/AppDirI18nProvider.js",
+  "module": "../lib/esm/AppDirI18nProvider.js",
+  "types": "../AppDirI18nProvider.d.ts"
+}

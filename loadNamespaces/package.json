@@ -1,0 +1,7 @@
+{
+  "name": "loadnamespaces",
+  "private": true,
+  "main": "../lib/cjs/loadNamespaces.js",
+  "module": "../lib/esm/loadNamespaces.js",
+  "types": "../loadNamespaces.d.ts"
+}

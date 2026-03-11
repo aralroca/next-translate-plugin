@@ -1,0 +1,7 @@
+{
+  "name": "gett",
+  "private": true,
+  "main": "../lib/cjs/getT.js",
+  "module": "../lib/esm/getT.js",
+  "types": "../getT.d.ts"
+}

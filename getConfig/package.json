@@ -1,0 +1,7 @@
+{
+  "name": "getconfig",
+  "private": true,
+  "main": "../lib/cjs/getConfig.js",
+  "module": "../lib/esm/getConfig.js",
+  "types": "../getConfig.d.ts"
+}

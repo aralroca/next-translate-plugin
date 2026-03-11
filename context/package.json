@@ -1,0 +1,7 @@
+{
+  "name": "context",
+  "private": true,
+  "main": "../lib/cjs/context.js",
+  "module": "../lib/esm/context.js",
+  "types": "../context.d.ts"
+}

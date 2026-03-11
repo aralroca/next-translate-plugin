@@ -1,0 +1,7 @@
+{
+  "name": "trans",
+  "private": true,
+  "main": "../lib/cjs/Trans.js",
+  "module": "../lib/esm/Trans.js",
+  "types": "../Trans.d.ts"
+}
