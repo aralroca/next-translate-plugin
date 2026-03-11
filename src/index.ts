@@ -201,9 +201,10 @@ function nextTranslate(
     },
     resolveAlias: {
       ...(nextConfig.turbopack?.resolveAlias || {}),
-      '@next-translate-root': path
-        .join('.', path.relative(turbopackRoot, basePath))
-        .replace(/\\/g, '/'),
+      '@next-translate-root': path.join('.', path.relative(turbopackRoot, basePath)).replace(/\\/g, '/') || './',
+      '@next-translate-root/*': path.join('.', path.relative(turbopackRoot, basePath), '*').replace(/\\/g, '/') || './*',
+      'next-translate': path.join('.', path.relative(turbopackRoot, path.join(basePath, 'node_modules/next-translate'))).replace(/\\/g, '/') || './node_modules/next-translate',
+      'next-translate/*': path.join('.', path.relative(turbopackRoot, path.join(basePath, 'node_modules/next-translate/*'))).replace(/\\/g, '/') || './node_modules/next-translate/*',
     },
   }
 
