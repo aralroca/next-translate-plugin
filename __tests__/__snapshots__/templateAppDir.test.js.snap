@@ -21,11 +21,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Error {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -77,11 +83,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Error {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -133,11 +145,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Error {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -189,11 +207,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Error {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /error\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -245,11 +269,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <GlobalError {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -301,11 +331,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <GlobalError {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -357,11 +393,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <GlobalError {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -413,11 +455,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <GlobalError {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /global-error\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -469,11 +517,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Layout {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -525,11 +579,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Layout {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -581,11 +641,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Layout {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -637,11 +703,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Layout {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /layout\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -693,11 +765,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Loading {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -749,11 +827,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Loading {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -805,11 +889,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Loading {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -861,11 +951,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <Loading {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /loading\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -917,11 +1013,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <NotFound {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -973,11 +1075,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <NotFound {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1029,11 +1137,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <NotFound {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1085,11 +1199,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
   if (globalThis.__NEXT_TRANSLATE__ && !detectedLang)
     return <NotFound {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /not-found\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1139,11 +1259,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1193,11 +1319,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1247,11 +1379,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1301,11 +1439,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1355,11 +1499,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1409,11 +1559,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1463,11 +1619,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1517,11 +1679,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1570,11 +1738,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1623,11 +1797,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1676,11 +1856,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1729,11 +1915,17 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
     locale: detectedLang ?? __i18nConfig.defaultLocale,
     loaderName: \\"server /page\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   const { __lang, __namespaces } = await __loadNamespaces({
@@ -1829,12 +2021,17 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
-  const lang = detectedLang ?? __i18nConfig.defaultLocale;
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
-    locale: lang,
+    locale: detectedLang || __i18nConfig.defaultLocale,
     loaderName: \\"client /page\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   return (
@@ -1898,12 +2095,17 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
-  const lang = detectedLang ?? __i18nConfig.defaultLocale;
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
-    locale: lang,
+    locale: detectedLang || __i18nConfig.defaultLocale,
     loaderName: \\"client /page\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   return (
@@ -1967,12 +2169,17 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
-  const lang = detectedLang ?? __i18nConfig.defaultLocale;
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
-    locale: lang,
+    locale: detectedLang || __i18nConfig.defaultLocale,
     loaderName: \\"client /page\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   return (
@@ -2067,12 +2274,17 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
-  const lang = detectedLang ?? __i18nConfig.defaultLocale;
+  let dynamicPathname = \\"/about/us/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
-    locale: lang,
+    locale: detectedLang || __i18nConfig.defaultLocale,
     loaderName: \\"client /page\\",
-    pathname: \\"/about/us/\\",
+    pathname: dynamicPathname,
   };
 
   return (
@@ -2131,12 +2343,17 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
-  const lang = detectedLang ?? __i18nConfig.defaultLocale;
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
-    locale: lang,
+    locale: detectedLang || __i18nConfig.defaultLocale,
     loaderName: \\"client /page\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   return (
@@ -2195,12 +2412,17 @@ export default function __Next_Translate_new__88d9831a00__(props) {
 
   if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
 
-  const lang = detectedLang ?? __i18nConfig.defaultLocale;
+  let dynamicPathname = \\"/\\".replace(/\\\\/$/, \\"\\");
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
   const config = {
     ...__i18nConfig,
-    locale: lang,
+    locale: detectedLang || __i18nConfig.defaultLocale,
     loaderName: \\"client /page\\",
-    pathname: \\"/\\",
+    pathname: dynamicPathname,
   };
 
   return (
@@ -2313,6 +2535,140 @@ exports[`templateAppDir should not transform any page outside app dir pageNoExt:
 export default function Page() {
   const { t, lang } = useTranslation(\\"common\\");
   return <h1>{t(\\"title\\")}</h1>;
+}
+"
+`;
+
+exports[`templateAppDir should reconstruct the pathname for dynamic routes pageNoExt: /embed/[category-name]/[tool-name]/page | normalizedResourcePath: app/embed/[category-name]/[tool-name]/page.js | appFolder: app | isClientComponent: true 1`] = `
+"\\"use client\\";
+import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
+import {
+  useSearchParams as __useSearchParams,
+  useParams as __useParams,
+} from \\"next/navigation\\";
+import { use as __use, Suspense as __Suspense } from \\"react\\";
+import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+
+import useTranslation from \\"next-translate/useTranslation\\";
+function Page() {
+  const { t } = useTranslation(\\"common\\");
+  return <h1>{t(\\"title\\")}</h1>;
+}
+
+export default function __Next_Translate_new__88d9831a00__(props) {
+  const searchParams = __useSearchParams();
+  const params = __useParams();
+  const detectedLang = params.lang ?? searchParams.get(\\"lang\\");
+
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
+  let dynamicPathname = \\"/embed/[category-name]/[tool-name]/\\".replace(
+    /\\\\/$/,
+    \\"\\"
+  );
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
+  const config = {
+    ...__i18nConfig,
+    locale: detectedLang || __i18nConfig.defaultLocale,
+    loaderName: \\"client /page\\",
+    pathname: dynamicPathname,
+  };
+
+  return (
+    <__Suspense fallback={null}>
+      <__Next_Translate__child__88d9831a00__
+        {...props}
+        config={config}
+        promise={__loadNamespaces({
+          ...config,
+          loadLocaleFrom:
+            (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
+            ((l, n) =>
+              import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
+                (m) => m.default
+              )),
+        })}
+      />
+    </__Suspense>
+  );
+}
+
+function __Next_Translate__child__88d9831a00__({ promise, config, ...props }) {
+  const { __lang, __namespaces } = __use(promise);
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  globalThis.__NEXT_TRANSLATE__ = {
+    lang: __lang,
+    namespaces: { ...oldNamespaces, ...__namespaces },
+    config,
+  };
+  return <Page {...props} />;
+}
+"
+`;
+
+exports[`templateAppDir should reconstruct the pathname for dynamic routes pageNoExt: /embed/[category-name]/[tool-name]/page | normalizedResourcePath: app/embed/[category-name]/[tool-name]/page.js | appFolder: app 1`] = `
+"import __i18nConfig from \\"@next-translate-root/i18n.json\\";
+import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
+import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+
+import useTranslation from \\"next-translate/useTranslation\\";
+function Page() {
+  const { t } = useTranslation(\\"common\\");
+  return <h1>{t(\\"title\\")}</h1>;
+}
+
+export default async function __Next_Translate_new__88d9831a00__(props) {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
+  const detectedLang = params?.lang ?? searchParams?.lang;
+
+  if (detectedLang === \\"favicon.ico\\") return <Page {...props} />;
+
+  let dynamicPathname = \\"/embed/[category-name]/[tool-name]/\\".replace(
+    /\\\\/$/,
+    \\"\\"
+  );
+  Object.keys(params ?? {}).forEach(function (k) {
+    if (k !== \\"lang\\")
+      dynamicPathname = dynamicPathname.replace(\\"[\\" + k + \\"]\\", params[k]);
+  });
+
+  const config = {
+    ...__i18nConfig,
+    locale: detectedLang ?? __i18nConfig.defaultLocale,
+    loaderName: \\"server /page\\",
+    pathname: dynamicPathname,
+  };
+
+  const { __lang, __namespaces } = await __loadNamespaces({
+    ...config,
+    loadLocaleFrom:
+      (__i18nConfig && __i18nConfig.loadLocaleFrom) ||
+      ((l, n) =>
+        import(\\"@next-translate-root/locales/\\" + l + \\"/\\" + n).then(
+          (m) => m.default
+        )),
+  });
+
+  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
+  const namespaces = { ...oldNamespaces, ...__namespaces };
+
+  globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
+
+  return (
+    <AppDirI18nProvider
+      lang={__lang}
+      namespaces={namespaces}
+      config={JSON.parse(JSON.stringify(config))}
+    >
+      <Page {...props} />
+    </AppDirI18nProvider>
+  );
 }
 "
 `;

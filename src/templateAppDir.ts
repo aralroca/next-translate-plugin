@@ -128,10 +128,10 @@ function templateRSCPage({
         : ''
     }
   
-    let dynamicPathname = '${pathname}'.replace(/\/$/, '')
-    Object.keys(params).forEach(function(k) {
+    let dynamicPathname = '${pathname}'.replace(/\\/$/, '')
+    Object.keys(params ?? {}).forEach(function(k) {
       if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
-    })
+    });
 
     const config = { 
       ...${INTERNAL_CONFIG_KEY},
@@ -189,24 +189,24 @@ function templateRCCPage({
     const params = __useParams()
     const detectedLang = params.lang ?? searchParams.get('lang')
 
-    if (lang === 'favicon.ico') return <${pageVariableName} {...props} />
+    if (detectedLang === 'favicon.ico') return <${pageVariableName} {...props} />
 
     ${
       routeType !== '/page'
         ? // Related with https://github.com/aralroca/next-translate/issues/1090
           // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
-          `if (globalThis.__NEXT_TRANSLATE__ && !lang) return <${pageVariableName} {...props} />`
+          `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
         : ''
     }
 
-    let dynamicPathname = '${pathname}'.replace(/\/$/, '')
-    Object.keys(params).forEach(function(k) {
+    let dynamicPathname = '${pathname}'.replace(/\\/$/, '')
+    Object.keys(params ?? {}).forEach(function(k) {
       if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
-    })
+    });
 
     const config = {
       ...${INTERNAL_CONFIG_KEY},
-      locale: lang || ${INTERNAL_CONFIG_KEY}.defaultLocale,
+      locale: detectedLang || ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'client ${routeType}',
       pathname: dynamicPathname,
     }
