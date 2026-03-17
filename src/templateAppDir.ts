@@ -114,25 +114,14 @@ function templateRSCPage({
   ${code}
 
   export default async function __Next_Translate_new__${hash}__(props) {
-    const params = await props.params
-    const searchParams = await props.searchParams
-    const detectedLang = params?.lang ?? searchParams?.lang
-
-    if (detectedLang === 'favicon.ico') return <${pageVariableName} {...props} />
-
-    ${
-      routeType !== '/page'
-        ? // Related with https://github.com/aralroca/next-translate/issues/1090
-          // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
-          `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
-        : ''
-    }
-  
+    const params = (await props?.params) || {}
+    const searchParams = (await props?.searchParams) || {}
+    const lang = params.lang || searchParams.lang
     const config = { 
       ...${INTERNAL_CONFIG_KEY},
-      locale: detectedLang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
+      locale: lang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'server ${routeType}',
-      pathname: '${pathname}'
+      pathname: '${pathname}'.replace(/\\[([^\\]]+)\\]/g, (m, key) => (key === 'lang' ? '[lang]' : (params[key] || m)))
     }
 
     const { __lang, __namespaces } = await __loadNamespaces({ ...config, ${addLoadLocalesFrom(
@@ -181,25 +170,13 @@ function templateRCCPage({
 
   export default function __Next_Translate_new__${hash}__(props) {
     const searchParams = __useSearchParams()
-    const params = __useParams()
-    const detectedLang = params.lang ?? searchParams.get('lang')
-
-    if (detectedLang === 'favicon.ico') return <${pageVariableName} {...props} />
-
-    ${
-      routeType !== '/page'
-        ? // Related with https://github.com/aralroca/next-translate/issues/1090
-          // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
-          `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
-        : ''
-    }
-
-    const lang = detectedLang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale
+    const params = __useParams() || {}
+    const lang = params.lang || searchParams.get('lang')
     const config = {
       ...${INTERNAL_CONFIG_KEY},
-      locale: lang,
+      locale: lang || ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'client ${routeType}',
-      pathname: '${pathname}',
+      pathname: '${pathname}'.replace(/\\[([^\\]]+)\\]/g, (m, key) => (key === 'lang' ? '[lang]' : (params[key] || m))),
     }
 
     return (
