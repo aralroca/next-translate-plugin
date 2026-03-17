@@ -128,11 +128,16 @@ function templateRSCPage({
         : ''
     }
   
+    let dynamicPathname = '${pathname}'.replace(/\\/$/, '')
+    Object.keys(params ?? {}).forEach(function(k) {
+      if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
+    });
+
     const config = { 
       ...${INTERNAL_CONFIG_KEY},
       locale: detectedLang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'server ${routeType}',
-      pathname: '${pathname}'
+      pathname: dynamicPathname
     }
 
     const { __lang, __namespaces } = await __loadNamespaces({ ...config, ${addLoadLocalesFrom(
@@ -194,12 +199,16 @@ function templateRCCPage({
         : ''
     }
 
-    const lang = detectedLang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale
+    let dynamicPathname = '${pathname}'.replace(/\\/$/, '')
+    Object.keys(params ?? {}).forEach(function(k) {
+      if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
+    });
+
     const config = {
       ...${INTERNAL_CONFIG_KEY},
-      locale: lang,
+      locale: detectedLang || ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'client ${routeType}',
-      pathname: '${pathname}',
+      pathname: dynamicPathname,
     }
 
     return (
