@@ -114,19 +114,21 @@ function templateRSCPage({
   ${code}
 
   export default async function __Next_Translate_new__${hash}__(props) {
-    const params = (await props?.params) || {}
-    const searchParams = (await props?.searchParams) || {}
-    const detectedLang = params.lang || searchParams.lang
+    const params = await props.params
+    const searchParams = await props.searchParams
+    const detectedLang = params?.lang ?? searchParams?.lang
 
     if (detectedLang === 'favicon.ico') return <${pageVariableName} {...props} />
 
     ${
       routeType !== '/page'
-        ? `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
+        ? // Related with https://github.com/aralroca/next-translate/issues/1090
+          // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
+          `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
         : ''
     }
   
-    var dynamicPathname = '${pathname}'.replace(/\/$/, '')
+    let dynamicPathname = '${pathname}'.replace(/\/$/, '')
     Object.keys(params).forEach(function(k) {
       if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
     })
@@ -184,18 +186,20 @@ function templateRCCPage({
 
   export default function __Next_Translate_new__${hash}__(props) {
     const searchParams = __useSearchParams()
-    const params = __useParams() || {}
-    const lang = params.lang || searchParams.get('lang')
+    const params = __useParams()
+    const detectedLang = params.lang ?? searchParams.get('lang')
 
     if (lang === 'favicon.ico') return <${pageVariableName} {...props} />
 
     ${
       routeType !== '/page'
-        ? `if (globalThis.__NEXT_TRANSLATE__ && !lang) return <${pageVariableName} {...props} />`
+        ? // Related with https://github.com/aralroca/next-translate/issues/1090
+          // Early return to avoid conflicts with /layout or /loading that don't have detectedLang
+          `if (globalThis.__NEXT_TRANSLATE__ && !lang) return <${pageVariableName} {...props} />`
         : ''
     }
 
-    var dynamicPathname = '${pathname}'.replace(/\/$/, '')
+    let dynamicPathname = '${pathname}'.replace(/\/$/, '')
     Object.keys(params).forEach(function(k) {
       if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
     })
