@@ -116,12 +116,26 @@ function templateRSCPage({
   export default async function __Next_Translate_new__${hash}__(props) {
     const params = (await props?.params) || {}
     const searchParams = (await props?.searchParams) || {}
-    const lang = params.lang || searchParams.lang
+    const detectedLang = params.lang || searchParams.lang
+
+    if (detectedLang === 'favicon.ico') return <${pageVariableName} {...props} />
+
+    ${
+      routeType !== '/page'
+        ? `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
+        : ''
+    }
+  
+    var dynamicPathname = '${pathname}'.replace(/\/$/, '')
+    Object.keys(params).forEach(function(k) {
+      if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
+    })
+
     const config = { 
       ...${INTERNAL_CONFIG_KEY},
-      locale: lang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
+      locale: detectedLang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'server ${routeType}',
-      pathname: '${pathname}'.replace(/\\[([^\\]]+)\\]/g, (m, key) => (key === 'lang' ? '[lang]' : (params[key] || m)))
+      pathname: dynamicPathname
     }
 
     const { __lang, __namespaces } = await __loadNamespaces({ ...config, ${addLoadLocalesFrom(
@@ -172,11 +186,25 @@ function templateRCCPage({
     const searchParams = __useSearchParams()
     const params = __useParams() || {}
     const lang = params.lang || searchParams.get('lang')
+
+    if (lang === 'favicon.ico') return <${pageVariableName} {...props} />
+
+    ${
+      routeType !== '/page'
+        ? `if (globalThis.__NEXT_TRANSLATE__ && !lang) return <${pageVariableName} {...props} />`
+        : ''
+    }
+
+    var dynamicPathname = '${pathname}'.replace(/\/$/, '')
+    Object.keys(params).forEach(function(k) {
+      if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
+    })
+
     const config = {
       ...${INTERNAL_CONFIG_KEY},
       locale: lang || ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'client ${routeType}',
-      pathname: '${pathname}'.replace(/\\[([^\\]]+)\\]/g, (m, key) => (key === 'lang' ? '[lang]' : (params[key] || m))),
+      pathname: dynamicPathname,
     }
 
     return (

@@ -325,6 +325,24 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'should reconstruct the pathname for dynamic routes',
+    code: `
+      import useTranslation from 'next-translate/useTranslation'
+
+      export default function Page() {
+        const { t } = useTranslation('common')
+        return  <h1>{t('title')}</h1>
+      }
+    `,
+    cases: [
+      insideAppDir('/embed/[category-name]/[tool-name]/page'),
+      {
+        ...insideAppDir('/embed/[category-name]/[tool-name]/page'),
+        isClientComponent: true,
+      },
+    ],
+  },
 ]
 
 describe('templateAppDir', () => {
