@@ -110,6 +110,7 @@ function templateRSCPage({
   import ${INTERNAL_CONFIG_KEY} from '@next-translate-root/${configFileName}'
   import AppDirI18nProvider from 'next-translate/AppDirI18nProvider'
   import __loadNamespaces from 'next-translate/loadNamespaces'
+  import { getRequestNamespaces as __getRequestNamespaces } from 'next-translate/i18nRequestStore'
 
   ${code}
 
@@ -127,13 +128,13 @@ function templateRSCPage({
           `if (globalThis.__NEXT_TRANSLATE__ && !detectedLang) return <${pageVariableName} {...props} />`
         : ''
     }
-  
+
     let dynamicPathname = '${pathname}'.replace(/\\/$/, '')
     Object.keys(params ?? {}).forEach(function(k) {
       if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
     });
 
-    const config = { 
+    const config = {
       ...${INTERNAL_CONFIG_KEY},
       locale: detectedLang ?? ${INTERNAL_CONFIG_KEY}.defaultLocale,
       loaderName: 'server ${routeType}',
@@ -145,9 +146,10 @@ function templateRSCPage({
       relativeLocalesPath,
       hasLoadLocaleFrom
     )} });
-  
-    const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {}
-    const namespaces = { ...oldNamespaces, ...__namespaces }
+
+    const __requestNs = __getRequestNamespaces()
+    Object.assign(__requestNs, __namespaces)
+    const namespaces = { ...__requestNs }
 
     globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config }
 
