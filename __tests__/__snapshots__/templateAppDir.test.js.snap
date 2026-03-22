@@ -4,6 +4,7 @@ exports[`templateAppDir should load translations in a error page pageNoExt: /abo
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Error() {
@@ -44,8 +45,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -66,6 +68,7 @@ exports[`templateAppDir should load translations in a error page pageNoExt: /abo
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Error() {
@@ -106,8 +109,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -128,6 +132,7 @@ exports[`templateAppDir should load translations in a error page pageNoExt: /err
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Error() {
@@ -168,8 +173,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -190,6 +196,7 @@ exports[`templateAppDir should load translations in a error page pageNoExt: /err
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Error() {
@@ -230,8 +237,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -252,6 +260,7 @@ exports[`templateAppDir should load translations in a global-error page pageNoEx
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function GlobalError() {
@@ -292,8 +301,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -314,6 +324,7 @@ exports[`templateAppDir should load translations in a global-error page pageNoEx
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function GlobalError() {
@@ -354,8 +365,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -376,6 +388,7 @@ exports[`templateAppDir should load translations in a global-error page pageNoEx
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function GlobalError() {
@@ -416,8 +429,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -438,6 +452,7 @@ exports[`templateAppDir should load translations in a global-error page pageNoEx
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function GlobalError() {
@@ -478,8 +493,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -500,6 +516,7 @@ exports[`templateAppDir should load translations in a layout pageNoExt: /about/u
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Layout() {
@@ -540,8 +557,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -562,6 +580,7 @@ exports[`templateAppDir should load translations in a layout pageNoExt: /about/u
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Layout() {
@@ -602,8 +621,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -624,6 +644,7 @@ exports[`templateAppDir should load translations in a layout pageNoExt: /layout 
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Layout() {
@@ -664,8 +685,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -686,6 +708,7 @@ exports[`templateAppDir should load translations in a layout pageNoExt: /layout 
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Layout() {
@@ -726,8 +749,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -748,6 +772,7 @@ exports[`templateAppDir should load translations in a loading page pageNoExt: /a
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Loading() {
@@ -788,8 +813,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -810,6 +836,7 @@ exports[`templateAppDir should load translations in a loading page pageNoExt: /a
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Loading() {
@@ -850,8 +877,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -872,6 +900,7 @@ exports[`templateAppDir should load translations in a loading page pageNoExt: /l
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Loading() {
@@ -912,8 +941,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -934,6 +964,7 @@ exports[`templateAppDir should load translations in a loading page pageNoExt: /l
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Loading() {
@@ -974,8 +1005,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -996,6 +1028,7 @@ exports[`templateAppDir should load translations in a not-found page pageNoExt: 
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function NotFound() {
@@ -1036,8 +1069,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1058,6 +1092,7 @@ exports[`templateAppDir should load translations in a not-found page pageNoExt: 
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function NotFound() {
@@ -1098,8 +1133,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1120,6 +1156,7 @@ exports[`templateAppDir should load translations in a not-found page pageNoExt: 
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function NotFound() {
@@ -1160,8 +1197,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1182,6 +1220,7 @@ exports[`templateAppDir should load translations in a not-found page pageNoExt: 
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function NotFound() {
@@ -1222,8 +1261,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1244,6 +1284,7 @@ exports[`templateAppDir should load translations in a server page with dynamic e
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-dynamic\\";
@@ -1282,8 +1323,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1304,6 +1346,7 @@ exports[`templateAppDir should load translations in a server page with dynamic e
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-dynamic\\";
@@ -1342,8 +1385,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1364,6 +1408,7 @@ exports[`templateAppDir should load translations in a server page with dynamic e
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-dynamic\\";
@@ -1402,8 +1447,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1424,6 +1470,7 @@ exports[`templateAppDir should load translations in a server page with dynamic e
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-dynamic\\";
@@ -1462,8 +1509,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1484,6 +1532,7 @@ exports[`templateAppDir should load translations in a server page with dynamic e
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -1522,8 +1571,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1544,6 +1594,7 @@ exports[`templateAppDir should load translations in a server page with dynamic e
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -1582,8 +1633,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1604,6 +1656,7 @@ exports[`templateAppDir should load translations in a server page with dynamic e
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -1642,8 +1695,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1664,6 +1718,7 @@ exports[`templateAppDir should load translations in a server page with dynamic e
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 export const dynamic = \\"force-static\\";
@@ -1702,8 +1757,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1724,6 +1780,7 @@ exports[`templateAppDir should load translations in a server page without dynami
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Page() {
@@ -1761,8 +1818,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1783,6 +1841,7 @@ exports[`templateAppDir should load translations in a server page without dynami
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Page() {
@@ -1820,8 +1879,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1842,6 +1902,7 @@ exports[`templateAppDir should load translations in a server page without dynami
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Page() {
@@ -1879,8 +1940,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -1901,6 +1963,7 @@ exports[`templateAppDir should load translations in a server page without dynami
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Page() {
@@ -1938,8 +2001,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
@@ -2615,6 +2679,7 @@ exports[`templateAppDir should reconstruct the pathname for dynamic routes pageN
 "import __i18nConfig from \\"@next-translate-root/i18n.json\\";
 import AppDirI18nProvider from \\"next-translate/AppDirI18nProvider\\";
 import __loadNamespaces from \\"next-translate/loadNamespaces\\";
+import { getRequestNamespaces as __getRequestNamespaces } from \\"next-translate/i18nRequestStore\\";
 
 import useTranslation from \\"next-translate/useTranslation\\";
 function Page() {
@@ -2655,8 +2720,9 @@ export default async function __Next_Translate_new__88d9831a00__(props) {
         )),
   });
 
-  const oldNamespaces = globalThis.__NEXT_TRANSLATE__?.namespaces ?? {};
-  const namespaces = { ...oldNamespaces, ...__namespaces };
+  const __requestNs = __getRequestNamespaces();
+  Object.assign(__requestNs, __namespaces);
+  const namespaces = { ...__requestNs };
 
   globalThis.__NEXT_TRANSLATE__ = { lang: __lang, namespaces, config };
 
