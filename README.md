@@ -25,6 +25,11 @@
 
 </div>
 
+<p align="center">
+    Sponsored by <a href="https://kitmul.com/en" alt="Kitmul">Kitmul</a>
+</p>
+
+
 <hr />
 
 Two of the goals of **[next-translate](https://github.com/aralroca/next-translate)** is to be a **tiny library** (~2kb) and to have **no external dependencies**.
