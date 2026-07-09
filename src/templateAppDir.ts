@@ -129,7 +129,7 @@ function templateRSCPage({
         : ''
     }
 
-    let dynamicPathname = '${pathname}'.replace(/\\/$/, '')
+    let dynamicPathname = '${pathname}'.replace(/\\/$/, '') || '/'
     Object.keys(params ?? {}).forEach(function(k) {
       if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
     });
@@ -201,7 +201,7 @@ function templateRCCPage({
         : ''
     }
 
-    let dynamicPathname = '${pathname}'.replace(/\\/$/, '')
+    let dynamicPathname = '${pathname}'.replace(/\\/$/, '') || '/'
     Object.keys(params ?? {}).forEach(function(k) {
       if (k !== 'lang') dynamicPathname = dynamicPathname.replace('[' + k + ']', params[k])
     });
