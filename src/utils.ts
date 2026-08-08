@@ -75,7 +75,7 @@ export function getTsCompilerOptions(
     const parsedConfig = ts.parseJsonConfigFileContent(
       readConfigFileResult.config,
       ts.sys,
-      path.dirname(configPath)
+      basePath
     )
 
     options = parsedConfig.options
