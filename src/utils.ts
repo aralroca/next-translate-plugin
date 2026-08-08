@@ -72,13 +72,13 @@ export function getTsCompilerOptions(
     options = { allowJs: true }
   } else {
     const readConfigFileResult = ts.readConfigFile(configPath, ts.sys.readFile)
-    const jsonConfig = readConfigFileResult.config
-    const convertResult = ts.convertCompilerOptionsFromJson(
-      jsonConfig.compilerOptions,
+    const parsedConfig = ts.parseJsonConfigFileContent(
+      readConfigFileResult.config,
+      ts.sys,
       basePath
     )
 
-    options = convertResult.options
+    options = parsedConfig.options
   }
 
   if (cutDependencies) {
