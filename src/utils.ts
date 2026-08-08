@@ -79,7 +79,6 @@ export function getTsCompilerOptions(
     )
 
     options = parsedConfig.options
-
   }
 
   if (cutDependencies) {
